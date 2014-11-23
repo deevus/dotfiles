@@ -15,7 +15,9 @@
       package-archives)
 
 ;load all packages 
-(let ((default-directory "~/.emacs.d/elpa"))
+(let ((default-directory "~/.emacs.d/elpa/"))
+    (normal-top-level-add-subdirs-to-load-path))
+(let ((user-package-directory "~/.emacs.d/lisp/"))
     (normal-top-level-add-subdirs-to-load-path))
 
 ;evil mode
@@ -24,15 +26,17 @@
 
 ;color theme
 (require 'color-theme)
-(require 'color-theme-solarized)
+(require 'color-theme-cobalt)
 (eval-after-load "color-theme"
   '(progn 
      (color-theme-initialize)
-     (color-theme-solarized-dark)))
+     (color-theme-cobalt)))
 
 ;font
-(set-face-attribute 'default nil :height 140)
-(linum-mode)
+(set-face-attribute 'default nil :height 150)
+
+;line numbers
+(linum-mode 1)
 
 ;remove bell sound
 (setq visible-bell 1)
