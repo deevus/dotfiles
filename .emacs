@@ -17,12 +17,12 @@
 ;load all packages 
 (let ((default-directory "~/.emacs.d/elpa/"))
     (normal-top-level-add-subdirs-to-load-path))
-(let ((user-package-directory "~/.emacs.d/lisp/"))
+(let ((default-directory "~/.emacs.d/lisp/"))
     (normal-top-level-add-subdirs-to-load-path))
 
 ;evil mode
 (require 'evil)
-(evil-mode 1)
+(evil-mode t)
 
 ;color theme
 (require 'color-theme)
@@ -36,7 +36,7 @@
 (set-face-attribute 'default nil :height 150)
 
 ;line numbers
-(linum-mode 1)
+(linum-mode t)
 
 ;remove bell sound
 (setq visible-bell 1)
