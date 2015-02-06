@@ -1,0 +1,1 @@
+. "./Scoop.Bootstrap.ps1"
