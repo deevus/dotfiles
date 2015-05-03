@@ -14,6 +14,7 @@ Remove-Item alias:/ls
 Remove-Item alias:/rm
 Remove-Item alias:/cat
 Set-Alias mkdir mkdir.ps1 -scope local -option private
+Set-Alias git hub
 
 #if work dir subst has been called
 if (Test-Path w:) {
