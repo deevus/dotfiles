@@ -9,11 +9,12 @@ Write-Host
 . "./Scoop.Settings.ps1"
 
 #install scoop if not present
-if (TryInstallScoop) {
-  AddExtrasBucket
+if (EnsureScoopInstalled) {
+  EnsureExtrasBucket
+  UpdateScoop
   InstallApps($apps)
   MakePretty($theme)
 }
 else {
-  Write-Host "Scoop already installed. Skipping..."
+  Write-Host "An error has occurred."
 }

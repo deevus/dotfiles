@@ -1,27 +1,40 @@
-function TryInstallScoop {
+function EnsureScoopInstalled {
   try {
-    iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+    if ((gcm scoop -ea silentlycontinue) -eq $null) {
+      invoke-webrequest https://get.scoop.sh | select -expandproperty content | iex
+    }
     return $true
-  } 
-  catch {
-    return $false
-  } 
+  }
+  catch { }
+
   return $false
 }
 
 function InstallApps($apps) {
+  $installed = scoop list | select -skip 1 |% { $_.trim().split(' ')[0] }
   foreach ($app in $apps) {
-    scoop install $app
+    if ($installed -contains $app) {
+      scoop update -q $app
+    }
+    else {
+      scoop install $app
+    }
   }
 }
 
 function MakePretty($theme) {
-  scoop install concfg
-  concfg import $theme small --non-interactive
-  scoop install pshazz
+  InstallApps("concfg", "pshazz")
+  sudo iex "concfg clean; sudo concfg import $theme big --non-interactive"
 }
 
-function AddExtrasBucket {
+function EnsureExtrasBucket {
   InstallApps("7zip", "git")
-  scoop bucket add extras
+  $buckets = scoop bucket list
+  if (-not ($buckets -contains 'extras')) {
+    scoop bucket add extras
+  }
+}
+
+function UpdateScoop {
+  scoop update
 }
