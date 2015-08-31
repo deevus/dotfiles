@@ -30,3 +30,9 @@ function fuck {
 }
 
 function bg() { Start-Process -NoNewWindow @args }
+
+function script::transfer_sh_file($file) {
+    $path = resolve-path $file
+    curl --upload-file $file https://transfer.sh/$($path.name) --progress-bar
+}
+set-alias transfer script::transfer_sh_file
