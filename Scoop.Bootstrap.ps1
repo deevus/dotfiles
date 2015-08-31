@@ -5,11 +5,12 @@ Write-Host "-----------------------"
 Write-Host "#######################"
 Write-Host
 
-. "./Scoop.Bootstrap.Core.ps1"
-. "./Scoop.Settings.ps1"
+. "$psscriptroot/Scoop.Bootstrap.Core.ps1"
+. "$psscriptroot/Scoop.Settings.ps1"
 
 #install scoop if not present
 if (EnsureScoopInstalled) {
+  InstallApps $globalApps $true
   EnsureExtrasBucket
   UpdateScoop
   InstallApps($apps)
