@@ -14,7 +14,6 @@ Remove-Item alias:/ls
 Remove-Item alias:/rm
 Remove-Item alias:/cat
 Set-Alias mkdir mkdir.ps1 -scope local -option private
-Set-Alias git hub
 
 #if work dir subst has been called
 if (Test-Path w:) {
@@ -36,3 +35,8 @@ function script::transfer_sh_file($file) {
     curl --upload-file $file https://transfer.sh/$($path.name) --progress-bar
 }
 set-alias transfer script::transfer_sh_file
+
+function scoop_find {
+    &$(scoop which find) $args
+}
+set-alias find scoop_find
