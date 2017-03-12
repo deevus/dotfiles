@@ -1,67 +1,22 @@
-" An example for a vimrc file.
-
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
+  set backup		" keep a backup file (restore to previous version)
+  if has('persistent_undo')
+    set undofile	" keep an undo file (undo changes after closing)
+  endif
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-  syntax on
+  " Switch on highlighting the last used search pattern.
   set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -95,42 +50,108 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-set shell=C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
 
-execute pathogen#infect()
-filetype plugin indent on
+" Add optional packages.
+"
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+if has('syntax') && has('eval')
+  packadd matchit
+endif
 
-" sane line navigation
-:nmap j gj
-:nmap k gk
+" Show line numbers
+set number
 
-" switch quickly between buffers
-:nmap <C-e> :e#<CR>
-:nmap <C-n> :bnext<CR>
-:nmap <C-p> :bprev<CR>
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 
-" ctrlp.vim
-:nmap ; :CtrlPBuffer<CR>
-:let g:ctrlp_map = '<Leader>t'
-:let g:ctrlp_match_window_bottom = 0
-:let g:ctrlp_match_window_reversed = 0
-:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-:let g:ctrlp_working_path_mode = 0
-:let g:ctrlp_dotfiles = 0
-:let g:ctrlp_switch_buffer = 0
+set packpath^=~/.vim
+packadd minpac  
 
-" nerd tree
-:nmap <Leader>e :NERDTreeToggle<CR>
+call minpac#init()  
 
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`. 
+call minpac#add('k-takata/minpac', {'type': 'opt'})  
+
+" Add other plugins here. 
+
+" Syntax
+call minpac#add('vim-jp/syntax-vim-ex')
+call minpac#add('tpope/vim-surround')
+
+" PHP
+call minpac#add('stanangeloff/php.vim')
+call minpac#add('shawncplus/phpcomplete.vim')
+call minpac#add('vsushkov/vim-phpcs')
+
+" Source control
+call minpac#add('tpope/vim-fugitive') " Adds git commands
+
+" Misc
+call minpac#add('editorconfig/editorconfig-vim')
+call minpac#add('scrooloose/nerdtree') " File browser
+call minpac#add('xuyuanp/nerdtree-git-plugin') 
+call minpac#add('mattn/emmet-vim') 
+call minpac#add('yegappan/grep') 
+call minpac#add('mhinz/vim-startify') 
+
+" Theme
+call minpac#add('tomasr/molokai') 
+call minpac#add('ayu-theme/ayu-vim') 
+call minpac#add('danilo-augusto/vim-afterglow') 
+call minpac#add('tomasiser/vim-code-dark') 
+call minpac#add('mhinz/vim-janah') 
+
+" Status bar
+call minpac#add('vim-airline/vim-airline') 
+call minpac#add('vim-airline/vim-airline-themes') 
+call minpac#add('ctrlpvim/ctrlp.vim') 
+
+packloadall
+
+" Status bar configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" Theme configuration
+colorscheme janah
+" let g:airline_theme='light'
+
+" Key mapping
+map <C-n> :NERDTreeToggle<CR>
+" Fix bullshit that causes backspace to work like delete
+" Only happens in xterm mode
+inoremap <Char-0x07F> <BS>
+nnoremap <Char-0x07F> <BS>
+
+" 256 colours
 " colours
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
   set t_Co=256
+elseif !has("gui_running")
+    set term=xterm
+    set t_Co=256
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
 endif
 
-" tabs
-:nmap <Leader>t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
-:nmap <Leader>T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
-:nmap <Leader>M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
-:nmap <Leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
-:nmap <Leader>w :setlocal wrap!<CR>:setlocal wrap?<CR>
+set encoding=utf-8
+set expandtab shiftwidth=4 tabstop=4
+
+let os = substitute(system("uname"), "\n", "", "")
+if (os == "Windows_NT")
+    set shell=powershell.exe\ -noprofile\ -executionpolicy\ bypass\ -nologo
+endif
+
+" Autoindex
+filetype indent on
+set smartindent
+autocmd BufRead,BufWritePre *.sh normal gg=G
+
+" NERDTree configuration
+let NERDTreeShowHidden=1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 
