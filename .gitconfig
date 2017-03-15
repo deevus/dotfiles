@@ -1,0 +1,22 @@
+[core]
+    excludesfile = /home/deevus/dotfiles/.gitignore
+    editor = vim
+[user]
+    name = Simon Hartcher
+    email = simon@simonhartcher.com
+[alias]
+# hub
+    pr = pull-request
+
+# git-flow
+    fs = flow feature start
+    fp = flow feature publish
+    bs = flow bugfix start
+    bs = flow bugfix publish
+    rs = flow release start
+    rf = flow release finish
+    rp = flow release publish
+    hs = flow hotfix start
+    hf = flow hotfix finish
+    hp = flow hotfix publish
+
