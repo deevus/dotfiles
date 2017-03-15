@@ -10,13 +10,15 @@
 
 # git-flow
     fs = flow feature start
-    fp = flow feature publish
     bs = flow bugfix start
-    bs = flow bugfix publish
     rs = flow release start
-    rf = flow release finish
-    rp = flow release publish
     hs = flow hotfix start
-    hf = flow hotfix finish
+
+    fp = flow feature publish
+    bp = flow bugfix publish
+    rp = flow release publish
     hp = flow hotfix publish
+
+    rf = flow release finish
+    hf = flow hotfix finish
 
