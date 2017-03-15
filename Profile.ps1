@@ -15,10 +15,7 @@ Remove-Item alias:/rm
 Remove-Item alias:/cat
 Set-Alias mkdir mkdir.ps1 -scope local -option private
 
-#if work dir subst has been called
-if (Test-Path w:) {
-  Set-Location w:
-}
+Set-Location ~/Projects
 
 function fuck { 
     $fuck = $(thefuck (get-history -count 1).commandline)
