@@ -69,14 +69,14 @@ set number
 inoremap <C-U> <C-G>u<C-U>
 
 set packpath^=~/.vim
-packadd minpac  
+packadd minpac
 
-call minpac#init()  
+call minpac#init()
 
-" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`. 
-call minpac#add('k-takata/minpac', {'type': 'opt'})  
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-" Add other plugins here. 
+" Add other plugins here.
 
 " Syntax
 call minpac#add('vim-jp/syntax-vim-ex')
@@ -94,27 +94,31 @@ call minpac#add('tpope/vim-fugitive') " Adds git commands
 " Misc
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('scrooloose/nerdtree') " File browser
-call minpac#add('xuyuanp/nerdtree-git-plugin') 
-call minpac#add('mattn/emmet-vim') 
-call minpac#add('yegappan/grep') 
-call minpac#add('mhinz/vim-startify') 
-call minpac#add('tpope/vim-dispatch') 
-call minpac#add('godlygeek/tabular') 
+call minpac#add('xuyuanp/nerdtree-git-plugin')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('yegappan/grep')
+call minpac#add('mhinz/vim-startify')
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('godlygeek/tabular')
 call minpac#add('Shougo/vimproc.vim')
 call minpac#add('Shougo/unite.vim')
 call minpac#add('Valloric/YouCompleteMe')
+call minpac#add('ajh17/VimCompletesMe')
 
 " Theme
-call minpac#add('tomasr/molokai') 
-call minpac#add('ayu-theme/ayu-vim') 
-call minpac#add('danilo-augusto/vim-afterglow') 
-call minpac#add('tomasiser/vim-code-dark') 
-call minpac#add('mhinz/vim-janah') 
+call minpac#add('tomasr/molokai')
+call minpac#add('ayu-theme/ayu-vim')
+call minpac#add('danilo-augusto/vim-afterglow')
+call minpac#add('tomasiser/vim-code-dark')
+call minpac#add('mhinz/vim-janah')
 
 " Status bar
-call minpac#add('vim-airline/vim-airline') 
-call minpac#add('vim-airline/vim-airline-themes') 
-call minpac#add('ctrlpvim/ctrlp.vim') 
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+
+" Search
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('FelikZ/ctrlp-py-matcher')
 
 " Search / completion
 let g:ycm_semantic_triggers = {}
@@ -136,6 +140,10 @@ packloadall
 " Theme configuration
 colorscheme janah
 " let g:airline_theme='light'
+
+" Search configuration
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:phpcomplete_enhance_jump_to_definition = 0
 
 " Key mapping
 map <C-n> :NERDTreeToggle<CR>
