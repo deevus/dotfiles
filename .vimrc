@@ -1,3 +1,5 @@
+let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
+
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
@@ -83,6 +85,7 @@ call minpac#add('tpope/vim-surround')
 " PHP
 call minpac#add('stanangeloff/php.vim')
 call minpac#add('shawncplus/phpcomplete.vim')
+call minpac#add('padawan-php/padawan.vim')
 call minpac#add('vsushkov/vim-phpcs')
 
 " Source control
@@ -96,6 +99,10 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('yegappan/grep') 
 call minpac#add('mhinz/vim-startify') 
 call minpac#add('tpope/vim-dispatch') 
+call minpac#add('godlygeek/tabular') 
+call minpac#add('Shougo/vimproc.vim')
+call minpac#add('Shougo/unite.vim')
+call minpac#add('Valloric/YouCompleteMe')
 
 " Theme
 call minpac#add('tomasr/molokai') 
@@ -109,11 +116,22 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes') 
 call minpac#add('ctrlpvim/ctrlp.vim') 
 
-packloadall
+" Search / completion
+let g:ycm_semantic_triggers = {}
+let g:ycm_semantic_triggers.php =
+\ ['->', '::', '(', 'use ', 'namespace ', '\']
+let g:padawan#composer_command = "composer"
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 
 " Status bar configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" EditorConfig configuration
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_core_mode = "external_command"
+
+packloadall
 
 " Theme configuration
 colorscheme janah
@@ -121,10 +139,16 @@ colorscheme janah
 
 " Key mapping
 map <C-n> :NERDTreeToggle<CR>
-" Fix bullshit that causes backspace to work like delete
-" Only happens in xterm mode
-inoremap <Char-0x07F> <BS>
-nnoremap <Char-0x07F> <BS>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_command = 'CtrlPMixed'
+
+nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_encoding = 'utf-8'
+endif
 
 " 256 colours
 " colours
@@ -143,6 +167,11 @@ set expandtab shiftwidth=4 tabstop=4
 let os = substitute(system("uname"), "\n", "", "")
 if (os == "Windows_NT")
     set shell=powershell.exe\ -noprofile\ -executionpolicy\ bypass\ -nologo
+
+    " Fix bullshit that causes backspace to work like delete
+    " Only happens in xterm mode
+    inoremap <Char-0x07F> <BS>
+    nnoremap <Char-0x07F> <BS>
 endif
 
 " Autoindex
