@@ -1,3 +1,5 @@
+chcp 65001 # Enable support for unicode characters
+
 $env:SCOOP = "~/appdata/local/scoop"
 
 #initialise oneget

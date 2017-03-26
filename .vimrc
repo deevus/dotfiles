@@ -1,7 +1,7 @@
-let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
-
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
+
+let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -81,6 +81,34 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " Syntax
 call minpac#add('vim-jp/syntax-vim-ex')
 call minpac#add('tpope/vim-surround')
+call minpac#add('othree/yajs.vim')
+call minpac#add('othree/javascript-libraries-syntax.vim')
+call minpac#add('PProvost/vim-ps1')
+call minpac#add('vim-syntastic/syntastic')
+
+call minpac#add('mxw/vim-jsx')
+let g:jsx_ext_required = 0
+
+" Tags
+call minpac#add('xolox/vim-misc')
+call minpac#add('xolox/vim-easytags')
+call minpac#add('majutsushi/tagbar')
+call minpac#add('grassdog/tagman.vim')
+set tags=./tags,./.git/tags,~/.vimtags
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 1
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" Shell
+call minpac#add('xolox/vim-shell')
+
+" ----- majutsushi/tagbar settings -----
+" Open/close tagbar with \b
+nmap <silent> <leader>b :TagbarToggle<CR>
+" Uncomment to open tagbar automatically whenever possible
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " PHP
 call minpac#add('stanangeloff/php.vim')
@@ -94,6 +122,7 @@ call minpac#add('tpope/vim-fugitive') " Adds git commands
 " Misc
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('scrooloose/nerdtree') " File browser
+call minpac#add('jistr/vim-nerdtree-tabs')
 call minpac#add('xuyuanp/nerdtree-git-plugin')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('yegappan/grep')
@@ -111,6 +140,8 @@ call minpac#add('ayu-theme/ayu-vim')
 call minpac#add('danilo-augusto/vim-afterglow')
 call minpac#add('tomasiser/vim-code-dark')
 call minpac#add('mhinz/vim-janah')
+call minpac#add('liuchengxu/space-vim-dark')
+call minpac#add('altercation/vim-colors-solarized')
 
 " Status bar
 call minpac#add('vim-airline/vim-airline')
@@ -119,6 +150,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 " Search
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('FelikZ/ctrlp-py-matcher')
+let g:tagman_auto_generate = 0
 
 " Search / completion
 let g:ycm_semantic_triggers = {}
@@ -129,24 +161,32 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 
 " Status bar configuration
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 " EditorConfig configuration
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_core_mode = "external_command"
 
+" Startify
+let g:startify_change_to_dir = 0
+
 packloadall
 
 " Theme configuration
+set background=dark
 colorscheme janah
-" let g:airline_theme='light'
+let g:airline_detect_paste = 1 " Show PASTE if in paste mode
+let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
+
+" Always show statusbar
+set laststatus=2
 
 " Search configuration
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:phpcomplete_enhance_jump_to_definition = 0
 
 " Key mapping
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeTabsToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_command = 'CtrlPMixed'
 
@@ -189,8 +229,7 @@ autocmd BufRead,BufWritePre *.sh normal gg=G
 
 " NERDTree configuration
 let NERDTreeShowHidden=1
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:nerdtree_tabs_open_on_console_startup = 1
 
 " This callback will be executed when the entire command is completed
 function! BackgroundCommandClose(channel)
@@ -222,3 +261,24 @@ endfunction
 
 " So we can use :BackgroundCommand to call our function.
 command! -nargs=+ -complete=shellcmd RunBackgroundCommand call RunBackgroundCommand(<q-args>)
+
+" Synastic
+hi clear SignColumn
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
