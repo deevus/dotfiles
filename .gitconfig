@@ -1,5 +1,5 @@
 [core]
-    excludesfile = /home/deevus/dotfiles/.gitignore
+	excludesFile = /home/deevus/.dotfiles/.gitignore
     editor = vim
 [user]
     name = Simon Hartcher

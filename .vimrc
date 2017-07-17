@@ -1,6 +1,3 @@
-" Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
-
 let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
 
 if has("vms")
@@ -53,14 +50,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-if has('syntax') && has('eval')
-  packadd matchit
-endif
-
 " Show line numbers
 set number
 
@@ -68,7 +57,6 @@ set number
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-set packpath^=~/.vim
 packadd minpac
 
 call minpac#init()
@@ -77,6 +65,7 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " Add other plugins here.
+call minpac#add('scrooloose/nerdcommenter')
 
 " Syntax
 call minpac#add('vim-jp/syntax-vim-ex')
@@ -115,6 +104,9 @@ call minpac#add('stanangeloff/php.vim')
 call minpac#add('shawncplus/phpcomplete.vim')
 call minpac#add('padawan-php/padawan.vim')
 call minpac#add('vsushkov/vim-phpcs')
+call minpac#add('SirVer/ultisnips')
+call minpac#add('tobyS/vmustache')
+call minpac#add('tobyS/pdv')
 
 " Source control
 call minpac#add('tpope/vim-fugitive') " Adds git commands
@@ -133,6 +125,7 @@ call minpac#add('Shougo/vimproc.vim')
 call minpac#add('Shougo/unite.vim')
 call minpac#add('Valloric/YouCompleteMe')
 call minpac#add('ajh17/VimCompletesMe')
+call minpac#add('mtth/scratch.vim')
 
 " Theme
 call minpac#add('tomasr/molokai')
@@ -142,6 +135,7 @@ call minpac#add('tomasiser/vim-code-dark')
 call minpac#add('mhinz/vim-janah')
 call minpac#add('liuchengxu/space-vim-dark')
 call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('morhetz/gruvbox')
 
 " Status bar
 call minpac#add('vim-airline/vim-airline')
@@ -153,6 +147,8 @@ call minpac#add('FelikZ/ctrlp-py-matcher')
 let g:tagman_auto_generate = 0
 
 " Search / completion
+autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+let g:ycm_auto_trigger = 1
 let g:ycm_semantic_triggers = {}
 let g:ycm_semantic_triggers.php =
 \ ['->', '::', '(', 'use ', 'namespace ', '\']
@@ -170,11 +166,14 @@ let g:EditorConfig_core_mode = "external_command"
 " Startify
 let g:startify_change_to_dir = 0
 
+let g:pdv_template_dir = $HOME ."/.config/nvim/pack/minpac/start/pdv/templates_snip"
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
+
 packloadall
 
 " Theme configuration
 set background=dark
-colorscheme janah
+colorscheme gruvbox
 let g:airline_detect_paste = 1 " Show PASTE if in paste mode
 let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
 
@@ -183,7 +182,7 @@ set laststatus=2
 
 " Search configuration
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:phpcomplete_enhance_jump_to_definition = 0
+let g:phpcomplete_enhance_jump_to_definition = 1
 
 " Key mapping
 map <C-n> :NERDTreeTabsToggle<CR>
@@ -229,7 +228,7 @@ autocmd BufRead,BufWritePre *.sh normal gg=G
 
 " NERDTree configuration
 let NERDTreeShowHidden=1
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 " This callback will be executed when the entire command is completed
 function! BackgroundCommandClose(channel)
