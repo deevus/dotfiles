@@ -184,6 +184,12 @@ set laststatus=2
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:phpcomplete_enhance_jump_to_definition = 1
 
+if executable('pt')
+    let g:ctrlp_user_command = 'pt %s -l --nocolor --global-gitignore -g ""'
+    let g:ctrlp_use_caching = 0
+    set grepprg=pt\ --nogroup\ --nocolor
+endif
+
 " Key mapping
 map <C-n> :NERDTreeTabsToggle<CR>
 let g:ctrlp_map = '<c-p>'
