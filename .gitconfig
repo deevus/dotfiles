@@ -1,6 +1,7 @@
 [core]
 	excludesFile = /home/deevus/.dotfiles/.gitignore
     editor = vim
+	autocrlf = true
 [user]
     name = Simon Hartcher
     email = simon@simonhartcher.com
@@ -22,3 +23,10 @@
     rf = flow release finish
     hf = flow hotfix finish
 
+[merge]
+	tool = vimdiff
+[mergetool]
+	nvim = nvim -d \"\\$BASE\\\" \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\"
+	path = nvim
+[mergetool "nvim"]
+	cmd = nvim -d \"\\$BASE\\\" \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\"
