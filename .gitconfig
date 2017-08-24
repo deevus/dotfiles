@@ -1,7 +1,7 @@
 [core]
 	excludesFile = /home/deevus/.dotfiles/.gitignore
     editor = vim
-	autocrlf = true
+	autocrlf = input
 [user]
     name = Simon Hartcher
     email = simon@simonhartcher.com

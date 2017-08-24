@@ -144,7 +144,11 @@ call minpac#add('vim-airline/vim-airline-themes')
 " Search
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('FelikZ/ctrlp-py-matcher')
+call minpac#add('ivalkeen/vim-ctrlp-tjump')
 let g:tagman_auto_generate = 0
+
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
 " Search / completion
 autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
@@ -173,7 +177,7 @@ packloadall
 
 " Theme configuration
 set background=dark
-colorscheme gruvbox
+silent! colorscheme gruvbox
 let g:airline_detect_paste = 1 " Show PASTE if in paste mode
 let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
 
@@ -185,9 +189,9 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:phpcomplete_enhance_jump_to_definition = 1
 
 if executable('pt')
-    let g:ctrlp_user_command = 'pt %s -l --nocolor --global-gitignore -g ""'
+    let g:ctrlp_user_command = 'pt %s -l --nocolor --global-gitignore --ignore=tags -g ""'
     let g:ctrlp_use_caching = 0
-    set grepprg=pt\ --nogroup\ --nocolor
+    set grepprg=pt\ --nogroup\ --nocolor\ --global-gitignore\ --ignore=tags
 endif
 
 " Key mapping
