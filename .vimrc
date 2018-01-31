@@ -73,7 +73,8 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('othree/yajs.vim')
 call minpac#add('othree/javascript-libraries-syntax.vim')
 call minpac#add('PProvost/vim-ps1')
-call minpac#add('vim-syntastic/syntastic')
+call minpac#add('w0rp/ale')
+" call minpac#add('vim-syntastic/syntastic')
 
 call minpac#add('mxw/vim-jsx')
 let g:jsx_ext_required = 0
@@ -107,6 +108,7 @@ call minpac#add('vsushkov/vim-phpcs')
 call minpac#add('SirVer/ultisnips')
 call minpac#add('tobyS/vmustache')
 call minpac#add('tobyS/pdv')
+call minpac#add('jwalton512/vim-blade')
 
 " Source control
 call minpac#add('tpope/vim-fugitive') " Adds git commands
@@ -126,6 +128,8 @@ call minpac#add('Shougo/unite.vim')
 call minpac#add('Valloric/YouCompleteMe')
 call minpac#add('ajh17/VimCompletesMe')
 call minpac#add('mtth/scratch.vim')
+call minpac#add('vim-scripts/Tail-Bundle')
+call minpac#add('joonty/vim-do')
 
 " Theme
 call minpac#add('tomasr/molokai')
@@ -277,10 +281,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+let g:airline#extensions#ale#enabled = 1
 
 if has("multi_byte")
   if &termencoding == ""
@@ -291,3 +296,6 @@ if has("multi_byte")
   "setglobal bomb
   set fileencodings=ucs-bom,utf-8,latin1
 endif
+
+" enable python 2
+let g:loaded_python_provider=1

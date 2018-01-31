@@ -1,3 +1,4 @@
 alias git="hub"
 alias dce="docker-compose exec"
+alias dcu="docker-compose up -d"
 alias pt="pt --global-gitignore --ignore=tags"

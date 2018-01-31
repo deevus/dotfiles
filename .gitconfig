@@ -5,6 +5,7 @@
 [user]
     name = Simon Hartcher
     email = simon@simonhartcher.com
+	signingkey = 6A6787B2
 [alias]
 # hub
     pr = pull-request
@@ -30,3 +31,5 @@
 	path = nvim
 [mergetool "nvim"]
 	cmd = nvim -d \"\\$BASE\\\" \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\"
+[commit]
+	gpgsign = true
