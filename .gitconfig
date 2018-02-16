@@ -1,6 +1,6 @@
 [core]
 	excludesFile = /home/deevus/.dotfiles/.gitignore
-    editor = vim
+	editor = nvim
 	autocrlf = input
 [user]
     name = Simon Hartcher
@@ -32,4 +32,4 @@
 [mergetool "nvim"]
 	cmd = nvim -d \"\\$BASE\\\" \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\"
 [commit]
-	gpgsign = true
+	gpgsign = false
