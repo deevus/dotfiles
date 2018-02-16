@@ -102,7 +102,16 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 
 " PHP
 call minpac#add('stanangeloff/php.vim')
-call minpac#add('shawncplus/phpcomplete.vim')
+" call minpac#add('shawncplus/phpcomplete.vim')
+call minpac#add('lvht/phpcd.vim', {'do': {-> system('composer install')}})
+call minpac#add('Shougo/deoplete.nvim')
+if !has('nvim')
+  call minpac#add('roxma/nvim-yarp')
+  call minpac#add('roxma/vim-hug-neovim-rpc')
+endif
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 call minpac#add('padawan-php/padawan.vim')
 call minpac#add('vsushkov/vim-phpcs')
 call minpac#add('SirVer/ultisnips')
@@ -140,6 +149,7 @@ call minpac#add('mhinz/vim-janah')
 call minpac#add('liuchengxu/space-vim-dark')
 call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('morhetz/gruvbox')
+call minpac#add('dylanaraps/wal')
 
 " Status bar
 call minpac#add('vim-airline/vim-airline')
@@ -181,7 +191,6 @@ packloadall
 
 " Theme configuration
 set background=dark
-silent! colorscheme gruvbox
 let g:airline_detect_paste = 1 " Show PASTE if in paste mode
 let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
 
@@ -233,6 +242,10 @@ if (os == "Windows_NT")
     " Only happens in xterm mode
     inoremap <Char-0x07F> <BS>
     nnoremap <Char-0x07F> <BS>
+
+    silent! colorscheme gruvbox
+else
+    silent! colorscheme wal
 endif
 
 " Autoindex
@@ -286,6 +299,7 @@ set statusline+=%*
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 let g:airline#extensions#ale#enabled = 1
+let g:ale_completion_enabled = 1
 
 if has("multi_byte")
   if &termencoding == ""
