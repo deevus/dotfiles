@@ -150,6 +150,7 @@ call minpac#add('liuchengxu/space-vim-dark')
 call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('dylanaraps/wal')
+call minpac#add('chrisbra/Colorizer')
 
 " Status bar
 call minpac#add('vim-airline/vim-airline')
