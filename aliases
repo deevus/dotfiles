@@ -9,3 +9,5 @@ alias dct="docker-compose -f docker-compose.test.yml up"
 
 alias pt="pt --global-gitignore --ignore=tags"
 alias vim="nvim"
+
+alias xclip="xclip -selection clipboard"
