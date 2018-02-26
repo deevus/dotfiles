@@ -93,6 +93,7 @@ let g:easytags_suppress_ctags_warning = 1
 
 " Shell
 call minpac#add('xolox/vim-shell')
+call minpac#add('tpope/vim-obsession')
 
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
