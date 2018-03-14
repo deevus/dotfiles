@@ -66,6 +66,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " Add other plugins here.
 call minpac#add('scrooloose/nerdcommenter')
+call minpac#add('tpope/vim-db')
 
 " Syntax
 call minpac#add('vim-jp/syntax-vim-ex')
@@ -77,6 +78,7 @@ call minpac#add('w0rp/ale')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('Quramy/tsuquyomi')
 " call minpac#add('vim-syntastic/syntastic')
+call minpac#add('styled-components/vim-styled-components')
 
 call minpac#add('mxw/vim-jsx')
 let g:jsx_ext_required = 0
