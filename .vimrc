@@ -76,6 +76,7 @@ call minpac#add('PProvost/vim-ps1')
 call minpac#add('w0rp/ale')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('Quramy/tsuquyomi')
+" call minpac#add('vim-syntastic/syntastic')
 
 call minpac#add('mxw/vim-jsx')
 let g:jsx_ext_required = 0
