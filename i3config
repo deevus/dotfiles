@@ -14,7 +14,7 @@ exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrandr --dpi 150
 exec_always --no-startup-id wal -i $HOME/Dropbox/Wallpapers -o $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id autorandr --change
-exec compton
+#exec compton
 
 set $mod Mod4
 

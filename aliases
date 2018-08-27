@@ -6,6 +6,11 @@ alias pt="pt --global-gitignore --ignore=tags"
 alias dce="docker-compose exec"
 alias dcu="docker-compose up -d"
 alias dct="docker-compose -f docker-compose.test.yml run test"
+alias dcr="docker-compose run"
+alias dcb="docker-compose build"
+function dcd {
+    docker-compose $@ down
+}
 
 alias pt="pt --global-gitignore --ignore=tags"
 alias vim="nvim"

@@ -2,6 +2,7 @@
 	excludesFile = /home/deevus/.dotfiles/.gitignore
 	editor = nvim
 	autocrlf = input
+	eol = native
 [user]
     name = Simon Hartcher
     email = simon@simonhartcher.com

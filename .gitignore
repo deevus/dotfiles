@@ -5,3 +5,6 @@
 *.orig
 
 ramdisk/
+.password
+.autoload.php
+.phpcd.vim
