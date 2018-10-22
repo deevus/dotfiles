@@ -26,11 +26,15 @@
     hf = flow hotfix finish
 
 [merge]
-	tool = vimdiff
-[mergetool]
-	nvim = nvim -d \"\\$BASE\\\" \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\"
-	path = nvim
+	tool = nvim
+    prompt = false
 [mergetool "nvim"]
-	cmd = nvim -d \"\\$BASE\\\" \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\"
+	cmd = nvim -d -u ~/.vimrc \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[diff]
+    tool = nvim
+[difftool]
+    prompt = false
+[difftool "nvim"]
+	cmd = nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\"
 [commit]
 	gpgsign = false

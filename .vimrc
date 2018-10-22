@@ -68,6 +68,7 @@ call minpac#add('vim-vdebug/vdebug')
 call minpac#add('kylef/apiblueprint.vim')
 call minpac#add('Shougo/denite.nvim')
 call minpac#add('yardnsm/vim-import-cost', {'do': {-> system('yarn')}})
+call minpac#add('cormacrelf/vim-colors-github')
 
 let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 let g:deoplete#ignore_sources.php = ['omni']
@@ -299,3 +300,10 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', ['.git/', '*~', 'node_modules/', 'vendor/'])
 "nmap <C-P> :Denite file/rec buffer<CR>
+
+if &diff
+    colorscheme github
+
+    let g:airline_theme = "github"
+    let g:lightline = { 'colorscheme': 'github' }
+endif
