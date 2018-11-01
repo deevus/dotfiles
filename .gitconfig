@@ -1,5 +1,5 @@
 [core]
-	excludesFile = /home/deevus/.dotfiles/.gitignore
+	excludesFile = /home/deevus/dotfiles/.gitignore
 	editor = nvim
 	autocrlf = input
 	eol = native

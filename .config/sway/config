@@ -9,9 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id dropbox start
+# exec --no-startup-id dropbox start
 # exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id wal -i $HOME/Dropbox/Wallpapers -o $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id wal -i $HOME/Dropbox/Wallpapers
 
 include "$HOME/.cache/wal/colors-sway"
 
@@ -47,7 +47,7 @@ font pango:Inconsolatas for Powerline 11
 floating_modifier $mod
 
 # start a terminal
-set $term kitty $term
+set $term kitty
 bindsym $mod+Return exec $term
 
 # kill focused window
@@ -201,13 +201,13 @@ gaps outer 5
 # set_from_resource $bg i3wm.color2 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+#client.focused          $bg     $bg     $fg  $bg       $bg
+#client.focused_inactive $bg     $bg     $fg  $bg       $bg
+#client.unfocused        $bg     $bg     $fg  $bg       $bg
+#client.urgent           $bg     $bg     $fg  $bg       $bg
+#client.placeholder      $bg     $bg     $fg  $bg       $bg
 
-client.background       $bg
+#client.background       $bg
 
 
 # Your preferred application launcher
