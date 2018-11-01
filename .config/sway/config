@@ -189,7 +189,7 @@ for_window [instance="nautilus"] floating enable
 ## Gaps config ##
 for_window [class="^.*"] border pixel 0
 smart_borders on
-gaps inner 20
+gaps inner 15
 gaps outer 5
 
 # Set colors from Xresources
@@ -200,18 +200,17 @@ gaps outer 5
 # set_from_resource $fg i3wm.color7 #f0f0f0
 # set_from_resource $bg i3wm.color2 #f0f0f0
 
-# class                 border  backgr. text indicator child_border
-#client.focused          $bg     $bg     $fg  $bg       $bg
-#client.focused_inactive $bg     $bg     $fg  $bg       $bg
-#client.unfocused        $bg     $bg     $fg  $bg       $bg
-#client.urgent           $bg     $bg     $fg  $bg       $bg
-#client.placeholder      $bg     $bg     $fg  $bg       $bg
-
-#client.background       $bg
+# class                 border          backgr.         text         indicator         child_border
+client.focused          $background     $background     $foreground  $background       $background
+client.focused_inactive $background     $background     $foreground  $background       $background
+client.unfocused        $background     $background     $foreground  $background       $background
+client.urgent           $background     $background     $foreground  $background       $background
+client.placeholder      $background     $background     $foreground  $background       $background
+client.background       $background
 
 
 # Your preferred application launcher
 set $menu dmenu_run
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec $menu # -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+bindsym $mod+d exec $menu -nb "$foreground" -nf "$background" -sb "$background" -sf "$foreground"
 bindsym $mod+Control+l exec i3lock-next
