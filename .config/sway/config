@@ -189,7 +189,7 @@ for_window [instance="nautilus"] floating enable
 ## Gaps config ##
 for_window [class="^.*"] border pixel 0
 smart_borders on
-gaps inner 15
+gaps inner 10
 gaps outer 5
 
 # Set colors from Xresources
