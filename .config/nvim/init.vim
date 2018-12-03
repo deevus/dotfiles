@@ -136,7 +136,7 @@ endif
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
   set t_Co=256
 elseif !has("gui_running")
-    set term=xterm
+    " set term=xterm
     set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
