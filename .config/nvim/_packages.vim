@@ -17,9 +17,6 @@ call minpac#add('styled-components/vim-styled-components')
 call minpac#add('hail2u/vim-css3-syntax')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('xolox/vim-misc')
-"call minpac#add('xolox/vim-easytags') SLOW
-call minpac#add('majutsushi/tagbar')
-call minpac#add('grassdog/tagman.vim')
 call minpac#add('xolox/vim-shell')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('stanangeloff/php.vim')
@@ -70,3 +67,10 @@ call minpac#add('Shougo/denite.nvim')
 call minpac#add('yardnsm/vim-import-cost', {'do': {-> system('yarn')}})
 call minpac#add('cormacrelf/vim-colors-github')
 call minpac#add('zxqfl/tabnine-vim')
+
+" Tags
+
+"call minpac#add('xolox/vim-easytags') SLOW
+call minpac#add('majutsushi/tagbar')
+"call minpac#add('grassdog/tagman.vim')
+call minpac#add('ludovicchabant/vim-gutentags')
