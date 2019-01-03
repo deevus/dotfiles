@@ -9,9 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# exec --no-startup-id dropbox start
 # exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id wal -e -i $HOME/Dropbox/Wallpapers
+exec dropbox start
+exec_always wal -e -i $HOME/Dropbox/Wallpapers
 
 include "$HOME/.cache/wal/colors-sway"
 
@@ -78,7 +78,7 @@ bindsym $mod+f fullscreen toggle
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    # bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -208,9 +208,8 @@ client.urgent           $background     $background     $foreground  $background
 client.placeholder      $background     $background     $foreground  $background       $background
 client.background       $background
 
-
 # Your preferred application launcher
 set $menu dmenu_run
 # PROTIP: You can also dynamically set dmenu's colors this way:
 bindsym $mod+d exec $menu -nb "$foreground" -nf "$background" -sb "$background" -sf "$foreground"
-bindsym $mod+Control+l exec i3lock-next
+bindsym $mod+Control+l exec swaylock -i "$wallpaper"
