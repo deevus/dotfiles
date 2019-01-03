@@ -10,3 +10,4 @@ ramdisk/
 .phpcd.vim
 .config/nvim/pack/minpac/start
 !.config/nvim/pack/minpac/start/.gitkeep
+tags
