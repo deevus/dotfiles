@@ -66,7 +66,7 @@ call minpac#add('kylef/apiblueprint.vim')
 call minpac#add('Shougo/denite.nvim')
 call minpac#add('yardnsm/vim-import-cost', {'do': {-> system('yarn')}})
 call minpac#add('cormacrelf/vim-colors-github')
-call minpac#add('zxqfl/tabnine-vim')
+"call minpac#add('zxqfl/tabnine-vim')
 
 " Tags
 
