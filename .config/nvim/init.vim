@@ -1,12 +1,8 @@
+let g:deoplete#enable_at_startup = 1
+
 runtime _packages.vim
 
-let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.php = ['omni']
-let g:deoplete#enable_at_startup = 1
-"let g:deoplete#sources#padawan#auto_update = 1
-
 let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
-"let g:padawan#composer_command = 'composer'
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -61,32 +57,19 @@ endif
 " Show line numbers
 set number
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
 let g:jsx_ext_required = 0
 
 set tags=./tags,./.git/tags,~/.vimtags
 
-" ----- majutsushi/tagbar settings -----
-" Open/close tagbar with \b
-nmap <silent> <leader>b :TagbarToggle<CR>
-" Uncomment to open tagbar automatically whenever possible
-"autocmd BufEnter * nested :call tagbar#autoopen(0)
-
 " Theme
 let g:tagman_auto_generate = 0
 
-nnoremap <c-]> :CtrlPtjump<cr>
-vnoremap <c-]> :CtrlPtjumpVisual<cr>
-
 " Search / completion
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
+"let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 
 " Status bar configuration
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 0
 
 " EditorConfig configuration
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -95,41 +78,15 @@ let g:EditorConfig_core_mode = "external_command"
 " Startify
 let g:startify_change_to_dir = 0
 
-let g:pdv_template_dir = $HOME ."/.config/nvim/pack/minpac/start/pdv/templates_snip"
-nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
-
-packloadall
+let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
 
 " Theme configuration
 set background=dark
-let g:airline_detect_paste = 1 " Show PASTE if in paste mode
-let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
+"let g:airline_detect_paste = 1 " Show PASTE if in paste mode
+"let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
 
 " Always show statusbar
 set laststatus=2
-
-" Search configuration
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:phpcomplete_enhance_jump_to_definition = 1
-
-if executable('pt')
-    let g:ctrlp_user_command = 'pt %s -l --nocolor --global-gitignore --ignore=tags -g ""'
-    let g:ctrlp_use_caching = 0
-    set grepprg=pt\ --nogroup\ --nocolor\ --global-gitignore\ --ignore=tags
-endif
-
-" Key mapping
-map <C-n> :NERDTreeTabsToggle<CR>
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_command = 'CtrlPMixed'
-
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
-endif
 
 " 256 colours
 " colours
@@ -164,10 +121,6 @@ filetype indent on
 set smartindent
 autocmd BufRead,BufWritePre *.sh normal gg=G
 
-" NERDTree configuration
-let NERDTreeShowHidden=1
-let g:nerdtree_tabs_open_on_console_startup = 0
-
 " This callback will be executed when the entire command is completed
 function! BackgroundCommandClose(channel)
   " Read the output from the command into the quickfix window
@@ -199,16 +152,16 @@ endfunction
 " So we can use :BackgroundCommand to call our function.
 command! -nargs=+ -complete=shellcmd RunBackgroundCommand call RunBackgroundCommand(<q-args>)
 
-" Synastic
-hi clear SignColumn
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+ "Synastic
+"hi clear SignColumn
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:airline#extensions#ale#enabled = 1
-let g:ale_php_langserver_use_global = 1
-let g:ale_php_langserver_executable = globpath(&rtp,'vendor/felixfbecker/language-server/bin/php-language-server.php',1)
-let g:ale_completion_enabled = 1
+"let g:airline#extensions#ale#enabled = 1
+"let g:ale_php_langserver_use_global = 1
+"let g:ale_php_langserver_executable = globpath(&rtp,'vendor/felixfbecker/language-server/bin/php-language-server.php',1)
+"let g:ale_completion_enabled = 1
 
 if has("multi_byte")
   if &termencoding == ""
@@ -221,15 +174,14 @@ if has("multi_byte")
 endif
 
 " enable python 2
-let g:loaded_python_provider=1
-let g:vdebug_options.path_maps = {"/app": "/home/deevus/Projects/vimily/bonjoro"}
-let g:vdebug_options.debug_file = "~/vdebug.log"
+"let g:loaded_python_provider=1
+"let g:vdebug_options.path_maps = {"/app": "/home/deevus/Projects/vimily/bonjoro"}
+"let g:vdebug_options.debug_file = "~/vdebug.log"
 
 set nocompatible
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', ['.git/', '*~', 'node_modules/', 'vendor/'])
-"nmap <C-P> :Denite file/rec buffer<CR>
 
 if &diff
     colorscheme github

@@ -11,3 +11,4 @@ ramdisk/
 .config/nvim/pack/minpac/start
 !.config/nvim/pack/minpac/start/.gitkeep
 tags
+.config/nvim/plugged/
