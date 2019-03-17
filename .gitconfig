@@ -28,8 +28,9 @@
 [merge]
 	tool = nvim
     prompt = false
+    conflictstyle = diff3
 [mergetool "nvim"]
-	cmd = nvim -d \"$BASE\" \"$LOCAL\" \"$MERGED\"
+	cmd = nvim -f -c "MergeToolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 [diff]
     tool = nvim
 [difftool]

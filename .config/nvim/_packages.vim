@@ -65,6 +65,9 @@ Plug 'cespare/vim-toml'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
+" Merging
+Plug 'samoshkin/vim-mergetool'
+
 runtime _completion.vim
 
 call plug#end()
