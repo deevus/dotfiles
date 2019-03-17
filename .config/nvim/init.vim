@@ -68,8 +68,8 @@ let g:tagman_auto_generate = 0
 "let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 
 " Status bar configuration
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0
 
 " EditorConfig configuration
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -82,8 +82,8 @@ let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
 
 " Theme configuration
 set background=dark
-"let g:airline_detect_paste = 1 " Show PASTE if in paste mode
-"let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
+let g:airline_detect_paste = 1 " Show PASTE if in paste mode
+let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
 
 " Always show statusbar
 set laststatus=2
@@ -153,15 +153,13 @@ endfunction
 command! -nargs=+ -complete=shellcmd RunBackgroundCommand call RunBackgroundCommand(<q-args>)
 
  "Synastic
-"hi clear SignColumn
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+hi clear SignColumn
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-"let g:airline#extensions#ale#enabled = 1
-"let g:ale_php_langserver_use_global = 1
-"let g:ale_php_langserver_executable = globpath(&rtp,'vendor/felixfbecker/language-server/bin/php-language-server.php',1)
-"let g:ale_completion_enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_completion_enabled = 1
 
 if has("multi_byte")
   if &termencoding == ""
@@ -173,15 +171,8 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-" enable python 2
-"let g:loaded_python_provider=1
-"let g:vdebug_options.path_maps = {"/app": "/home/deevus/Projects/vimily/bonjoro"}
-"let g:vdebug_options.debug_file = "~/vdebug.log"
-
 set nocompatible
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-"call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', ['.git/', '*~', 'node_modules/', 'vendor/'])
 
 if &diff
     colorscheme github

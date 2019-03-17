@@ -9,6 +9,7 @@ nnoremap <Leader>r :set relativenumber! <CR>
 
 nnoremap <C-]> :call LanguageClient_textDocument_definition() <CR>
 nnoremap <Leader>s :call LanguageClient_textDocument_documentSymbol() <CR>
+nnoremap <Leader>a :call LanguageClient_textDocument_references() <CR>
 
 " Create method/class/property comment
 nnoremap <Leader>d :call pdv#DocumentWithSnip() <CR>
