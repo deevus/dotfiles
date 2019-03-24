@@ -12,6 +12,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'ervandew/supertab'
 
 let g:LanguageClient_serverCommands = {
     \ 'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],

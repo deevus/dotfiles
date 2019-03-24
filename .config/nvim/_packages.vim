@@ -25,7 +25,6 @@ Plug 'xolox/vim-shell'
 Plug 'tpope/vim-obsession'
 Plug 'stanangeloff/php.vim'
 Plug 'vsushkov/vim-phpcs'
-Plug 'SirVer/ultisnips'
 Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv'
 Plug 'jwalton512/vim-blade'
@@ -67,6 +66,13 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Merging
 Plug 'samoshkin/vim-mergetool'
+
+" Motions
+Plug 'easymotion/vim-easymotion'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'algotech/ultisnips-php'
 
 runtime _completion.vim
 
