@@ -16,8 +16,8 @@ Plug 'ervandew/supertab'
 
 let g:LanguageClient_serverCommands = {
     \ 'php': ['php', '~/.config/composer/vendor/bin/php-language-server.php'],
-    \ 'javascript': ['typescript-language-server', '--stdio'],
-    \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
-    \ 'typescript': ['typescript-language-server', '--stdio'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
     \ 'html': ['html-languageserver', '--stdio'],
     \ }

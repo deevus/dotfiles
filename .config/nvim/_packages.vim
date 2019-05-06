@@ -58,6 +58,7 @@ Plug 'kylef/apiblueprint.vim'
 Plug 'yardnsm/vim-import-cost', {'do': {-> system('yarn')}}
 Plug 'cormacrelf/vim-colors-github'
 Plug 'cespare/vim-toml'
+Plug 'rrethy/vim-hexokinase'
 
 " Tags
 
