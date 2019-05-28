@@ -73,7 +73,6 @@ let g:airline_powerline_fonts = 0
 
 " EditorConfig configuration
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-let g:EditorConfig_core_mode = "external_command"
 
 " Startify
 let g:startify_change_to_dir = 0
