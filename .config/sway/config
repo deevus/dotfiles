@@ -66,6 +66,9 @@ bindsym $mod+Return exec $term
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# fzf-pass
+bindsym $mod+p exec $term --class fzf-launcher --title "FZF pass" -e sh -c $HOME/dotfiles/scripts/fzf-pass.sh
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -205,6 +208,8 @@ gaps outer 5
 
 # Window settings
 for_window [instance="nautilus"] floating enable
+for_window [class="fzf-launcher"] floating enable
+for_window [class="fzf-launcher"] resize set 800 600
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use
