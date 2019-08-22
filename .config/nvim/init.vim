@@ -1,3 +1,5 @@
+set exrc
+
 let g:deoplete#enable_at_startup = 1
 
 runtime _packages.vim
@@ -184,3 +186,5 @@ let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 
 runtime _bindings.vim
+
+set secure

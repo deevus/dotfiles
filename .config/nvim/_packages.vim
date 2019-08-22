@@ -8,40 +8,30 @@ endif
 
 call plug#begin()
 
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-db'
-Plug 'vim-jp/syntax-vim-ex'
-Plug 'tpope/vim-surround'
-Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'PProvost/vim-ps1'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'styled-components/vim-styled-components', {'branch': 'main'}
-Plug 'hail2u/vim-css3-syntax'
-Plug 'mxw/vim-jsx'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-shell'
-Plug 'tpope/vim-obsession'
-Plug 'stanangeloff/php.vim'
-Plug 'vsushkov/vim-phpcs'
-Plug 'tobyS/vmustache'
-Plug 'tobyS/pdv'
-Plug 'jwalton512/vim-blade'
+Plug 'scrooloose/nerdcommenter' " Comments
+Plug 'tpope/vim-dadbod' " Database connections
+Plug 'tpope/vim-surround' " Quoting/surrounding text eg. csw'
+Plug 'xolox/vim-misc' " Autoload vim scripts for xolox plugins
+Plug 'xolox/vim-shell' " :Fullscreen
+Plug 'tpope/vim-obsession' " Vim sessions - window positions, folds etc :mksession :Obsess
+Plug 'tobyS/vmustache' " Required by pdv
+Plug 'tobyS/pdv' " PHP Documentor
 Plug 'tpope/vim-fugitive' " Adds git command
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/emmet-vim'
-Plug 'yegappan/grep'
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-dispatch'
-Plug 'godlygeek/tabular'
-Plug 'Shougo/vimproc.vim'
-Plug 'ajh17/VimCompletesMe'
-Plug 'mtth/scratch.vim'
-Plug 'vim-scripts/Tail-Bundle'
-Plug 'joonty/vim-do'
+Plug 'editorconfig/editorconfig-vim' " Editorconfig - Text editor config. Eg. indentation, tabs etc
+Plug 'mattn/emmet-vim' " Emmet for vim
+Plug 'mhinz/vim-startify' " Start page for vim
+Plug 'godlygeek/tabular' " Aligning text - really useful - :Tabu/=
+Plug 'mtth/scratch.vim' " :Scratch pad
+Plug 'vim-scripts/Tail-Bundle' " tail -f inside vim
+Plug 'vim-vdebug/vdebug' " Multi lang debug client
+Plug 'yardnsm/vim-import-cost', {'do': 'yarn'} " JS: Lists import cost of npm imports
+
+" Status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Color schemes
 Plug 'tomasr/molokai'
-Plug 'ayu-theme/ayu-vim'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'tomasiser/vim-code-dark'
 Plug 'mhinz/vim-janah'
@@ -49,31 +39,47 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
-Plug 'chrisbra/Colorizer'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ivalkeen/vim-ctrlp-tjump'
-Plug 'vim-vdebug/vdebug'
-Plug 'kylef/apiblueprint.vim'
-Plug 'yardnsm/vim-import-cost', {'do': {-> system('yarn')}}
-Plug 'cormacrelf/vim-colors-github'
-Plug 'cespare/vim-toml'
-Plug 'rrethy/vim-hexokinase'
+Plug 'cormacrelf/vim-colors-github' " Github colorscheme - great for diffs!
+Plug 'ayu-theme/ayu-vim'
 
-" Tags
-
-Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
+" Async
+Plug 'joonty/vim-do' " Async shell commands
+Plug 'tpope/vim-dispatch' " Background tasks - should use this
+Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Async execution - Do I need this?
 
 " Merging
-Plug 'samoshkin/vim-mergetool'
+Plug 'samoshkin/vim-mergetool' " Used with vim-colors-github for git merging/diffing
 
 " Motions
-Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion' " Vim motions - Need to use more
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'algotech/ultisnips-php'
+Plug 'SirVer/ultisnips' " Snippets - Never use
+Plug 'algotech/ultisnips-php' " Ultisnips for PHP
+
+" Config
+Plug 'MarcWeber/vim-addon-local-vimrc' " Loads .vimrc in project directory
+
+" Syntax
+Plug 'vim-jp/syntax-vim-ex' " Vimscript
+Plug 'othree/yajs.vim' " JS
+Plug 'othree/javascript-libraries-syntax.vim' " JS Libraries
+Plug 'PProvost/vim-ps1' " Powershell
+Plug 'leafgarland/typescript-vim' " Typescript
+Plug 'Quramy/tsuquyomi' " Typescript + TSServer
+Plug 'styled-components/vim-styled-components', {'branch': 'main'} " JS React Styled Components
+Plug 'hail2u/vim-css3-syntax' " CSS3
+Plug 'mxw/vim-jsx' " JSX/React
+Plug 'stanangeloff/php.vim' " PHP
+Plug 'jwalton512/vim-blade' " PHP blade
+Plug 'chrisbra/Colorizer' " :Colorize - Adds colors to hex codes
+" Plug 'rrethy/vim-hexokinase' " Similar to Colorizer - Doesnt work properly
+Plug 'kylef/apiblueprint.vim' " API Blueprint
+Plug 'cespare/vim-toml' " toml
+Plug 'keith/swift.vim' " Swift
+
+" Linting
+Plug 'vsushkov/vim-phpcs' " PHP
 
 runtime _completion.vim
 

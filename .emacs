@@ -23,19 +23,25 @@
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/"))
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("org" . "http://orgmode.org/elpa/"))
 
 ;packages
 (setq el-get-sources
-      '((:name powershell :type elpa)
-	(:name color-theme-cobalt
-	       :type git
-	       :url "git@github.com:nickewing/color-theme-cobalt"
-	       :load "color-theme-cobalt.el"
-	       :compile ("color-theme-cobalt.el")
-	       :features color-theme-cobalt)))
+      '(
+        (:name powershell :type elpa)
+        (:name color-theme-cobalt
+               :type git
+               :url "git@github.com:nickewing/color-theme-cobalt"
+               :load "color-theme-cobalt.el"
+               :compile ("color-theme-cobalt.el")
+               :features color-theme-cobalt)
+        (:name xresources-theme
+               :type git
+               :url "git@github.com:cqql/xresources-theme"
+               :load "xresources-theme.el"))
+)
 
 (setq my:el-get-packages
       (append
@@ -83,3 +89,17 @@
 (require 'git-commit)
 (add-hook 'git-commit-mode-hook 'turn-on-flyspell)
 (add-hook 'git-commit-mode-hook (lambda () (toggle-save-place 0)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (dap-mode flycheck lsp-clangd lsp-css lsp-html lsp-javascript-typescript lsp-php lsp-ui php-mode lsp-mode ## powershell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

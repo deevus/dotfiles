@@ -1,7 +1,7 @@
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+"inoremap <C-U> <C-G>u<C-U>
 
 nmap <C-p> :Files <CR>
 
@@ -21,10 +21,3 @@ nnoremap <Leader>d :call pdv#DocumentWithSnip() <CR>
 "nmap <silent> <leader>b :TagbarToggle<CR>
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
-
-" Key mapping
-"map <C-n> :NERDTreeTabsToggle<CR>
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_command = 'CtrlPMixed'
-
-"nmap <C-P> :Denite file/rec buffer<CR>

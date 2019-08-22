@@ -196,14 +196,15 @@ bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 # scrot & gimp - select window or rectangle
 bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
-# Window settings
-for_window [instance="nautilus"] floating enable
 
 ## Gaps config ##
 for_window [class="^.*"] border pixel 0
 smart_borders on
 gaps inner 10
 gaps outer 5
+
+# Window settings
+for_window [instance="nautilus"] floating enable
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use
