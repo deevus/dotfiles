@@ -6,10 +6,10 @@
 "Plug 'ajh17/VimCompletesMe' " Tab completion
 "Plug 'ervandew/supertab' " Tab completion
 
-Plug 'w0rp/ale' " Async linting engine using LSP
+"Plug 'w0rp/ale' " Async linting engine using LSP
 "Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 
-Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}
+"Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',

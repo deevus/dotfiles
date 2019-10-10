@@ -54,8 +54,8 @@ Plug 'samoshkin/vim-mergetool' " Used with vim-colors-github for git merging/dif
 Plug 'easymotion/vim-easymotion' " Vim motions - Need to use more
 
 " Snippets
-Plug 'SirVer/ultisnips' " Snippets - Never use
-Plug 'algotech/ultisnips-php' " Ultisnips for PHP
+"Plug 'SirVer/ultisnips' " Snippets - Never use
+"Plug 'algotech/ultisnips-php' " Ultisnips for PHP
 
 " Config
 Plug 'MarcWeber/vim-addon-local-vimrc' " Loads .vimrc in project directory

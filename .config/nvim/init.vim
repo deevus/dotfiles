@@ -182,7 +182,7 @@ if &diff
     let g:lightline = { 'colorscheme': 'github' }
 endif
 
-let g:mergetool_layout = 'mr'
+let g:mergetool_layout = 'bmr'
 let g:mergetool_prefer_revision = 'local'
 
 runtime _bindings.vim
