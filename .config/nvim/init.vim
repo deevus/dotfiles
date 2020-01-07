@@ -114,7 +114,8 @@ if (os == "Windows_NT")
 
     silent! colorscheme gruvbox
 else
-    silent! colorscheme wal
+    silent! colorscheme gruvbox
+    "silent! colorscheme wal
 endif
 
 " Autoindex
@@ -185,6 +186,11 @@ endif
 let g:mergetool_layout = 'bmr'
 let g:mergetool_prefer_revision = 'local'
 
+set updatetime=1000
+
+packloadall
+
 runtime _bindings.vim
+runtime _lsp.vim
 
 set secure

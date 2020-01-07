@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/deevus/Projects/vimily/bonjoro/database'
-let g:netrw_dirhist_2='/home/deevus/Projects/retro/satiator-menu/src'
-let g:netrw_dirhist_3='/home/deevus/Projects/vimily/bonjoro/resources/assets/javascripts/App/Modules/TodoList/use-roll-up-state.js'
-let g:netrw_dirhist_4='/home/deevus/Projects/vimily/bonjoro/resources/assets/javascripts/App/Modules/TodoList/use-roll-up-state.js/use-roll-up-state.js'
-let g:netrw_dirhist_5='/home/deevus/Projects/vimily/bonjoro/resources/assets/javascripts/App/Modules/TodoList/use-roll-up-state.js'
-let g:netrw_dirhist_6='/home/deevus/Projects/vimily/bonjoro/resources/assets/javascripts/App/Modules/TodoList'
-let g:netrw_dirhist_7='/home/deevus/Projects/vimily/bonjoro/routes'

@@ -69,7 +69,8 @@ Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'Quramy/tsuquyomi' " Typescript + TSServer
 Plug 'styled-components/vim-styled-components', {'branch': 'main'} " JS React Styled Components
 Plug 'hail2u/vim-css3-syntax' " CSS3
-Plug 'mxw/vim-jsx' " JSX/React
+"Plug 'mxw/vim-jsx' " JSX/React - Indenting issues
+Plug 'MaxMEllon/vim-jsx-pretty' " JSX/React
 Plug 'stanangeloff/php.vim' " PHP
 Plug 'jwalton512/vim-blade' " PHP blade
 Plug 'chrisbra/Colorizer' " :Colorize - Adds colors to hex codes
