@@ -14,6 +14,7 @@ nvim_lsp.tsserver.setup({});
 nvim_lsp.intelephense.setup({
     init_options = {
         licenceKey = get_pass("Software/Intelephense");
+        storagePath = os.getenv("HOME") .. "/.cache/intelephense";
     };
     settings = {
         intelephense = {
@@ -30,7 +31,7 @@ nvim_lsp.intelephense.setup({
 nvim_lsp.sumneko_lua.setup({});
 EOF
 
-autocmd Filetype javascript.jsx,lua,php setl omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype javascript.jsx,lua,php,typescriptreact,typescript setl omnifunc=v:lua.vim.lsp.omnifunc
 nnoremap <silent> ;dc <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> ;df <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> ;h  <cmd>lua vim.lsp.buf.hover()<CR>

@@ -3,7 +3,15 @@
 " so that you can undo CTRL-U after inserting a line break.
 "inoremap <C-U> <C-G>u<C-U>
 
-nmap <C-p> :Files <CR>
+nmap <C-p> :FzfPreviewProjectFiles <CR>
+nmap <Leader>p :FzfPreviewProjectFiles <CR>
+nmap <Leader>g :FzfPreviewProjectGrep <CR>
+nmap <Leader>b :FzfPreviewBuffers <CR>
+nmap <Leader>B :FzfPreviewAllBuffers <CR>
+nmap <Leader>l :FzfPreviewLines <CR>
+nmap <Leader>R :FzfPreviewProjectMruFiles <CR>
+nmap <Leader>q :FzfPreviewQuickFix <CR>
+nmap <Leader>v :Vista!! <CR>
 
 nnoremap <Leader>r :set relativenumber! <CR>
 

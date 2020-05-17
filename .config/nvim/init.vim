@@ -114,7 +114,8 @@ if (os == "Windows_NT")
 
     silent! colorscheme gruvbox
 else
-    silent! colorscheme gruvbox
+    silent! set termguicolors
+    silent! colorscheme purpura
     "silent! colorscheme wal
 endif
 

@@ -20,6 +20,11 @@ Plug 'ervandew/supertab' " Tab completion
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy find files
 Plug 'junegunn/fzf.vim'
+Plug 'yuki-ycino/fzf-preview.vim'
+Plug 'bogado/file-line' " Used in fzf-preview for opening a file to a specific line
+
+" let g:fzf_preview_grep_cmd = 'pt --nogroup'
+let g:fzf_preview_floating_window_winblend = 0 " disable transparency
 
 "Plug 'ncm2/float-preview.nvim'
 "Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
@@ -47,3 +52,8 @@ endfunction
     "\ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
     "\ 'c': ['cquery', '--log-file=/tmp/cq.log'],
     "\ }
+
+Plug 'liuchengxu/vista.vim'
+let g:vista_default_executive = 'nvim_lsp'
+let g:vista_update_on_text_changed = 1
+let g:vista_fzf_preview = []

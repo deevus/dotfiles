@@ -41,6 +41,7 @@ Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
 Plug 'cormacrelf/vim-colors-github' " Github colorscheme - great for diffs!
 Plug 'ayu-theme/ayu-vim'
+Plug 'yassinebridi/vim-purpura'
 
 " Async
 Plug 'joonty/vim-do' " Async shell commands
@@ -60,28 +61,14 @@ Plug 'easymotion/vim-easymotion' " Vim motions - Need to use more
 " Config
 Plug 'MarcWeber/vim-addon-local-vimrc' " Loads .vimrc in project directory
 
-" Syntax
-Plug 'vim-jp/syntax-vim-ex' " Vimscript
-Plug 'othree/yajs.vim' " JS
-Plug 'othree/javascript-libraries-syntax.vim' " JS Libraries
-Plug 'PProvost/vim-ps1' " Powershell
-Plug 'leafgarland/typescript-vim' " Typescript
-Plug 'Quramy/tsuquyomi' " Typescript + TSServer
-Plug 'styled-components/vim-styled-components', {'branch': 'main'} " JS React Styled Components
-Plug 'hail2u/vim-css3-syntax' " CSS3
-"Plug 'mxw/vim-jsx' " JSX/React - Indenting issues
-Plug 'MaxMEllon/vim-jsx-pretty' " JSX/React
-Plug 'stanangeloff/php.vim' " PHP
-Plug 'jwalton512/vim-blade' " PHP blade
-Plug 'chrisbra/Colorizer' " :Colorize - Adds colors to hex codes
-" Plug 'rrethy/vim-hexokinase' " Similar to Colorizer - Doesnt work properly
-Plug 'kylef/apiblueprint.vim' " API Blueprint
-Plug 'cespare/vim-toml' " toml
-Plug 'keith/swift.vim' " Swift
-
 " Linting
 Plug 'vsushkov/vim-phpcs' " PHP
 
+" Docs
+Plug 'heavenshell/vim-jsdoc', {'tag': '1.0.0', 'do': 'yarn global add lehre'} " JSDoc
+let g:jsdoc_lehre_path = 'lehre'
+
+runtime _syntax.vim
 runtime _completion.vim
 
 call plug#end()
