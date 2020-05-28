@@ -16,6 +16,7 @@ nvim_lsp.intelephense.setup({
         licenceKey = get_pass("Software/Intelephense");
         storagePath = os.getenv("HOME") .. "/.cache/intelephense";
     };
+
     settings = {
         intelephense = {
             files = {
@@ -29,9 +30,11 @@ nvim_lsp.intelephense.setup({
 });
 
 nvim_lsp.sumneko_lua.setup({});
+
+nvim_lsp.pyls.setup({});
 EOF
 
-autocmd Filetype javascript.jsx,lua,php,typescriptreact,typescript setl omnifunc=v:lua.vim.lsp.omnifunc
+"autocmd Filetype javascript.jsx,lua,php,typescriptreact,typescript,python setl omnifunc=v:lua.vim.lsp.omnifunc
 nnoremap <silent> ;dc <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> ;df <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> ;h  <cmd>lua vim.lsp.buf.hover()<CR>
@@ -43,4 +46,7 @@ nnoremap <silent> ;rf <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> ;p  <cmd>lua vim.lsp.buf.peek_definition()<CR>
 nnoremap <silent> ;f  <cmd>lua vim.lsp.buf.formatting()<CR>
 
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+autocmd BufEnter * lua require'completion'.on_attach()
+autocmd BufEnter * lua require'diagnostic'.on_attach()

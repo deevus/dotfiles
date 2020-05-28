@@ -1,7 +1,5 @@
 set exrc
 
-let g:deoplete#enable_at_startup = 1
-
 runtime _packages.vim
 
 let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
@@ -44,7 +42,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -62,12 +60,6 @@ set number
 let g:jsx_ext_required = 0
 
 set tags=./tags,./.git/tags,~/.vimtags
-
-" Theme
-let g:tagman_auto_generate = 0
-
-" Search / completion
-"let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:10'
 
 " Status bar configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -124,38 +116,7 @@ filetype indent on
 set smartindent
 autocmd BufRead,BufWritePre *.sh normal gg=G
 
-" This callback will be executed when the entire command is completed
-function! BackgroundCommandClose(channel)
-  " Read the output from the command into the quickfix window
-  execute "cfile! " . g:backgroundCommandOutput
-  " Open the quickfix window
-  copen
-  unlet g:backgroundCommandOutput
-endfunction
-
-function! RunBackgroundCommand(command)
-  " Make sure we're running VIM version 8 or higher.
-  if v:version < 800
-    echoerr 'RunBackgroundCommand requires VIM version 8 or higher'
-    return
-  endif
-
-  if exists('g:backgroundCommandOutput')
-    echo 'Already running task in background'
-  else
-    echo 'Running task in background'
-    " Launch the job.
-    " Notice that we're only capturing out, and not err here. This is because, for some reason, the callback
-    " will not actually get hit if we write err out to the same file. Not sure if I'm doing this wrong or?
-    let g:backgroundCommandOutput = tempname()
-    call job_start(a:command, {'close_cb': 'BackgroundCommandClose', 'out_io': 'file', 'out_name': g:backgroundCommandOutput})
-  endif
-endfunction
-
-" So we can use :BackgroundCommand to call our function.
-command! -nargs=+ -complete=shellcmd RunBackgroundCommand call RunBackgroundCommand(<q-args>)
-
- "Synastic
+ "Syntastic
 hi clear SignColumn
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -186,8 +147,6 @@ endif
 
 let g:mergetool_layout = 'bmr'
 let g:mergetool_prefer_revision = 'local'
-
-set updatetime=1000
 
 packloadall
 

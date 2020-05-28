@@ -9,22 +9,22 @@ endif
 call plug#begin()
 
 Plug 'scrooloose/nerdcommenter' " Comments
-Plug 'tpope/vim-dadbod' " Database connections
+"Plug 'tpope/vim-dadbod' " Database connections
 Plug 'tpope/vim-surround' " Quoting/surrounding text eg. csw'
 Plug 'xolox/vim-misc' " Autoload vim scripts for xolox plugins
-Plug 'xolox/vim-shell' " :Fullscreen
-Plug 'tpope/vim-obsession' " Vim sessions - window positions, folds etc :mksession :Obsess
-Plug 'tobyS/vmustache' " Required by pdv
-Plug 'tobyS/pdv' " PHP Documentor
-Plug 'tpope/vim-fugitive' " Adds git command
+"Plug 'xolox/vim-shell' " :Fullscreen
+"Plug 'tpope/vim-obsession' " Vim sessions - window positions, folds etc :mksession :Obsess
+"Plug 'tobyS/vmustache' " Required by pdv
+"Plug 'tobyS/pdv' " PHP Documentor
+"Plug 'tpope/vim-fugitive' " Adds git command
 Plug 'editorconfig/editorconfig-vim' " Editorconfig - Text editor config. Eg. indentation, tabs etc
-Plug 'mattn/emmet-vim' " Emmet for vim
+"Plug 'mattn/emmet-vim' " Emmet for vim
 Plug 'mhinz/vim-startify' " Start page for vim
 Plug 'godlygeek/tabular' " Aligning text - really useful - :Tabu/=
 Plug 'mtth/scratch.vim' " :Scratch pad
-Plug 'vim-scripts/Tail-Bundle' " tail -f inside vim
-Plug 'vim-vdebug/vdebug' " Multi lang debug client
-Plug 'yardnsm/vim-import-cost', {'do': 'yarn'} " JS: Lists import cost of npm imports
+"Plug 'vim-scripts/Tail-Bundle' " tail -f inside vim
+"Plug 'vim-vdebug/vdebug' " Multi lang debug client
+"Plug 'yardnsm/vim-import-cost', {'do': 'yarn'} " JS: Lists import cost of npm imports
 
 " Status line
 Plug 'vim-airline/vim-airline'
@@ -53,10 +53,6 @@ Plug 'samoshkin/vim-mergetool' " Used with vim-colors-github for git merging/dif
 
 " Motions
 Plug 'easymotion/vim-easymotion' " Vim motions - Need to use more
-
-" Snippets
-"Plug 'SirVer/ultisnips' " Snippets - Never use
-"Plug 'algotech/ultisnips-php' " Ultisnips for PHP
 
 " Config
 Plug 'MarcWeber/vim-addon-local-vimrc' " Loads .vimrc in project directory
