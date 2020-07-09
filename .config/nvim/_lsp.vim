@@ -32,6 +32,12 @@ nvim_lsp.intelephense.setup({
 nvim_lsp.sumneko_lua.setup({});
 
 nvim_lsp.pyls.setup({});
+
+nvim_lsp.vimls.setup({});
+
+nvim_lsp.cssls.setup({});
+
+nvim_lsp.jsonls.setup({});
 EOF
 
 "autocmd Filetype javascript.jsx,lua,php,typescriptreact,typescript,python setl omnifunc=v:lua.vim.lsp.omnifunc
@@ -45,6 +51,9 @@ nnoremap <silent> ;rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> ;rf <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> ;p  <cmd>lua vim.lsp.buf.peek_definition()<CR>
 nnoremap <silent> ;f  <cmd>lua vim.lsp.buf.formatting()<CR>
+
+nnoremap <silent> <Leader>. <cmd>NextDiagnostic<CR>
+nnoremap <silent> <Leader>, <cmd>PrevDiagnostic<CR>
 
 "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 

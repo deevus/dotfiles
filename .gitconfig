@@ -27,15 +27,17 @@
 
 [merge]
 	tool = nvim
-    conflictstyle = diff3
 [mergetool "nvim"]
-	cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
-    trustExitCode = true
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool]
+    prompt = false
 [diff]
     tool = nvim
 [difftool]
     prompt = false
 [difftool "nvim"]
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[difftool "icdiff"]
+    cmd = icdiff \"$LOCAL\" \"$REMOTE\"
 [commit]
 	gpgsign = false

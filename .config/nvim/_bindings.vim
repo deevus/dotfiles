@@ -6,6 +6,7 @@
 nmap <C-p> :FzfPreviewProjectFiles <CR>
 nmap <Leader>p :FzfPreviewProjectFiles <CR>
 nmap <Leader>g :FzfPreviewProjectGrep <CR>
+nmap <Leader>s :FzfPreviewBufferTags <CR>
 nmap <Leader>b :FzfPreviewBuffers <CR>
 nmap <Leader>B :FzfPreviewAllBuffers <CR>
 nmap <Leader>l :FzfPreviewLines <CR>
@@ -14,10 +15,6 @@ nmap <Leader>q :FzfPreviewQuickFix <CR>
 nmap <Leader>v :Vista!! <CR>
 
 nnoremap <Leader>r :set relativenumber! <CR>
-
-nnoremap <C-]> :call LanguageClient_textDocument_definition() <CR>
-nnoremap <Leader>s :call LanguageClient_textDocument_documentSymbol() <CR>
-nnoremap <Leader>a :call LanguageClient_textDocument_references() <CR>
 
 " Create method/class/property comment
 nnoremap <Leader>d :call pdv#DocumentWithSnip() <CR>

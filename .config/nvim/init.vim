@@ -107,8 +107,7 @@ if (os == "Windows_NT")
     silent! colorscheme gruvbox
 else
     silent! set termguicolors
-    silent! colorscheme purpura
-    "silent! colorscheme wal
+    silent! colorscheme embark
 endif
 
 " Autoindex

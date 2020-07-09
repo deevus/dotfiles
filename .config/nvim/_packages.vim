@@ -9,22 +9,13 @@ endif
 call plug#begin()
 
 Plug 'scrooloose/nerdcommenter' " Comments
-"Plug 'tpope/vim-dadbod' " Database connections
 Plug 'tpope/vim-surround' " Quoting/surrounding text eg. csw'
 Plug 'xolox/vim-misc' " Autoload vim scripts for xolox plugins
-"Plug 'xolox/vim-shell' " :Fullscreen
-"Plug 'tpope/vim-obsession' " Vim sessions - window positions, folds etc :mksession :Obsess
-"Plug 'tobyS/vmustache' " Required by pdv
-"Plug 'tobyS/pdv' " PHP Documentor
-"Plug 'tpope/vim-fugitive' " Adds git command
+Plug 'tpope/vim-fugitive' " Adds git command
 Plug 'editorconfig/editorconfig-vim' " Editorconfig - Text editor config. Eg. indentation, tabs etc
-"Plug 'mattn/emmet-vim' " Emmet for vim
 Plug 'mhinz/vim-startify' " Start page for vim
 Plug 'godlygeek/tabular' " Aligning text - really useful - :Tabu/=
 Plug 'mtth/scratch.vim' " :Scratch pad
-"Plug 'vim-scripts/Tail-Bundle' " tail -f inside vim
-"Plug 'vim-vdebug/vdebug' " Multi lang debug client
-"Plug 'yardnsm/vim-import-cost', {'do': 'yarn'} " JS: Lists import cost of npm imports
 
 " Status line
 Plug 'vim-airline/vim-airline'
@@ -42,6 +33,7 @@ Plug 'dylanaraps/wal'
 Plug 'cormacrelf/vim-colors-github' " Github colorscheme - great for diffs!
 Plug 'ayu-theme/ayu-vim'
 Plug 'yassinebridi/vim-purpura'
+Plug 'skbolton/embark'
 
 " Async
 Plug 'joonty/vim-do' " Async shell commands
@@ -63,6 +55,9 @@ Plug 'vsushkov/vim-phpcs' " PHP
 " Docs
 Plug 'heavenshell/vim-jsdoc', {'tag': '1.0.0', 'do': 'yarn global add lehre'} " JSDoc
 let g:jsdoc_lehre_path = 'lehre'
+
+"" Utils
+Plug 'danro/rename.vim'
 
 runtime _syntax.vim
 runtime _completion.vim
