@@ -17,7 +17,9 @@ include "$HOME/.cache/wal/colors-sway"
 
 output eDP-1 background $wallpaper fit
 output eDP-1 pos 0 0
-output eDP-1 scale 1.5
+output eDP-1 scale 1
+output eDP-1 scale_filter nearest
+output eDP-1 mode 2560x1440@60Hz
 output DP-5 mode 3840x2160@60Hz
 output DP-5 background $wallpaper fit
 
@@ -207,6 +209,7 @@ gaps inner 10
 gaps outer 5
 
 # Window settings
+for_window [class="zoom"] floating enable
 for_window [instance="nautilus"] floating enable
 for_window [class="fzf-launcher"] floating enable
 for_window [class="fzf-launcher"] resize set 800 600

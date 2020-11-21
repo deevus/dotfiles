@@ -20,3 +20,5 @@ Plug 'kylef/apiblueprint.vim' " API Blueprint
 Plug 'cespare/vim-toml' " toml
 Plug 'keith/swift.vim' " Swift
 Plug 'sheerun/vim-polyglot'
+
+autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx

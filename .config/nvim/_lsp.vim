@@ -1,5 +1,5 @@
 lua << EOF
-local nvim_lsp = require 'nvim_lsp';
+local nvim_lsp = require 'lspconfig';
 
 local function get_pass(key) 
     local handle = io.popen("pass show " .. key);
@@ -52,10 +52,21 @@ nnoremap <silent> ;rf <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> ;p  <cmd>lua vim.lsp.buf.peek_definition()<CR>
 nnoremap <silent> ;f  <cmd>lua vim.lsp.buf.formatting()<CR>
 
-nnoremap <silent> <Leader>. <cmd>NextDiagnostic<CR>
-nnoremap <silent> <Leader>, <cmd>PrevDiagnostic<CR>
+nnoremap <silent> <Leader>. <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> <Leader>, <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
 "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
+function! LspHover() abort
+lua << EOF
+    print(vim.lsp.util.get_line_diagnostics())
+EOF
+endfunction
+
 autocmd BufEnter * lua require'completion'.on_attach()
-autocmd BufEnter * lua require'diagnostic'.on_attach()
+
+"autocmd CursorHold * silent! lua vim.lsp.util.show_line_diagnostics()
+"autocmd CursorHold * silent! lua vim.lsp.buf.hover()
+autocmd CursorHold  * silent! lua vim.lsp.buf.document_highlight()
+autocmd CursorHoldI * silent! lua vim.lsp.buf.document_highlight()
+autocmd CursorMoved * silent! lua vim.lsp.buf.clear_references()

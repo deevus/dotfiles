@@ -22,8 +22,8 @@
     rp = flow release publish
     hp = flow hotfix publish
 
-    rf = flow release finish
-    hf = flow hotfix finish
+	rf = !git fetch --tags --force && git flow release finish
+	hf = !git fetch --tags --force && git flow hotfix finish
 
 [merge]
 	tool = nvim

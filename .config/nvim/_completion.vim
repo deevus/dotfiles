@@ -3,9 +3,9 @@
 Plug 'neovim/nvim-lsp'
 
 " Snippets
-Plug 'SirVer/ultisnips' " Snippets - Never use
-Plug 'algotech/ultisnips-php' " Ultisnips for PHP
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips' " Snippets - Never use
+"Plug 'algotech/ultisnips-php' " Ultisnips for PHP
+"Plug 'honza/vim-snippets'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy find files
 "Plug 'junegunn/fzf.vim'
@@ -16,7 +16,6 @@ Plug 'bogado/file-line' " Used in fzf-preview for opening a file to a specific l
 "Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 
 Plug 'haorenW1025/completion-nvim'
-Plug 'haorenW1025/diagnostic-nvim'
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
