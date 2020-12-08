@@ -38,6 +38,10 @@ vim.api.nvim_exec([[
   colorscheme embark
 ]], true)
 
+if (vim.api.nvim_eval('&diff') > 0) then
+  vim.api.nvim_exec([[ colorscheme github ]], true)
+end
+
 vim.o.compatible = false
 
 -- global vars vim.api.nvim_set_var
