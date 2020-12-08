@@ -112,6 +112,7 @@ endif
 
 " Autoindex
 filetype indent on
+filetype plugin on
 set smartindent
 autocmd BufRead,BufWritePre *.sh normal gg=G
 

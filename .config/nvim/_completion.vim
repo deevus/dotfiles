@@ -1,6 +1,6 @@
 " Tags
 
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 
 " Snippets
 "Plug 'SirVer/ultisnips' " Snippets - Never use
