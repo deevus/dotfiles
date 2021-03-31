@@ -23,9 +23,6 @@ end
 
 vim.o.termguicolors = true
 
-vim.o.autoindent = true
-vim.o.smartindent = true
-
 vim.api.nvim_exec([[
   " For all text files set 'textwidth' to 78 characters.
   autocmd filetype text setlocal textwidth=78
@@ -35,7 +32,9 @@ vim.api.nvim_exec([[
 
   autocmd BufRead,BufWritePre *.sh normal gg=G
 
-  colorscheme embark
+  colorscheme dracula
+
+  setglobal autoindent smartindent
 ]], true)
 
 if (vim.api.nvim_eval('&diff') > 0) then
@@ -53,3 +52,4 @@ vim.api.nvim_exec([[
 vim.o.secure = true
 
 require 'syntax'
+require '_telescope'

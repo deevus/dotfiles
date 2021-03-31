@@ -12,3 +12,4 @@ ramdisk/
 !.config/nvim/pack/minpac/start/.gitkeep
 tags
 .config/nvim/plugged/
+auth.json

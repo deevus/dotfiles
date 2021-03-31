@@ -5,6 +5,7 @@ ts.setup {
 
   highlight = {
     enable = true,
+    disable = {"php"}
   },
 
   incremental_selection = {

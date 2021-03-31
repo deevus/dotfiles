@@ -28,8 +28,21 @@ paq 'godlygeek/tabular' -- Aligning text - really useful - :Tabu/=
 paq 'mtth/scratch.vim' -- :Scratch pad
 
 -- Status line
-paq 'vim-airline/vim-airline'
-paq 'vim-airline/vim-airline-themes'
+paq 'hoob3rt/lualine.nvim'
+
+local lualine = require('lualine')
+lualine.extensions = { 'fzf' }
+lualine.theme = 'onedark'
+lualine.status()
+
+local function filepath()
+  local path = vim.fn.expand('%')
+  if vim.fn.winwidth(0) <= 84 then
+    path = vim.fn.pathshorten(path)
+  end
+  return path
+end
+lualine.sections.lualine_c = { filepath }
 
 -- Color schemes
 paq 'tomasr/molokai'
@@ -44,14 +57,22 @@ paq 'cormacrelf/vim-colors-github' -- Github colorscheme - great for diffs!
 paq 'ayu-theme/ayu-vim'
 paq 'yassinebridi/vim-purpura'
 paq 'skbolton/embark'
+paq 'dracula/vim'
 
 -- Async
 paq 'joonty/vim-do' -- Async shell commands
 paq 'tpope/vim-dispatch' -- Background tasks - should use this
 paq 'Shougo/vimproc.vim' -- Async execution - Do I need this?
 
--- Merging
+-- Telescope
+paq 'nvim-lua/popup.nvim'
+paq 'nvim-lua/plenary.nvim'
+paq 'nvim-telescope/telescope.nvim'
+
+-- Git
 paq 'samoshkin/vim-mergetool' -- Used with vim-colors-github for git merging/diffing
+paq 'pwntester/octo.nvim' -- issues and PRs
+--paq 'ttys3/nvim-blamer.lua'
 
 -- Motions
 paq 'easymotion/vim-easymotion' -- Vim motions - Need to use more
@@ -68,9 +89,10 @@ vim.api.nvim_set_var('jsdoc_lehre_path', 'lehre')
 
 -- Utils
 paq 'danro/rename.vim'
+paq 'karb94/neoscroll.nvim' -- Smooth scrolling
 
 -- Syntax --
-paq 'nvim-treesitter/nvim-treesitter'
+paq {'nvim-treesitter/nvim-treesitter', branch='0.18.0'}
 
 -- """""""""""""" VIM """"""""""""""""
 paq 'vim-jp/syntax-vim-ex' -- Vimscript
@@ -93,6 +115,9 @@ paq 'hail2u/vim-css3-syntax' -- CSS3
 paq 'kylef/apiblueprint.vim' -- API Blueprint
 paq 'cespare/vim-toml' -- toml
 paq 'keith/swift.vim' -- Swift
+paq 'farmergreg/vim-lastplace' -- Remember last edit position
+paq 'vuciv/vim-bujo' -- Bullet journal
+
 paq 'sheerun/vim-polyglot'
 
 vim.api.nvim_exec([[
@@ -102,11 +127,18 @@ vim.api.nvim_exec([[
 -- Completion --
 paq 'neovim/nvim-lspconfig'
 paq 'junegunn/fzf' -- Fuzzy find files
+paq 'junegunn/fzf.vim'
+paq 'ojroques/nvim-lspfuzzy'
+paq 'kosayoda/nvim-lightbulb'
 
 paq 'yuki-ycino/fzf-preview.vim'
 
 paq 'bogado/file-line' -- Used in fzf-preview for opening a file to a specific line
 paq 'haorenW1025/completion-nvim'
+paq {'aca/completion-tabnine', run="./install.sh"}
 
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
+
+-- Indent --
+paq '2072/PHP-Indenting-for-VIm'

@@ -2,8 +2,7 @@ local vim = vim
 local nvim_lsp = require 'lspconfig'
 
 local function get_pass(key)
-    local handle = io.popen("pass show " .. key);
-    local result = handle:read("*l");
+    local handle = io.popen("pass show " .. key); local result = handle:read("*l");
     handle:close();
 
     return vim.trim(result);
@@ -39,6 +38,11 @@ nvim_lsp.cssls.setup({});
 
 nvim_lsp.jsonls.setup({});
 
+nvim_lsp.sourcekit.setup {
+  cmd = { 'sourcekit-lsp' },
+}
+
+require('lspfuzzy').setup {}
 
 vim.api.nvim_exec([[
 nnoremap <silent> ;dc <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -51,6 +55,7 @@ nnoremap <silent> ;rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> ;rf <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> ;p  <cmd>lua vim.lsp.buf.peek_definition()<CR>
 nnoremap <silent> ;f  <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> ;ca  <cmd>lua vim.lsp.buf.code_action()<CR>
 
 nnoremap <silent> <Leader>. <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> <Leader>, <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
@@ -64,4 +69,5 @@ autocmd BufEnter * lua require'completion'.on_attach()
 autocmd CursorHold  * silent! lua vim.lsp.buf.document_highlight()
 autocmd CursorHoldI * silent! lua vim.lsp.buf.document_highlight()
 autocmd CursorMoved * silent! lua vim.lsp.buf.clear_references()
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 ]], true)

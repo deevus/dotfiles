@@ -3,9 +3,12 @@
 " so that you can undo CTRL-U after inserting a line break.
 "inoremap <C-U> <C-G>u<C-U>
 
-nmap <C-p> :FzfPreviewProjectFiles <CR>
-nmap <Leader>p :FzfPreviewProjectFiles <CR>
-nmap <Leader>g :FzfPreviewProjectGrep <CR>
+"nmap <C-p> :FzfPreviewProjectFiles <CR>
+"nmap <Leader>p :FzfPreviewProjectFiles <CR>
+
+nmap <C-p> :Telescope find_files <CR>
+nmap <Leader>p :Telescope find_files<CR>
+nmap <Leader>g :Telescope live_grep<CR>
 nmap <Leader>s :FzfPreviewBufferTags <CR>
 nmap <Leader>b :FzfPreviewBuffers <CR>
 nmap <Leader>B :FzfPreviewAllBuffers <CR>
