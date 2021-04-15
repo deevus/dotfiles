@@ -30,11 +30,6 @@ paq 'mtth/scratch.vim' -- :Scratch pad
 -- Status line
 paq 'hoob3rt/lualine.nvim'
 
-local lualine = require('lualine')
-lualine.extensions = { 'fzf' }
-lualine.theme = 'onedark'
-lualine.status()
-
 local function filepath()
   local path = vim.fn.expand('%')
   if vim.fn.winwidth(0) <= 84 then
@@ -42,7 +37,14 @@ local function filepath()
   end
   return path
 end
-lualine.sections.lualine_c = { filepath }
+
+local lualine = require('lualine').setup{
+  extensions = { 'fzf' };
+  theme = 'onedark';
+  sections = {
+    lualine_c = { filepath }
+  }
+}
 
 -- Color schemes
 paq 'tomasr/molokai'
@@ -92,7 +94,7 @@ paq 'danro/rename.vim'
 paq 'karb94/neoscroll.nvim' -- Smooth scrolling
 
 -- Syntax --
-paq {'nvim-treesitter/nvim-treesitter', branch='0.18.0'}
+paq {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
 
 -- """""""""""""" VIM """"""""""""""""
 paq 'vim-jp/syntax-vim-ex' -- Vimscript
