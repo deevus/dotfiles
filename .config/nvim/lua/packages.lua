@@ -29,22 +29,20 @@ paq 'mtth/scratch.vim' -- :Scratch pad
 
 -- Status line
 paq 'hoob3rt/lualine.nvim'
+paq 'kyazdani42/nvim-web-devicons'
+paq 'ryanoasis/vim-devicons'
 
-local function filepath()
-  local path = vim.fn.expand('%')
-  if vim.fn.winwidth(0) <= 84 then
-    path = vim.fn.pathshorten(path)
-  end
-  return path
-end
+local lualine = require 'lualine'
 
-local lualine = require('lualine').setup{
-  extensions = { 'fzf' };
-  theme = 'onedark';
-  sections = {
-    lualine_c = { filepath }
-  }
-}
+--if lualine then
+  --lualine.setup{
+    --extensions = { 'fzf' };
+    --theme = 'onedark';
+    --sections = {
+      --lualine_c = { 'filename', full_path = true }
+    --}
+  --}
+--end
 
 -- Color schemes
 paq 'tomasr/molokai'
@@ -102,10 +100,16 @@ paq 'vim-jp/syntax-vim-ex' -- Vimscript
 -- """""""""""""" PHP """"""""""""""""
 paq 'stanangeloff/php.vim' -- PHP
 paq 'jwalton512/vim-blade' -- PHP blade
+paq 'joonty/vdebug'
+vim.api.nvim_set_var('vdebug_options', { 
+  port = 9003; -- XDebug 3
+  path_maps = { ['/app'] = vim.fn.getcwd() };
+})
 
 -- """""""""""""" JS """"""""""""""""
 paq 'pangloss/vim-javascript'
 paq 'MaxMEllon/vim-jsx-pretty' -- JSX/React
+paq 'eliba2/vim-node-inspect' -- Node inspect
 
 -- """""""""""""" TS """"""""""""""""
 --paq 'leafgarland/typescript-vim' -- Typescript

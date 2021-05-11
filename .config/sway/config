@@ -62,7 +62,7 @@ bar {
 floating_modifier $mod
 
 # start a terminal
-set $term kitty
+set $term alacritty
 bindsym $mod+Return exec $term
 
 # kill focused window
