@@ -13,3 +13,4 @@ ramdisk/
 tags
 .config/nvim/plugged/
 auth.json
+.config/tmux/resurrect/
