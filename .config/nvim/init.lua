@@ -1,5 +1,3 @@
-local vim = vim;
-
 require 'packages'
 require 'lsp'
 
@@ -8,7 +6,7 @@ vim.o.number = true
 vim.o.background = 'dark'
 vim.o.laststatus = 2 -- always show statusbar
 vim.o.backup = true
-vim.o.t_Co = '256'
+vim.go.t_Co = '256'
 vim.o.hlsearch = true
 
 vim.o.expandtab = true

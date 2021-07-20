@@ -32,18 +32,6 @@ paq 'hoob3rt/lualine.nvim'
 paq 'kyazdani42/nvim-web-devicons'
 paq 'ryanoasis/vim-devicons'
 
-local lualine = require 'lualine'
-
---if lualine then
-  --lualine.setup{
-    --extensions = { 'fzf' };
-    --theme = 'onedark';
-    --sections = {
-      --lualine_c = { 'filename', full_path = true }
-    --}
-  --}
---end
-
 -- Color schemes
 paq 'tomasr/molokai'
 paq 'danilo-augusto/vim-afterglow'
@@ -148,3 +136,7 @@ vim.o.shortmess = vim.o.shortmess .. 'c'
 
 -- Indent --
 paq '2072/PHP-Indenting-for-VIm'
+
+-- Code review --
+paq 'junkblocker/patchreview-vim'
+paq 'codegram/vim-codereview'

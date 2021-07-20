@@ -30,7 +30,7 @@ nvim_lsp.intelephense.setup({
 
 nvim_lsp.sumneko_lua.setup({});
 
-nvim_lsp.pyls.setup({});
+nvim_lsp.pylsp.setup({});
 
 nvim_lsp.vimls.setup({});
 
