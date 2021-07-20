@@ -22,6 +22,10 @@ output eDP-1 scale_filter nearest
 output eDP-1 mode 2560x1440@60Hz
 output DP-5 mode 3840x2160@60Hz
 output DP-5 background $wallpaper fit
+output HEADLESS-1 {
+    mode 1596x1200
+    scale 1
+}
 
 set $mod Mod4
 # Home row direction keys, like vim
