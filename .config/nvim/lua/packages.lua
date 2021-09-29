@@ -44,8 +44,9 @@ paq 'dylanaraps/wal'
 paq 'cormacrelf/vim-colors-github' -- Github colorscheme - great for diffs!
 paq 'ayu-theme/ayu-vim'
 paq 'yassinebridi/vim-purpura'
-paq 'skbolton/embark'
+paq {'embark-theme/vim', as='embark'}
 paq 'dracula/vim'
+paq 'xiyaowong/nvim-transparent'
 
 -- Async
 paq 'joonty/vim-do' -- Async shell commands
@@ -81,6 +82,7 @@ paq 'karb94/neoscroll.nvim' -- Smooth scrolling
 
 -- Syntax --
 paq {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
+paq 'amadeus/vim-mjml'
 
 -- """""""""""""" VIM """"""""""""""""
 paq 'vim-jp/syntax-vim-ex' -- Vimscript
@@ -128,7 +130,7 @@ paq 'kosayoda/nvim-lightbulb'
 paq 'yuki-ycino/fzf-preview.vim'
 
 paq 'bogado/file-line' -- Used in fzf-preview for opening a file to a specific line
-paq 'haorenW1025/completion-nvim'
+paq 'nvim-lua/completion-nvim'
 paq {'aca/completion-tabnine', run="./install.sh"}
 
 vim.o.completeopt = 'menuone,noinsert,noselect'

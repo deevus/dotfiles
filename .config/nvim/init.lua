@@ -51,3 +51,4 @@ vim.o.secure = true
 
 require 'syntax'
 require '_telescope'
+require 'theme'
