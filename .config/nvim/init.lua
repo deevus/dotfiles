@@ -13,6 +13,9 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 
+-- disable powerline as it is not working with neovim 0.5
+vim.g.powerline_loaded = 1
+
 if (vim.api.nvim_eval('has("multi_byte")')) then
   vim.o.encoding = 'utf-8'
   vim.g.fileencoding = 'utf-8'

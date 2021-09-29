@@ -24,7 +24,6 @@ paq 'editorconfig/editorconfig-vim' -- Editorconfig - Text editor config. Eg. in
 paq 'mhinz/vim-startify' -- Start page for vim
 vim.api.nvim_set_var('startify_change_to_dir', false)
 
-paq 'godlygeek/tabular' -- Aligning text - really useful - :Tabu/=
 paq 'mtth/scratch.vim' -- :Scratch pad
 
 -- Status line
@@ -33,18 +32,18 @@ paq 'kyazdani42/nvim-web-devicons'
 paq 'ryanoasis/vim-devicons'
 
 -- Color schemes
-paq 'tomasr/molokai'
-paq 'danilo-augusto/vim-afterglow'
-paq 'tomasiser/vim-code-dark'
-paq 'mhinz/vim-janah'
-paq 'liuchengxu/space-vim-dark'
-paq 'altercation/vim-colors-solarized'
-paq 'morhetz/gruvbox'
-paq 'dylanaraps/wal'
+-- paq 'tomasr/molokai'
+-- paq 'danilo-augusto/vim-afterglow'
+-- paq 'tomasiser/vim-code-dark'
+-- paq 'mhinz/vim-janah'
+-- paq 'liuchengxu/space-vim-dark'
+-- paq 'altercation/vim-colors-solarized'
+-- paq 'morhetz/gruvbox'
+-- paq 'dylanaraps/wal'
 paq 'cormacrelf/vim-colors-github' -- Github colorscheme - great for diffs!
-paq 'ayu-theme/ayu-vim'
-paq 'yassinebridi/vim-purpura'
-paq {'embark-theme/vim', as='embark'}
+-- paq 'ayu-theme/ayu-vim'
+-- paq 'yassinebridi/vim-purpura'
+-- paq {'embark-theme/vim', as='embark'}
 paq 'dracula/vim'
 paq 'xiyaowong/nvim-transparent'
 
@@ -132,9 +131,6 @@ paq 'yuki-ycino/fzf-preview.vim'
 paq 'bogado/file-line' -- Used in fzf-preview for opening a file to a specific line
 paq 'nvim-lua/completion-nvim'
 paq {'aca/completion-tabnine', run="./install.sh"}
-
-vim.o.completeopt = 'menuone,noinsert,noselect'
-vim.o.shortmess = vim.o.shortmess .. 'c'
 
 -- Indent --
 paq '2072/PHP-Indenting-for-VIm'

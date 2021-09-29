@@ -10,7 +10,7 @@ nmap <C-p> :Telescope find_files <CR>
 nmap <Leader>p :Telescope find_files<CR>
 nmap <Leader>g :Telescope live_grep<CR>
 nmap <Leader>s :FzfPreviewBufferTags <CR>
-nmap <Leader>b :FzfPreviewBuffers <CR>
+nmap <Leader>b :Telescope buffers <CR>
 nmap <Leader>B :FzfPreviewAllBuffers <CR>
 nmap <Leader>l :FzfPreviewLines <CR>
 nmap <Leader>R :FzfPreviewProjectMruFiles <CR>

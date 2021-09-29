@@ -36,9 +36,20 @@ local on_attach = function(client, buffer)
     autocmd CursorHoldI * silent! lua vim.lsp.buf.document_highlight()
     autocmd CursorMoved * silent! lua vim.lsp.buf.clear_references()
     autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+
+    " Use <Tab> and <S-Tab> to navigate through popup menu
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+    " Set completeopt to have a better completion experience
+    set completeopt=menuone,noinsert,noselect
+
+    " Avoid showing message extra message when using completion
+    set shortmess+=c
   ]], false)
 
-  require'completion'.on_attach()
+
+  require'completion'.on_attach {}
 end
 
 local function get_pass(key)
@@ -75,6 +86,10 @@ local server_opts = {
 
   sourcekit = {
     cmd = { 'sourcekit-lsp' },
+  },
+
+  sumneko_lua = {
+    cmd = { 'lua-language-server' },
   },
 }
 
