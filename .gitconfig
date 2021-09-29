@@ -25,6 +25,7 @@
 	rf = !git fetch --tags --force && git flow release finish
 	hf = !git fetch --tags --force && git flow hotfix finish
   fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+	npr = pull-request -F .github/PULL_REQUEST_TEMPLATE/pull_request_template.md -e -a deevus -l \"Status: Review Needed\" -b develop
 
 [merge]
 	tool = nvim

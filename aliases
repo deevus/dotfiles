@@ -16,3 +16,9 @@ alias pt="pt --global-gitignore --ignore=tags"
 alias vim="nvim"
 
 alias xclip="xclip -selection clipboard"
+
+# Git aliases
+alias gch="git diff --name-only --cached --diff-filter=MRA"
+
+# Helpers
+alias pcsf="php-cs-fixer fix --config .php-cs-fixer.dist.php \$(gch | grep '\.php\$') --verbose"
