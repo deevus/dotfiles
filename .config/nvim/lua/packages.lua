@@ -131,6 +131,16 @@ paq 'yuki-ycino/fzf-preview.vim'
 paq 'bogado/file-line' -- Used in fzf-preview for opening a file to a specific line
 paq 'nvim-lua/completion-nvim'
 paq {'aca/completion-tabnine', run="./install.sh"}
+paq 'nvim-treesitter/completion-treesitter'
+paq 'steelsojka/completion-buffers'
+
+vim.api.nvim_set_var('completion_chain_complete_list', {
+  default = {
+    { complete_items = { 'lsp', 'tabnine' } },
+    { complete_items = { 'buffers' } },
+    { complete_items = { 'ts' } },
+  }
+})
 
 -- Indent --
 paq '2072/PHP-Indenting-for-VIm'
