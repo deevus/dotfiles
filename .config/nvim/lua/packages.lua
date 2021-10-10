@@ -1,139 +1,123 @@
 local vim = vim;
 local util = require 'util'
 
-if (not util.path.exists('~/.local/share/nvim/site/pack/paqs')) then
-  local cmd = io.popen('sh', 'w')
+local fn = vim.fn
 
-  local script = ([[
-    git clone https://github.com/savq/paq-nvim.git ~/.local/share/nvim/site/pack/paqs/start/paq-nvim
-  ]])
+local install_path = fn.stdpath('data') .. '/site/pack/paqs/start/paq-nvim'
 
-  cmd:write(script)
-  cmd:close()
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', '--depth=1', 'https://github.com/savq/paq-nvim.git', install_path})
 end
 
-local paq = require 'paq-nvim'.paq
+require 'paq' {
+  'savq/paq-nvim';
 
-paq 'savq/paq-nvim'
+  'scrooloose/nerdcommenter'; -- Comments
+  'tpope/vim-surround'; -- Quoting/surrounding text eg. csw'
+  'xolox/vim-misc'; -- Autoload vim scripts for xolox plugins
+  'tpope/vim-fugitive'; -- Adds git command
+  'editorconfig/editorconfig-vim'; -- Editorconfig - Text editor config. Eg. indentation, tabs etc
+  'mhinz/vim-startify'; -- Start page for vim
 
-paq 'scrooloose/nerdcommenter' -- Comments
-paq 'tpope/vim-surround' -- Quoting/surrounding text eg. csw'
-paq 'xolox/vim-misc' -- Autoload vim scripts for xolox plugins
-paq 'tpope/vim-fugitive' -- Adds git command
-paq 'editorconfig/editorconfig-vim' -- Editorconfig - Text editor config. Eg. indentation, tabs etc
-paq 'mhinz/vim-startify' -- Start page for vim
-vim.api.nvim_set_var('startify_change_to_dir', false)
+  'mtth/scratch.vim'; -- :Scratch pad
 
-paq 'mtth/scratch.vim' -- :Scratch pad
+  -- Status line
+  'hoob3rt/lualine.nvim';
+  'kyazdani42/nvim-web-devicons';
+  'ryanoasis/vim-devicons';
 
--- Status line
-paq 'hoob3rt/lualine.nvim'
-paq 'kyazdani42/nvim-web-devicons'
-paq 'ryanoasis/vim-devicons'
+  -- Color schemes
+  'cormacrelf/vim-colors-github'; -- Github colorscheme - great for diffs!
+  'dracula/vim';
+  'xiyaowong/nvim-transparent';
 
--- Color schemes
--- paq 'tomasr/molokai'
--- paq 'danilo-augusto/vim-afterglow'
--- paq 'tomasiser/vim-code-dark'
--- paq 'mhinz/vim-janah'
--- paq 'liuchengxu/space-vim-dark'
--- paq 'altercation/vim-colors-solarized'
--- paq 'morhetz/gruvbox'
--- paq 'dylanaraps/wal'
-paq 'cormacrelf/vim-colors-github' -- Github colorscheme - great for diffs!
--- paq 'ayu-theme/ayu-vim'
--- paq 'yassinebridi/vim-purpura'
--- paq {'embark-theme/vim', as='embark'}
-paq 'dracula/vim'
-paq 'xiyaowong/nvim-transparent'
+  -- Async
+  'joonty/vim-do'; -- Async shell commands
+  'tpope/vim-dispatch'; -- Background tasks - should use this
+  'Shougo/vimproc.vim'; -- Async execution - Do I need this?
 
--- Async
-paq 'joonty/vim-do' -- Async shell commands
-paq 'tpope/vim-dispatch' -- Background tasks - should use this
-paq 'Shougo/vimproc.vim' -- Async execution - Do I need this?
+  -- Telescope
+  'nvim-lua/popup.nvim';
+  'nvim-lua/plenary.nvim';
+  'nvim-telescope/telescope.nvim';
 
--- Telescope
-paq 'nvim-lua/popup.nvim'
-paq 'nvim-lua/plenary.nvim'
-paq 'nvim-telescope/telescope.nvim'
+  -- Git
+  'samoshkin/vim-mergetool'; -- Used with vim-colors-github for git merging/diffing
+  'pwntester/octo.nvim'; -- issues and PRs
 
--- Git
-paq 'samoshkin/vim-mergetool' -- Used with vim-colors-github for git merging/diffing
-paq 'pwntester/octo.nvim' -- issues and PRs
---paq 'ttys3/nvim-blamer.lua'
+  -- Motions
+  'easymotion/vim-easymotion'; -- Vim motions - Need to use more
 
--- Motions
-paq 'easymotion/vim-easymotion' -- Vim motions - Need to use more
+  -- Config
+  'MarcWeber/vim-addon-local-vimrc'; -- Loads .vimrc in project directory
 
--- Config
-paq 'MarcWeber/vim-addon-local-vimrc' -- Loads .vimrc in project directory
+  -- Linting
+  'vsushkov/vim-phpcs'; -- PHP
 
--- Linting
-paq 'vsushkov/vim-phpcs' -- PHP
+  -- Docs
+  {'heavenshell/vim-jsdoc', branch='1.0.0'}; -- JSDoc
 
--- Docs
-paq {'heavenshell/vim-jsdoc', branch='1.0.0'} -- JSDoc
-vim.api.nvim_set_var('jsdoc_lehre_path', 'lehre')
+  -- Utils
+  'danro/rename.vim';
+  'karb94/neoscroll.nvim'; -- Smooth scrolling
 
--- Utils
-paq 'danro/rename.vim'
-paq 'karb94/neoscroll.nvim' -- Smooth scrolling
+  -- Syntax --
+  {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
+  'amadeus/vim-mjml';
 
--- Syntax --
-paq {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
-paq 'amadeus/vim-mjml'
+  -- """""""""""""" VIM """"""""""""""""
+  'vim-jp/syntax-vim-ex'; -- Vimscript
 
--- """""""""""""" VIM """"""""""""""""
-paq 'vim-jp/syntax-vim-ex' -- Vimscript
+  -- """""""""""""" PHP """"""""""""""""
+  'stanangeloff/php.vim'; -- PHP
+  'jwalton512/vim-blade'; -- PHP blade
+  'joonty/vdebug';
 
--- """""""""""""" PHP """"""""""""""""
-paq 'stanangeloff/php.vim' -- PHP
-paq 'jwalton512/vim-blade' -- PHP blade
-paq 'joonty/vdebug'
-vim.api.nvim_set_var('vdebug_options', { 
-  port = 9003; -- XDebug 3
-  path_maps = { ['/app'] = vim.fn.getcwd() };
-})
+  -- """""""""""""" JS """"""""""""""""
+  'pangloss/vim-javascript';
+  'MaxMEllon/vim-jsx-pretty'; -- JSX/React
+  'eliba2/vim-node-inspect'; -- Node inspect
 
--- """""""""""""" JS """"""""""""""""
-paq 'pangloss/vim-javascript'
-paq 'MaxMEllon/vim-jsx-pretty' -- JSX/React
-paq 'eliba2/vim-node-inspect' -- Node inspect
+  -- """""""""""""" OTHER """"""""""""""""
+  'PProvost/vim-ps1'; -- Powershell
+  'hail2u/vim-css3-syntax'; -- CSS3
+  'kylef/apiblueprint.vim'; -- API Blueprint
+  'cespare/vim-toml'; -- toml
+  'keith/swift.vim'; -- Swift
+  'farmergreg/vim-lastplace'; -- Remember last edit position
+  'vuciv/vim-bujo'; -- Bullet journal
 
--- """""""""""""" TS """"""""""""""""
---paq 'leafgarland/typescript-vim' -- Typescript
---paq 'jason0x43/vim-js-indent'
+  'sheerun/vim-polyglot';
 
--- """""""""""""" OTHER """"""""""""""""
-paq 'PProvost/vim-ps1' -- Powershell
-paq 'hail2u/vim-css3-syntax' -- CSS3
-paq 'kylef/apiblueprint.vim' -- API Blueprint
-paq 'cespare/vim-toml' -- toml
-paq 'keith/swift.vim' -- Swift
-paq 'farmergreg/vim-lastplace' -- Remember last edit position
-paq 'vuciv/vim-bujo' -- Bullet journal
+  -- Completion --
+  'neovim/nvim-lspconfig';
+  'junegunn/fzf'; -- Fuzzy find files
+  'junegunn/fzf.vim';
+  'ojroques/nvim-lspfuzzy';
+  'kosayoda/nvim-lightbulb';
 
-paq 'sheerun/vim-polyglot'
+  'yuki-ycino/fzf-preview.vim';
 
+  'bogado/file-line'; -- Used in fzf-preview for opening a file to a specific line
+  'nvim-lua/completion-nvim';
+  {'aca/completion-tabnine', run="./install.sh"};
+  'nvim-treesitter/completion-treesitter';
+  'steelsojka/completion-buffers';
+
+  -- Indent --
+  '2072/PHP-Indenting-for-VIm';
+
+  -- Code review --
+  'junkblocker/patchreview-vim';
+  'codegram/vim-codereview';
+}
+
+-- Set tsx files to TypeScript.tsx filetype for better syntax highlighting
 vim.api.nvim_exec([[
   autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 ]], true)
 
--- Completion --
-paq 'neovim/nvim-lspconfig'
-paq 'junegunn/fzf' -- Fuzzy find files
-paq 'junegunn/fzf.vim'
-paq 'ojroques/nvim-lspfuzzy'
-paq 'kosayoda/nvim-lightbulb'
-
-paq 'yuki-ycino/fzf-preview.vim'
-
-paq 'bogado/file-line' -- Used in fzf-preview for opening a file to a specific line
-paq 'nvim-lua/completion-nvim'
-paq {'aca/completion-tabnine', run="./install.sh"}
-paq 'nvim-treesitter/completion-treesitter'
-paq 'steelsojka/completion-buffers'
-
+-- Configuration for completion-nvim
 vim.api.nvim_set_var('completion_chain_complete_list', {
   default = {
     { complete_items = { 'lsp', 'tabnine' } },
@@ -142,9 +126,14 @@ vim.api.nvim_set_var('completion_chain_complete_list', {
   }
 })
 
--- Indent --
-paq '2072/PHP-Indenting-for-VIm'
+-- VDebug/XDebug configuration
+vim.api.nvim_set_var('vdebug_options', { 
+  port = 9003; -- XDebug 3
+  path_maps = { ['/app'] = vim.fn.getcwd() }; -- Can we generalise this?
+})
 
--- Code review --
-paq 'junkblocker/patchreview-vim'
-paq 'codegram/vim-codereview'
+-- JSDoc configuration
+vim.api.nvim_set_var('jsdoc_lehre_path', 'lehre')
+
+-- Startify configuration
+vim.api.nvim_set_var('startify_change_to_dir', false)
