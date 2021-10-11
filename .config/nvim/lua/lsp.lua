@@ -91,6 +91,10 @@ local server_opts = {
   sumneko_lua = {
     cmd = { 'lua-language-server' },
   },
+
+  cssls = {
+    cmd = { 'css-languageserver', '--stdio' },
+  },
 }
 
 for _, lsp in ipairs(servers) do
