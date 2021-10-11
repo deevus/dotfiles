@@ -55,7 +55,7 @@ require 'paq' {
   'vsushkov/vim-phpcs'; -- PHP
 
   -- Docs
-  {'heavenshell/vim-jsdoc', branch='1.0.0'}; -- JSDoc
+  'heavenshell/vim-jsdoc'; -- JSDoc
 
   -- Utils
   'danro/rename.vim';
