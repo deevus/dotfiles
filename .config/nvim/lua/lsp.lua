@@ -28,7 +28,6 @@ local on_attach = function(client, buffer)
   buf_set_keymap('n', '<Leader>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 
   vim.api.nvim_exec([[
-    "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     "autocmd CursorHold * silent! lua vim.lsp.buf.hover()
 
     autocmd CursorHold * silent! lua vim.lsp.util.show_line_diagnostics()
@@ -47,9 +46,6 @@ local on_attach = function(client, buffer)
     " Avoid showing message extra message when using completion
     set shortmess+=c
   ]], false)
-
-
-  require'completion'.on_attach {}
 end
 
 local function get_pass(key)
@@ -97,11 +93,15 @@ local server_opts = {
   },
 }
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 for _, lsp in ipairs(servers) do
   local opts = server_opts[lsp] or {}
 
   local default_opts = {
     on_attach = on_attach,
+
+    capabilities = capabilities,
 
     flags = {
       debounce_text_changes = 150,
@@ -112,3 +112,19 @@ for _, lsp in ipairs(servers) do
 
   nvim_lsp[lsp].setup(opts)
 end
+
+local cmp = require('cmp')
+
+cmp.setup({
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'cmp_tabnine' },
+    { name = 'buffer' },
+  },
+
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+  },
+})

@@ -96,14 +96,14 @@ require 'paq' {
   'junegunn/fzf.vim';
   'ojroques/nvim-lspfuzzy';
   'kosayoda/nvim-lightbulb';
-
   'yuki-ycino/fzf-preview.vim';
-
   'bogado/file-line'; -- Used in fzf-preview for opening a file to a specific line
-  'nvim-lua/completion-nvim';
-  {'aca/completion-tabnine', run="./install.sh"};
-  'nvim-treesitter/completion-treesitter';
-  'steelsojka/completion-buffers';
+
+  -- nvim-cmp
+  'hrsh7th/cmp-nvim-lsp';
+  'hrsh7th/cmp-buffer';
+  {'tzachar/cmp-tabnine', run='./install.sh'};
+  'hrsh7th/nvim-cmp';
 
   -- Indent --
   '2072/PHP-Indenting-for-VIm';
@@ -117,15 +117,6 @@ require 'paq' {
 vim.api.nvim_exec([[
   autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 ]], true)
-
--- Configuration for completion-nvim
-vim.api.nvim_set_var('completion_chain_complete_list', {
-  default = {
-    { complete_items = { 'lsp', 'tabnine' } },
-    { complete_items = { 'buffers' } },
-    { complete_items = { 'ts' } },
-  }
-})
 
 -- VDebug/XDebug configuration
 vim.api.nvim_set_var('vdebug_options', { 
