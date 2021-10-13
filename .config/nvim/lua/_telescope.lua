@@ -1,11 +1,9 @@
+local previewers = require('telescope.previewers');
+
 require('telescope').setup{
-    defaults = {
-        --vimgrep_arguments = {
-            --'pt',
-            --'--nocolor',
-            --'--smart-case',
-            --'--nogroup',
-            --'--column',
-        --}
+    previews = {
+      treesitter = false,
     },
 }
+
+require('telescope').load_extension('fzf')
