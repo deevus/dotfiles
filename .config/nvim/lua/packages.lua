@@ -98,11 +98,13 @@ require 'paq' {
   'kosayoda/nvim-lightbulb';
   'yuki-ycino/fzf-preview.vim';
   'bogado/file-line'; -- Used in fzf-preview for opening a file to a specific line
+  'L3MON4D3/LuaSnip';
 
   -- nvim-cmp
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-buffer';
   {'tzachar/cmp-tabnine', run='./install.sh'};
+  'saadparwaiz1/cmp_luasnip';
   'hrsh7th/nvim-cmp';
 
   -- Indent --
