@@ -1,7 +1,7 @@
 local vim = vim
 local nvim_lsp = require 'lspconfig'
 
-nvim_lsp['lspfuzzy'] = require('lspfuzzy')
+nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
 local on_attach = function(client, buffer)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

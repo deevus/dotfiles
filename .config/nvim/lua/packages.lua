@@ -51,6 +51,7 @@ require 'paq' {
 
   -- Config
   'MarcWeber/vim-addon-local-vimrc'; -- Loads .vimrc in project directory
+  'svermeulen/vimpeccable';
 
   -- Linting
   'vsushkov/vim-phpcs'; -- PHP
