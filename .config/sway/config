@@ -245,7 +245,6 @@ input * {
     xkb_options caps:hyper
 }
 
-exec systemctl --user start ydotool
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 exec lxpolkit
@@ -271,3 +270,4 @@ bindsym $mod+c exec env RUST_BACKTRACE=1 $swayr execute-swaymsg-command >> /tmp/
 bindsym $mod+Shift+c exec env RUST_BACKTRACE=1 $swayr execute-swayr-command >> /tmp/swayr.log 2>&1
 
 exec_always env RUST_BACKTRACE=1 $swayrd > /tmp/swayrd.log 2>&1
+exec_always systemctl --user start ydotool
