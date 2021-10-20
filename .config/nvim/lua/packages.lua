@@ -84,7 +84,7 @@ require 'paq' {
   'PProvost/vim-ps1'; -- Powershell
   'hail2u/vim-css3-syntax'; -- CSS3
   'kylef/apiblueprint.vim'; -- API Blueprint
-  'cespare/vim-toml'; -- toml
+  {'cespare/vim-toml', branch='main', as='toml'}; -- toml
   'keith/swift.vim'; -- Swift
   'farmergreg/vim-lastplace'; -- Remember last edit position
   'vuciv/vim-bujo'; -- Bullet journal
@@ -97,7 +97,7 @@ require 'paq' {
   'junegunn/fzf.vim';
   'ojroques/nvim-lspfuzzy';
   'kosayoda/nvim-lightbulb';
-  'yuki-ycino/fzf-preview.vim';
+  {'yuki-yano/fzf-preview.vim', branch='release/remote', run=':UpdateRemotePlugins', as='fzf-preview'};
   'bogado/file-line'; -- Used in fzf-preview for opening a file to a specific line
   'L3MON4D3/LuaSnip';
 
