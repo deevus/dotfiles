@@ -13,6 +13,6 @@ ts.setup {
   },
 
   indent = {
-    enable = true,
+    enable = false,
   },
 }

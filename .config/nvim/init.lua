@@ -52,6 +52,25 @@ vim.api.nvim_exec([[
 
 vim.o.secure = true
 
+-- save/load folds automatically
+vim.api.nvim_exec([[
+  augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave *.* silent! mkview
+    autocmd BufWinEnter *.* silent! loadview
+  augroup END
+]], true)
+
+-- undofile
+vim.api.nvim_exec([[
+  if !isdirectory($HOME."/.cache/nvim/undo")
+      call mkdir($HOME."/.cache/nvim/undo", "-p", 0700)
+  endif
+  set undodir=~/.cache/nvim/undo
+  set undofile
+]], true)
+
+
 require 'syntax'
 require '_telescope'
 require 'theme'

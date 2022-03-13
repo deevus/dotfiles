@@ -19,6 +19,7 @@ alias xclip="xclip -selection clipboard"
 
 # Git aliases
 alias gch="git diff --name-only --cached --diff-filter=MRA"
+alias gfb='git checkout $(git branch | fzf)'
 
 # Helpers
 alias pcsf="php-cs-fixer fix --config .php-cs-fixer.dist.php \$(gch | grep '\.php\$') --verbose"

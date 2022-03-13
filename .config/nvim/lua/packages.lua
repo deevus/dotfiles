@@ -45,9 +45,11 @@ require 'paq' {
   -- Git
   'samoshkin/vim-mergetool'; -- Used with vim-colors-github for git merging/diffing
   'pwntester/octo.nvim'; -- issues and PRs
+  'ruanyl/vim-gh-line'; -- open current line on GitHub
 
   -- Motions
-  'easymotion/vim-easymotion'; -- Vim motions - Need to use more
+  -- 'easymotion/vim-easymotion'; -- Vim motions - Need to use more
+  'ggandor/lightspeed.nvim';
 
   -- Config
   'MarcWeber/vim-addon-local-vimrc'; -- Loads .vimrc in project directory
@@ -62,6 +64,7 @@ require 'paq' {
   -- Utils
   'danro/rename.vim';
   'karb94/neoscroll.nvim'; -- Smooth scrolling
+  'chiedo/vim-case-convert'; -- Case conversion
 
   -- Syntax --
   {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};

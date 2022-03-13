@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Make sure ydotool is running
+systemctl --user is-active ydotool || systemctl --user start ydotool
+
 cd $HOME/.password-store
 PASSFILE=$(tree -Ffi | grep '.gpg' | sed 's/.gpg$//g' | sed 's/^..//' | fzf)
 

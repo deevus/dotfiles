@@ -55,7 +55,7 @@ local function get_pass(key)
     return vim.trim(result);
 end
 
-local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit'}
+local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit', 'eslint'}
 
 local server_opts = {
   intelephense = {
@@ -77,7 +77,7 @@ local server_opts = {
   },
 
   jsonls = {
-    cmd = { 'vscode-json-languageserver' },
+    cmd = { 'vscode-json-languageserver', '--stdio' },
   },
 
   sourcekit = {
@@ -90,6 +90,11 @@ local server_opts = {
 
   cssls = {
     cmd = { 'css-languageserver', '--stdio' },
+  },
+
+  eslint = {
+    cmd = { 'eslint-lsp', '--stdio' },
+    filetypes = nvim_lsp['tsserver'].filetypes,
   },
 }
 

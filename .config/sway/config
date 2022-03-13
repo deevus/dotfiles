@@ -39,16 +39,7 @@ set $right l
 font pango:Inconsolatas for Powerline 11
 
 bar {
-    id status_bar
-    position top
-    mode hide
-
-    colors {
-        background $color14
-
-        focused_workspace $foreground $background $color14
-        inactive_workspace $background $foreground $color1
-    }
+    swaybar_command waybar
 }
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left

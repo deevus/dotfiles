@@ -43,3 +43,5 @@
     cmd = icdiff \"$LOCAL\" \"$REMOTE\"
 [commit]
 	gpgsign = false
+[github]
+	accesstoken = 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
