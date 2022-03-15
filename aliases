@@ -1,6 +1,5 @@
 #!/bin/bash
 
-alias git="hub"
 alias pt="pt --global-gitignore --ignore=tags"
 
 alias dce="docker-compose exec"
