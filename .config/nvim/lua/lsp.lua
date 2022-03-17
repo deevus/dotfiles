@@ -1,31 +1,73 @@
 local vim = vim
+local vimp = require('vimp')
 local nvim_lsp = require 'lspconfig'
+local telescope = require 'telescope.builtin'
 
 nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
 local on_attach = function(client, buffer)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local opts = { noremap=true, silent=true }
+  vimp.add_buffer_maps(buffer, function()
+    vimp.nnoremap(';dc', function()
+      vim.lsp.buf.declaration()
+    end)
 
-  buf_set_keymap('n', ';dc', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', ';df', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', ';h',  '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', ';i', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', ';s', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', ';td', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', ';rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', ';rf', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', ';p', '<cmd>lua vim.lsp.buf.peek_definition()<CR>', opts)
-  buf_set_keymap('n', ';f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf_set_keymap('n', ';ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    vimp.nnoremap(';df', function()
+      vim.lsp.buf.definition()
+    end)
 
-  buf_set_keymap('n', '<Leader>.', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<Leader>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    vimp.nnoremap(';h', function()
+      vim.lsp.buf.hover()
+    end)
+
+    vimp.nnoremap(';i', function()
+      vim.lsp.buf.implementation()
+    end)
+
+    vimp.nnoremap(';s', function()
+      vim.lsp.buf.signature_help()
+    end)
+
+    vimp.nnoremap(';td', function()
+      vim.lsp.buf.type_definition()
+    end)
+
+    vimp.nnoremap(';rn', function()
+      vim.lsp.buf.rename()
+    end)
+
+    vimp.nnoremap(';rf', function()
+      vim.lsp.buf.references()
+    end)
+
+    vimp.nnoremap(';p', function()
+      vim.lsp.buf.peek_definition()
+    end)
+
+    vimp.nnoremap(';f', function()
+      vim.lsp.buf.formatting()
+    end)
+
+    vimp.nnoremap(';ca', function()
+      vim.lsp.buf.code_action()
+    end)
+
+    vimp.nnoremap('<leader>.', function()
+      vim.lsp.diagnostic.goto_next()
+    end)
+
+    vimp.nnoremap('<leader>,', function()
+      vim.lsp.diagnostic.goto_prev()
+    end)
+
+    vimp.nnoremap('<leader>s', function()
+      telescope.lsp_document_symbols()
+    end)
+  end)
 
   vim.api.nvim_exec([[
     "autocmd CursorHold * silent! lua vim.lsp.buf.hover()
