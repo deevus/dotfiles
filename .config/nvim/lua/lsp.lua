@@ -5,8 +5,8 @@ local telescope = require 'telescope.builtin'
 
 nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
-local on_attach = function(client, buffer)
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+local on_attach = function(_, buffer)
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(buffer, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
