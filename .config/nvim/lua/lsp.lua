@@ -97,7 +97,7 @@ local function get_pass(key)
     return vim.trim(result);
 end
 
-local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit', 'eslint'}
+local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit', 'eslint', 'zls'}
 
 local server_opts = {
   intelephense = {
