@@ -90,19 +90,12 @@ local on_attach = function(_, buffer)
   ]], false)
 end
 
-local function get_pass(key)
-    local handle = io.popen("pass show " .. key); local result = handle:read("*l");
-    handle:close();
-
-    return vim.trim(result);
-end
-
 local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit', 'eslint', 'zls'}
 
 local server_opts = {
   intelephense = {
     init_options = {
-      licenceKey = get_pass("Software/Intelephense");
+      licenceKey = os.getenv("INTELEPHENSE_KEY"),
       storagePath = os.getenv("HOME") .. "/.cache/intelephense";
     };
 
