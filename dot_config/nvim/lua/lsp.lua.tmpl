@@ -96,7 +96,7 @@ local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp
 local server_opts = {
   intelephense = {
     init_options = {
-      licenceKey = os.getenv("INTELEPHENSE_KEY"),
+      licenceKey = "{{ pass "Software/Intelephense" }}",
       storagePath = os.getenv("HOME") .. "/.cache/intelephense";
     };
 
