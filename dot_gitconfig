@@ -1,0 +1,47 @@
+[core]
+	editor = nvim
+	autocrlf = input
+	eol = native
+[user]
+    name = Simon Hartcher
+    email = simon@simonhartcher.com
+	signingkey = 6A6787B2
+[alias]
+# hub
+    pr = pull-request
+
+# git-flow
+    fs = flow feature start
+    bs = flow bugfix start
+    rs = flow release start
+    hs = flow hotfix start
+
+    fp = flow feature publish
+    bp = flow bugfix publish
+    rp = flow release publish
+    hp = flow hotfix publish
+
+	rf = !git fetch --tags --force && git flow release finish
+	hf = !git fetch --tags --force && git flow hotfix finish
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+	npr = pull-request -F .github/PULL_REQUEST_TEMPLATE/pull_request_template.md -e -a deevus -l \"Status: Review Needed\" -b develop
+
+[merge]
+	tool = nvim
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool]
+    prompt = false
+[diff]
+    tool = nvim
+    external = difft
+[difftool]
+    prompt = false
+[difftool "nvim"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[difftool "icdiff"]
+    cmd = icdiff \"$LOCAL\" \"$REMOTE\"
+[commit]
+	gpgsign = false
+[push]
+	autoSetupRemote = true

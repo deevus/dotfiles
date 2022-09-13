@@ -1,0 +1,195 @@
+local vimp = require('vimp')
+local nvim_lsp = require 'lspconfig'
+local telescope = require 'telescope.builtin'
+
+require('lua-dev').setup({})
+
+nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
+
+local on_attach = function(_, buffer)
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(buffer, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  vimp.add_buffer_maps(buffer, function()
+    vimp.nnoremap(';dc', function()
+      vim.lsp.buf.declaration()
+    end)
+
+    vimp.nnoremap(';df', function()
+      vim.lsp.buf.definition()
+    end)
+
+    vimp.nnoremap(';h', function()
+      vim.lsp.buf.hover()
+    end)
+
+    vimp.nnoremap(';i', function()
+      vim.lsp.buf.implementation()
+    end)
+
+    vimp.nnoremap(';s', function()
+      vim.lsp.buf.signature_help()
+    end)
+
+    vimp.nnoremap(';td', function()
+      vim.lsp.buf.type_definition()
+    end)
+
+    vimp.nnoremap(';rn', function()
+      vim.lsp.buf.rename()
+    end)
+
+    vimp.nnoremap(';rf', function()
+      vim.lsp.buf.references()
+    end)
+
+    vimp.nnoremap(';p', function()
+      vim.lsp.buf.peek_definition()
+    end)
+
+    vimp.nnoremap(';f', function()
+      vim.lsp.buf.formatting()
+    end)
+
+    vimp.nnoremap(';ca', function()
+      vim.lsp.buf.code_action()
+    end)
+
+    vimp.nnoremap('<leader>.', function()
+      vim.lsp.diagnostic.goto_next()
+    end)
+
+    vimp.nnoremap('<leader>,', function()
+      vim.lsp.diagnostic.goto_prev()
+    end)
+
+    vimp.nnoremap('<leader>s', function()
+      telescope.lsp_document_symbols()
+    end)
+  end)
+
+  vim.api.nvim_exec([[
+    "autocmd CursorHold * silent! lua vim.lsp.buf.hover()
+
+    autocmd CursorHold * silent! lua vim.lsp.util.show_line_diagnostics()
+    autocmd CursorHold  * silent! lua vim.lsp.buf.document_highlight()
+    autocmd CursorHoldI * silent! lua vim.lsp.buf.document_highlight()
+    autocmd CursorMoved * silent! lua vim.lsp.buf.clear_references()
+    autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+
+    " Use <Tab> and <S-Tab> to navigate through popup menu
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+    " Set completeopt to have a better completion experience
+    set completeopt=menuone,noinsert,noselect
+
+    " Avoid showing message extra message when using completion
+    set shortmess+=c
+  ]], false)
+end
+
+local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit', 'eslint', 'zls'}
+
+local server_opts = {
+  intelephense = {
+    init_options = {
+      licenceKey = os.getenv("INTELEPHENSE_KEY"),
+      storagePath = os.getenv("HOME") .. "/.cache/intelephense";
+    };
+
+    settings = {
+      intelephense = {
+        files = {
+          maxSize = 5000000;
+        };
+        diagnostics = {
+          undefinedTypes = false;
+        };
+      };
+    };
+  },
+
+  jsonls = {
+    cmd = { 'vscode-json-languageserver', '--stdio' },
+  },
+
+  sourcekit = {
+    cmd = { 'sourcekit-lsp' },
+  },
+
+  sumneko_lua = {
+    cmd = { 'lua-language-server' },
+  },
+
+  cssls = {
+    cmd = { 'css-languageserver', '--stdio' },
+  },
+
+  eslint = {
+    cmd = { 'eslint-lsp', '--stdio' },
+    filetypes = nvim_lsp['tsserver'].filetypes,
+  },
+}
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+for _, lsp in ipairs(servers) do
+  local opts = server_opts[lsp] or {}
+
+  local default_opts = {
+    on_attach = on_attach,
+
+    capabilities = capabilities,
+
+    flags = {
+      debounce_text_changes = 150,
+    },
+  }
+
+  for k,v in pairs(default_opts) do opts[k] = v end
+
+  nvim_lsp[lsp].setup(opts)
+end
+
+local luasnip = require 'luasnip'
+local cmp = require 'cmp'
+
+cmp.setup({
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'cmp_tabnine' },
+    { name = 'buffer' },
+    { name = 'luasnip' },
+  },
+
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      else
+        fallback()
+      end
+    end,
+  },
+
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end
+  },
+})
