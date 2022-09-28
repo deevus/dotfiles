@@ -126,6 +126,9 @@ arm() {
   arch -x86_64 $@
 }
 
+# Password Store 
+PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
 # Git configuration
 export GITHUB_TOKEN={{ pass "Tokens/GitHub" }}
 export GIT_CONFIG_COUNT=2
