@@ -138,7 +138,7 @@ local server_opts = {
   },
 }
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 for _, lsp in ipairs(servers) do
   local opts = server_opts[lsp] or {}
