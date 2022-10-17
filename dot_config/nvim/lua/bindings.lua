@@ -1,11 +1,15 @@
-local vim = vim
 local vimp = require('vimp')
 local opts = { silent=true }
 
 local telescope = require 'telescope.builtin'
+local projects = require 'telescope'.extensions.projects
 
 vimp.nnoremap(opts, '<C-p>', function() 
   telescope.find_files()
+end)
+
+vimp.nnoremap(opts, '<C-o>', function() 
+  projects.find_project_files()
 end)
 
 vimp.nnoremap(opts, '<leader>p', function() 

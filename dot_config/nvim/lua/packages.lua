@@ -1,5 +1,4 @@
 local vim = vim;
-local util = require 'util'
 
 local fn = vim.fn
 
@@ -119,6 +118,15 @@ require 'paq' {
   -- Code review --
   'junkblocker/patchreview-vim';
   'codegram/vim-codereview';
+
+  -- Project Management --
+  'ahmedkhalf/project.nvim';
+}
+
+require("project_nvim").setup {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
 }
 
 -- Set tsx files to TypeScript.tsx filetype for better syntax highlighting

@@ -103,8 +103,12 @@
    "alacritty"
 ]
 
+# pass integration
+cmd + shift - p : /usr/local/bin/kitty --class fzf-pass -e sh -c ~/.local/bin/fzf-pass
+
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : /opt/homebrew/bin/alacritty
+#cmd - return : /opt/homebrew/bin/alacritty
+cmd - return : /usr/local/bin/kitty
 
 # open qutebrowser
 cmd + shift - return : ~/Scripts/qtb.sh
@@ -228,7 +232,8 @@ alt - x : chunkc tiling::desktop --mirror horizontal
 alt - a : chunkc tiling::desktop --toggle offset
 
 # toggle window fullscreen
-alt - f : chunkc tiling::window --toggle fullscreen
+# options: zoom-parent, zoom-fullscreen, native-fullscreen
+alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window native fullscreen
 shift + alt - f : chunkc tiling::window --toggle native-fullscreen

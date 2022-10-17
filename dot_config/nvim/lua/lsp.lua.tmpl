@@ -2,7 +2,7 @@ local vimp = require('vimp')
 local nvim_lsp = require 'lspconfig'
 local telescope = require 'telescope.builtin'
 
-require('lua-dev').setup({})
+require('neodev').setup({})
 
 nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
@@ -91,7 +91,7 @@ local on_attach = function(_, buffer)
   ]], false)
 end
 
-local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit', 'eslint', 'zls'}
+local servers = {'tsserver', 'sumneko_lua', 'vimls', 'cssls', 'lspfuzzy', 'pylsp', 'intelephense', 'jsonls', 'sourcekit', 'eslint', 'zls', 'gdscript'}
 
 local server_opts = {
   intelephense = {
@@ -132,9 +132,13 @@ local server_opts = {
     cmd = { 'eslint-lsp', '--stdio' },
     filetypes = nvim_lsp['tsserver'].filetypes,
   },
+
+  gdscript = {
+    flags = { debounce_text_changes = 150 },
+  },
 }
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities
 
 for _, lsp in ipairs(servers) do
   local opts = server_opts[lsp] or {}

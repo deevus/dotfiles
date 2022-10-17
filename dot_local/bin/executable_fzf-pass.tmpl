@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+cd $HOME/.password-store
+PASSFILE=$(tree -Ffi | grep '.gpg' | sed 's/.gpg$//g' | sed 's/^..//' | fzf)
+
+if [ -z "$PASSFILE" ]; then
+	exit 0
+fi
+
+PASSDATA="$(pass $PASSFILE)"
+USRNAME="$(echo "$PASSDATA" | egrep -i "username:|user:" | head -1 | cut -d' ' -f2-)"
+PASS="$(echo "$PASSDATA" | head -n 1)"
+URL="$(echo $PASSDATA | grep url: | cut -d' ' -f2-)"
+
+RESP=$(cat <<EOF | fzf
+Autotype
+Username
+Password
+OTP
+URL
+EOF
+);
+
+{{ if eq .chezmoi.os "darwin" }}
+yabai -m window --focus recent
+
+case "$RESP" in
+	Autotype)
+		skhd -t "$USRNAME" && skhd -k tab && skhd -t "$PASS" && skhd -k enter
+		;;
+	Username)
+		skhd -t "$USRNAME"
+		;;
+	Password)
+		skhd -t "$PASS"
+		;;
+	OTP)
+		skhd -t "$(pass otp $PASSFILE)"
+		;;
+	URL)
+		skhd -t "$URL"
+		;;
+	*)
+		exit 1
+esac
+{{ else }}
+swaymsg move container to workspace 9
+
+case "$RESP" in
+	Autotype)
+		ydotool type "$USRNAME" && ydotool key Tab && ydotool type "$PASS" && ydotool key Enter
+		;;
+	Username)
+		ydotool type "$USRNAME"
+		;;
+	Password)
+		ydotool type "$PASS"
+		;;
+	OTP)
+		ydotool type "$(pass otp $PASSFILE)"
+		;;
+	URL)
+		ydotool type "$URL"
+		;;
+	*)
+		exit 1
+esac
+{{ end }}
