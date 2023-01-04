@@ -1,0 +1,31 @@
+{
+    "laravel_log": {
+        "title": "Laravel log format",
+        "description": "Log format used by Laravel)",
+        "url": "https://laravel.com/",
+        "regex": {
+            "laravel": {
+                "pattern": "^\\[(?<timestamp>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] local\\.(?<level>.*)\\: \\[(?<supplier>.*)\\] (?<body>.*)$"
+            }
+        },
+        "value": {
+            "supplier": { "kind": "string", "identifier": true },
+            "body": { "kind": "string", "identifier": true }
+        },
+        "level-field": "level",
+        "level": {
+            "error": "ERROR",
+            "warning": "WARNING",
+            "info": "INFO",
+            "debug": "DEBUG"
+        },
+        "sample": [
+            { "line" : "[2019-12-26 09:11:07] local.INFO: [supplier] New file detected (checksum: abcdefghijklmnopqrstuvwxyz)" },
+            { "line" : "[2019-12-26 09:11:11] local.INFO: [supplier] Start running import (#queue: 123456, checksum: abcdefghijklmnopqrstuvwxyz)" },
+            { "line" : "[2019-12-26 09:11:35] local.INFO: [supplier] Get file (main) in 1.219 sec." },
+            { "line" : "[2019-12-26 09:12:00] local.DEBUG: [supplier] Import file (main, 53254 lines) in 15.46 sec." },
+            { "line" : "[2019-12-26 09:12:01] local.WARNING: [supplier] [collection/getData] 0.7951" },
+            { "line" : "[2019-12-26 09:12:05] local.ERROR: [supplier] Import aborted, error in file." }
+        ]
+    }
+}
