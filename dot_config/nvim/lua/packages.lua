@@ -68,6 +68,7 @@ require 'paq' {
   -- Syntax --
   {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
   'amadeus/vim-mjml';
+  'quabug/vim-gdscript';
 
   -- """""""""""""" VIM """"""""""""""""
   'vim-jp/syntax-vim-ex'; -- Vimscript
