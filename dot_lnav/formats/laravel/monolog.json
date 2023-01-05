@@ -1,0 +1,50 @@
+{
+  "$schema": "https://lnav.org/schemas/format-v1.schema.json",
+  "monolog": {
+    "title": "Monolog log file",
+    "description": "Monolog log format",
+    "json": true,
+    "level-field" : "level_name",
+    "timestamp-field": "datetime",
+    "value": {
+      "context": {
+        "kind": "json"
+      },
+      "level": {
+        "kind": "integer"
+      },
+      "message": {
+        "kind": "string"
+      },
+      "extra": {
+        "kind": "json",
+        "hidden": true
+      }
+    },
+    "line-format": [
+      {
+        "field": "__timestamp__"
+      },
+      " ",
+      {
+        "field": "__level__",
+        "min-width": 6
+      },
+      " ",
+      {
+        "field": "message"
+      }
+    ],
+    "level" : {
+        "error" : "ERROR",
+        "debug" : "DEBUG",
+        "info" : "INFO",
+        "warning" : "WARNING"
+    },
+    "sample": [
+      {
+        "line": "{\"message\":\"Sync Customer With Stripe::\",\"context\":{\"team\":\"d6cebe1a-6521-4bc1-8e3e-445277bea36d\"},\"level\":200,\"level_name\":\"INFO\",\"channel\":\"local\",\"datetime\":\"2023-01-04T23:33:53.931711+00:00\",\"extra\":{}}"
+      }
+    ]
+  }
+}
