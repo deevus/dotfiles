@@ -105,6 +105,7 @@ require 'paq' {
   'bogado/file-line'; -- Used in fzf-preview for opening a file to a specific line
   'L3MON4D3/LuaSnip';
   'folke/lua-dev.nvim';
+  'tikhomirov/vim-glsl';
 
   -- nvim-cmp
   'hrsh7th/cmp-nvim-lsp';
