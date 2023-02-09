@@ -136,6 +136,11 @@ local server_opts = {
   gdscript = {
     flags = { debounce_text_changes = 150 },
   },
+
+  glslls = {
+    cmd = { 'glslls', '--stdin' },
+    filetypes = { 'frag' },
+  },
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
