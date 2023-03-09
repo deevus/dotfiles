@@ -113,6 +113,7 @@ require 'paq' {
   {'tzachar/cmp-tabnine', run='./install.sh'};
   'saadparwaiz1/cmp_luasnip';
   'hrsh7th/nvim-cmp';
+  'MunifTanjim/nui.nvim';
   'dpayne/CodeGPT.nvim';
 
   -- Indent --
