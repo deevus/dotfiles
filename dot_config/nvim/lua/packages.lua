@@ -106,6 +106,8 @@ require 'paq' {
   'L3MON4D3/LuaSnip';
   'folke/lua-dev.nvim';
   'tikhomirov/vim-glsl';
+  'stevearc/dressing.nvim';
+  'akinsho/flutter-tools.nvim';
 
   -- nvim-cmp
   'hrsh7th/cmp-nvim-lsp';
