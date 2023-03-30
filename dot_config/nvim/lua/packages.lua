@@ -107,7 +107,7 @@ require 'paq' {
   'folke/lua-dev.nvim';
   'tikhomirov/vim-glsl';
   'stevearc/dressing.nvim';
-  {'akinsho/flutter-tools.nvim', run=function() require("flutter-tools").setup {}; end};
+  'akinsho/flutter-tools.nvim';
 
   -- nvim-cmp
   'hrsh7th/cmp-nvim-lsp';
@@ -134,6 +134,8 @@ require("project_nvim").setup {
   -- or leave it empty to use the default settings
   -- refer to the configuration section below
 }
+
+require("flutter-tools").setup {};
 
 -- Set tsx files to TypeScript.tsx filetype for better syntax highlighting
 vim.api.nvim_exec([[
