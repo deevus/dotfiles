@@ -107,7 +107,7 @@ require 'paq' {
   'folke/lua-dev.nvim';
   'tikhomirov/vim-glsl';
   'stevearc/dressing.nvim';
-  'akinsho/flutter-tools.nvim';
+  {'akinsho/flutter-tools.nvim', run=function() require("flutter-tools").setup {}; end};
 
   -- nvim-cmp
   'hrsh7th/cmp-nvim-lsp';
