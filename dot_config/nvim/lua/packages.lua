@@ -110,6 +110,7 @@ require 'paq' {
   'akinsho/flutter-tools.nvim';
 
   -- nvim-cmp
+  'saecki/crates.nvim'; -- Cargo.toml crates completion
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-buffer';
   {'tzachar/cmp-tabnine', run='./install.sh'};
