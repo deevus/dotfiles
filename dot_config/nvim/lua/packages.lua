@@ -35,6 +35,8 @@ require 'paq' {
   'tpope/vim-dispatch'; -- Background tasks - should use this
   'Shougo/vimproc.vim'; -- Async execution - Do I need this?
 
+  'akinsho/toggleterm.nvim';
+
   -- Telescope
   'nvim-lua/popup.nvim';
   'nvim-lua/plenary.nvim';
