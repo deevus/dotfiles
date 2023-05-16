@@ -40,6 +40,7 @@ require 'paq' {
   'nvim-lua/plenary.nvim';
   'nvim-telescope/telescope.nvim';
   {'nvim-telescope/telescope-fzf-native.nvim', run='make'};
+  'EthanJWright/vs-tasks.nvim';
 
   -- Git
   'samoshkin/vim-mergetool'; -- Used with vim-colors-github for git merging/diffing
