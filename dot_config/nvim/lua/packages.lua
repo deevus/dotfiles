@@ -140,6 +140,7 @@ require("project_nvim").setup {
 }
 
 require("flutter-tools").setup {};
+require("toggleterm").setup {};
 
 -- Set tsx files to TypeScript.tsx filetype for better syntax highlighting
 vim.api.nvim_exec([[
