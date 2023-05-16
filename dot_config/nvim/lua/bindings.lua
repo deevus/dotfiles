@@ -2,7 +2,8 @@ local vimp = require('vimp')
 local opts = { silent=true }
 
 local telescope = require 'telescope.builtin'
-local projects = require 'telescope'.extensions.projects
+local extensions = require 'telescope'.extensions
+local projects = extensions.projects
 
 vimp.nnoremap(opts, '<C-p>', function() 
   telescope.find_files()
@@ -32,14 +33,14 @@ vimp.nnoremap(opts, '<leader>q', '<cmd>FzfPreviewQuickFix<cr>')
 vimp.nnoremap(opts, '<leader>r', '<cmd>set relativenumber!<cr>')
 
 vimp.nnoremap(opts, '<Leader>ta', function()
-  telescope.extensions.vstask.tasks()
+  extensions.vstask.tasks()
 end)
 vimp.nnoremap(opts, '<Leader>ti', function()
-  telescope.extensions.vstask.inputs()
+  extensions.vstask.inputs()
 end)
 vimp.nnoremap(opts, '<Leader>th', function()
-  telescope.extensions.vstask.history()
+  extensions.vstask.history()
 end)
 vimp.nnoremap(opts, '<Leader>tl', function()
-  telescope.extensions.vstask.launch()
+  extensions.vstask.launch()
 end)
