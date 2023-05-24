@@ -103,7 +103,8 @@ alias gs="git sync"
 
 export PATH="/usr/local/opt/node@14/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 
-. /usr/local/etc/profile.d/z.sh
+[ -f "/usr/local/etc/profile.d/z.sh" ] && source /usr/local/etc/profile.d/z.sh
+[ -f "/home/.linuxbrew/etc/profile.d/z.sh" ] && source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
 
 source ~/.aliases
 
@@ -155,4 +156,15 @@ export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 export PATH="$HOME/.deno/bin:$PATH"
 
 # Windmill 
-source <(wmill completions zsh)
+which wmill 2> /dev/null
+if [[ $? -eq 0 ]]
+then
+  source <(wmill completions zsh)
+fi
+
+if [[ -f "$HOME/.nvm/nvm.sh" ]]
+then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
