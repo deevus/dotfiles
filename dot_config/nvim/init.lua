@@ -71,7 +71,6 @@ vim.api.nvim_exec([[
 ]], true)
 
 
-require 'syntax'
 require '_telescope'
 require 'theme'
 require 'neovide'
