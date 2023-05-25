@@ -70,6 +70,7 @@ require 'paq' {
 
   -- Syntax --
   {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
+  'nvim-treesitter/nvim-treesitter-context';
   'amadeus/vim-mjml';
   'quabug/vim-gdscript';
 
@@ -95,6 +96,8 @@ require 'paq' {
   'keith/swift.vim'; -- Swift
   'farmergreg/vim-lastplace'; -- Remember last edit position
   'vuciv/vim-bujo'; -- Bullet journal
+  'mbbill/undotree';
+  'ThePrimeagen/harpoon';
 
   'sheerun/vim-polyglot';
 
