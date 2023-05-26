@@ -23,10 +23,7 @@ vim.api.nvim_exec([[
   augroup END
 ]], true)
 
-vim.api.nvim_exec([[
-  runtime _bindings.vim
-]], true)
-
+require 'bindings'
 require '_telescope'
 require 'theme'
 require 'neovide'
