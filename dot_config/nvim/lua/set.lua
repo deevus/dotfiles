@@ -27,14 +27,6 @@ end
 
 vim.o.termguicolors = true
 
--- TODO: move to colors.lua
-vim.cmd.colorscheme("dracula")
-
-if (vim.api.nvim_eval('&diff') > 0) then
-  vim.api.nvim_exec([[ colorscheme github ]], true)
-end
--- end
-
 vim.o.secure = true
 vim.o.compatible = false
 
