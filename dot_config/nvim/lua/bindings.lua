@@ -41,3 +41,20 @@ end)
 vim.keymap.set("n", '<Leader>tl', function()
   extensions.vstask.launch()
 end)
+
+-- Use <Tab> and <S-Tab> to navigate through popup menu
+vim.keymap.set("i", "<expr><Tab>", function()
+  if vim.fn.pumvisible() then
+    vim.cmd("<C-n>")
+  else
+    vim.cmd("<Tab>")
+  end
+end)
+
+vim.keymap.set("i", "<expr><S-Tab>", function()
+  if vim.fn.pumvisible() then
+    vim.cmd("<C-p>")
+  else
+    vim.cmd("<S-Tab>")
+  end
+end)
