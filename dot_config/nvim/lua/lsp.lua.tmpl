@@ -12,62 +12,60 @@ local on_attach = function(_, buffer)
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  vimp.add_buffer_maps(buffer, function()
-    vimp.nnoremap(';dc', function()
-      vim.lsp.buf.declaration()
-    end)
+  vim.keymap.set('n', ';dc', function()
+    vim.lsp.buf.declaration()
+  end)
 
-    vimp.nnoremap(';df', function()
-      vim.lsp.buf.definition()
-    end)
+  vim.keymap.set('n', ';df', function()
+    vim.lsp.buf.definition()
+  end)
 
-    vimp.nnoremap(';h', function()
-      vim.lsp.buf.hover()
-    end)
+  vim.keymap.set('n', ';h', function()
+    vim.lsp.buf.hover()
+  end)
 
-    vimp.nnoremap(';i', function()
-      vim.lsp.buf.implementation()
-    end)
+  vim.keymap.set('n', ';i', function()
+    vim.lsp.buf.implementation()
+  end)
 
-    vimp.nnoremap(';s', function()
-      vim.lsp.buf.signature_help()
-    end)
+  vim.keymap.set('n', ';s', function()
+    vim.lsp.buf.signature_help()
+  end)
 
-    vimp.nnoremap(';td', function()
-      vim.lsp.buf.type_definition()
-    end)
+  vim.keymap.set('n', ';td', function()
+    vim.lsp.buf.type_definition()
+  end)
 
-    vimp.nnoremap(';rn', function()
-      vim.lsp.buf.rename()
-    end)
+  vim.keymap.set('n', ';rn', function()
+    vim.lsp.buf.rename()
+  end)
 
-    vimp.nnoremap(';rf', function()
-      vim.lsp.buf.references()
-    end)
+  vim.keymap.set('n', ';rf', function()
+    vim.lsp.buf.references()
+  end)
 
-    vimp.nnoremap(';p', function()
-      vim.lsp.buf.peek_definition()
-    end)
+  vim.keymap.set('n', ';p', function()
+    vim.lsp.buf.peek_definition()
+  end)
 
-    vimp.nnoremap(';f', function()
-      vim.lsp.buf.formatting()
-    end)
+  vim.keymap.set('n', ';f', function()
+    vim.lsp.buf.formatting()
+  end)
 
-    vimp.nnoremap(';ca', function()
-      vim.lsp.buf.code_action()
-    end)
+  vim.keymap.set('n', ';ca', function()
+    vim.lsp.buf.code_action()
+  end)
 
-    vimp.nnoremap('<leader>.', function()
-      vim.lsp.diagnostic.goto_next()
-    end)
+  vim.keymap.set('n', '<leader>.', function()
+    vim.lsp.diagnostic.goto_next()
+  end)
 
-    vimp.nnoremap('<leader>,', function()
-      vim.lsp.diagnostic.goto_prev()
-    end)
+  vim.keymap.set('n', '<leader>,', function()
+    vim.lsp.diagnostic.goto_prev()
+  end)
 
-    vimp.nnoremap('<leader>s', function()
-      telescope.lsp_document_symbols()
-    end)
+  vim.keymap.set('n', '<leader>s', function()
+    telescope.lsp_document_symbols()
   end)
 
   vim.api.nvim_exec([[
@@ -137,6 +135,9 @@ local server_opts = {
 
   lua_ls = {
     cmd = { 'lua-language-server' },
+    default_workspace = {
+      checkThirdParty = false;
+    }
   },
 
   cssls = {
