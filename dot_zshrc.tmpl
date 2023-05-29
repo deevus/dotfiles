@@ -169,6 +169,6 @@ then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-[ -f ~/.zvm/bin/zvm ] && export PATH=$PATH:$HOME/.zvm/bin
+[ -d ~/.zvm/bin ] && export PATH="$HOME/.zvm/bin:$PATH"
 
 [ -f "/home/linuxbrew/.linuxbrew/etc/profile.d/z.sh" ] && source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
