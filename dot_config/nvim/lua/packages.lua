@@ -8,6 +8,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({'git', 'clone', '--depth=1', 'https://github.com/savq/paq-nvim.git', install_path})
 end
 
+-- Get platform dependant build script
+local function tabnine_build_path()
+  if vim.loop.os_uname().sysname == "Windows_NT" then
+    return "pwsh.exe -file .\\dl_binaries.ps1"
+  else
+    return "./dl_binaries.sh"
+  end
+end
+
 require 'paq' {
   'savq/paq-nvim';
 
@@ -114,6 +123,7 @@ require 'paq' {
   'tikhomirov/vim-glsl';
   'stevearc/dressing.nvim';
   'akinsho/flutter-tools.nvim';
+  {'codota/tabnine-nvim', run=tabnine_build_path()};
 
   -- nvim-cmp
   'saecki/crates.nvim'; -- Cargo.toml crates completion
