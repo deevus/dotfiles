@@ -25,6 +25,5 @@ vim.api.nvim_exec([[
 
 require 'bindings'
 require '_telescope'
-require 'theme'
 require 'neovide'
 require 'colors'
