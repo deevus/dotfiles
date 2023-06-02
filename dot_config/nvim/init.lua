@@ -4,11 +4,6 @@ require 'set'
 
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({"BufRead", "BufWritePre"}, {
-    pattern = {"*.sh"},
-    command = "normal gg=G"
-})
-
 autocmd({"filetype"}, {
     pattern = {"text"},
     command = "setlocal textwidth=78"
