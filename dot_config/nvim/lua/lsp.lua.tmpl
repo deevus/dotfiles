@@ -3,6 +3,7 @@ local nvim_lsp = require 'lspconfig'
 local telescope = require 'telescope.builtin'
 
 require('neodev').setup({})
+require("nvim-lsp-installer").setup({})
 
 nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
@@ -104,6 +105,7 @@ local servers = {
   'gdscript', 
   'dartls', 
   'rust_analyzer',
+  'jdtls',
 }
 
 local server_opts = {
