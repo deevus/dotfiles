@@ -128,6 +128,7 @@ require 'paq' {
   {'williamboman/mason.nvim', run=function ()
     vim.cmd(":MasonUpdate")
   end};
+  'williamboman/mason-lspconfig.nvim';
 
   -- nvim-cmp
   'saecki/crates.nvim'; -- Cargo.toml crates completion
