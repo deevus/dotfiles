@@ -2,6 +2,7 @@ local nvim_lsp = require 'lspconfig'
 local telescope = require 'telescope.builtin'
 
 require('neodev').setup({})
+require('mason').setup({})
 require('mason-lspconfig').setup({})
 
 nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
