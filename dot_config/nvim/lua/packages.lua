@@ -112,7 +112,6 @@ require 'paq' {
 
   -- Completion --
   'neovim/nvim-lspconfig';
-  'williamboman/nvim-lsp-installer';
   'junegunn/fzf'; -- Fuzzy find files
   'junegunn/fzf.vim';
   'ojroques/nvim-lspfuzzy';
@@ -126,6 +125,9 @@ require 'paq' {
   'akinsho/flutter-tools.nvim';
   {'codota/tabnine-nvim', run=tabnine_build_path()};
   'mfussenegger/nvim-jdtls';
+  {'williamboman/mason.nvim', run=function ()
+    vim.cmd(":MasonUpdate")
+  end};
 
   -- nvim-cmp
   'saecki/crates.nvim'; -- Cargo.toml crates completion
