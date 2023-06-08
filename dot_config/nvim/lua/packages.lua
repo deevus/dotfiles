@@ -129,7 +129,6 @@ require 'paq' {
     vim.cmd(":MasonUpdate")
   end};
   'williamboman/mason-lspconfig.nvim';
-  'jose-elias-alvarez/null-ls.nvim';
 
   -- nvim-cmp
   'saecki/crates.nvim'; -- Cargo.toml crates completion
@@ -151,6 +150,11 @@ require 'paq' {
 
   -- Project Management --
   'ahmedkhalf/project.nvim';
+
+  -- Null-ls --
+  'jose-elias-alvarez/null-ls.nvim';
+  'lewis6991/gitsigns.nvim';
+  'ThePrimeagen/refactoring.nvim';
 }
 
 require("project_nvim").setup {
