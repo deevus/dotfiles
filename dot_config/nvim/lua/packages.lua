@@ -129,6 +129,7 @@ require 'paq' {
     vim.cmd(":MasonUpdate")
   end};
   'williamboman/mason-lspconfig.nvim';
+  'jose-elias-alvarez/null-ls.nvim';
 
   -- nvim-cmp
   'saecki/crates.nvim'; -- Cargo.toml crates completion
@@ -139,6 +140,7 @@ require 'paq' {
   'hrsh7th/nvim-cmp';
   'MunifTanjim/nui.nvim';
   'dpayne/CodeGPT.nvim';
+  'folke/trouble.nvim';
 
   -- Indent --
   '2072/PHP-Indenting-for-VIm';
