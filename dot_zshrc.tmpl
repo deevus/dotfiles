@@ -174,3 +174,5 @@ fi
 [ -d ~/.zvm/bin ] && export PATH="$HOME/.zvm/bin:$PATH"
 
 [ -f "/home/linuxbrew/.linuxbrew/etc/profile.d/z.sh" ] && source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
+
+[ -f "$HOME/.cargo/bin/starship" ] && eval "$(starship init zsh)"
