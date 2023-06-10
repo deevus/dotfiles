@@ -13,6 +13,9 @@ null_ls.setup({
         null_ls.builtins.diagnostics.commitlint,
         null_ls.builtins.diagnostics.dotenv_linter,
         null_ls.builtins.diagnostics.editorconfig_checker,
+        null_ls.builtins.diagnostics.sqlfluff.with({
+            extra_args = { "--dialect", "postgres" }, -- change to your dialect
+        }),
 
         -- completion 
         null_ls.builtins.completion.spell,
