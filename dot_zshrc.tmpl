@@ -178,3 +178,4 @@ fi
 [ -f "$HOME/.cargo/bin/starship" ] && eval "$(starship init zsh)"
 [ -f "$HOME/.cargo/bin/rtx" ] && eval "$(rtx activate zsh)"
 [ -f "$HOME/.cargo/bin/exa" ] && alias ls=exa
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
