@@ -2,7 +2,7 @@
 	editor = nvim
 	autocrlf = input
 	eol = native
-    excludesFile = "~/.gitignore"
+    excludesFile = ~/.gitignore
 [user]
     name = Simon Hartcher
     email = simon@simonhartcher.com
