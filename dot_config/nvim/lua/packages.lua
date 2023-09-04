@@ -123,7 +123,7 @@ require 'paq' {
   'tikhomirov/vim-glsl';
   'stevearc/dressing.nvim';
   'akinsho/flutter-tools.nvim';
-  {'codota/tabnine-nvim', run=tabnine_build_path()};
+  --{'codota/tabnine-nvim', run=tabnine_build_path()};
   'mfussenegger/nvim-jdtls';
   {'williamboman/mason.nvim', run=function ()
     vim.cmd(":MasonUpdate")
@@ -134,12 +134,13 @@ require 'paq' {
   'saecki/crates.nvim'; -- Cargo.toml crates completion
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-buffer';
-  {'tzachar/cmp-tabnine', run='./install.sh'};
+  --{'tzachar/cmp-tabnine', run='./install.sh'};
   'saadparwaiz1/cmp_luasnip';
   'hrsh7th/nvim-cmp';
   'MunifTanjim/nui.nvim';
   'dpayne/CodeGPT.nvim';
   'folke/trouble.nvim';
+  'github/copilot.vim';
 
   -- Indent --
   '2072/PHP-Indenting-for-VIm';
