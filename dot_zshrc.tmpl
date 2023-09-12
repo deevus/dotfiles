@@ -117,7 +117,7 @@ export NVM_DIR="$HOME/.nvm"
 
 {{ if eq .chezmoi.os "darwin" }}
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$PATH:$ANDROID_HOME/tools:$HOME/Library/Android/sdk/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
 {{ end }}
 
 set -o vi
