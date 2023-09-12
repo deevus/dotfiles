@@ -182,3 +182,11 @@ fi
 [ -f "$HOME/.cargo/bin/rtx" ] && eval "$(rtx activate zsh)"
 [ -f "$HOME/.cargo/bin/eza" ] && alias ls=eza
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+# pnpm
+export PNPM_HOME="/Users/sh/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
