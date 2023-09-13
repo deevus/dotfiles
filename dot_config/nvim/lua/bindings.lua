@@ -58,3 +58,7 @@ vim.keymap.set("i", "<expr><S-Tab>", function()
     vim.cmd("<S-Tab>")
   end
 end)
+
+vim.keymap.set("n", '<leader>d', function()
+  vim.diagnostic.open_float()
+end)
