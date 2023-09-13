@@ -7,6 +7,7 @@ null_ls.setup({
     sources = {
         -- formatting
         null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.eslint_d,
 
         -- diagnostics 
         null_ls.builtins.diagnostics.eslint,
@@ -24,5 +25,6 @@ null_ls.setup({
 
         -- code actions
         null_ls.builtins.code_actions.gitsigns,
+        null_ls.builtins.code_actions.eslint,
     },
 })
