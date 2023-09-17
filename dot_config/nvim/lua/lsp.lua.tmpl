@@ -2,6 +2,8 @@ local nvim_lsp = require 'lspconfig'
 local telescope = require 'telescope.builtin'
 local lsp_zero = require 'lsp-zero'
 
+lsp_zero.preset('recommended')
+
 require('neodev').setup({})
 
 require('mason').setup({})
@@ -16,11 +18,6 @@ nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
 local on_attach = function(_, buffer)
   lsp_zero.default_keymaps({ buffer = buffer })
-
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(buffer, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   vim.keymap.set('n', ';dc', function()
     vim.lsp.buf.declaration()
