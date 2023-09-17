@@ -98,13 +98,13 @@ require 'paq' {
   'jparise/vim-graphql',      -- GraphQL
 
   -- """""""""""""" OTHER """"""""""""""""
-  'PProvost/vim-ps1',                                                    -- Powershell
-  'hail2u/vim-css3-syntax',                                              -- CSS3
-  'kylef/apiblueprint.vim',                                              -- API Blueprint
+  'PProvost/vim-ps1',                                                      -- Powershell
+  'hail2u/vim-css3-syntax',                                                -- CSS3
+  'kylef/apiblueprint.vim',                                                -- API Blueprint
   { 'cespare/vim-toml',          branch = 'main',           as = 'toml' }, -- toml
-  'keith/swift.vim',                                                     -- Swift
-  'farmergreg/vim-lastplace',                                            -- Remember last edit position
-  'vuciv/vim-bujo',                                                      -- Bullet journal
+  'keith/swift.vim',                                                       -- Swift
+  'farmergreg/vim-lastplace',                                              -- Remember last edit position
+  'vuciv/vim-bujo',                                                        -- Bullet journal
   'mbbill/undotree',
   'ThePrimeagen/harpoon',
 
@@ -134,7 +134,7 @@ require 'paq' {
   'williamboman/mason-lspconfig.nvim',
 
   -- nvim-cmp
-  'VonHeikemen/lsp-zero.nvim',
+  { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
   'saecki/crates.nvim', -- Cargo.toml crates completion
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
