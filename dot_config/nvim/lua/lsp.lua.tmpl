@@ -15,6 +15,8 @@ require('mason-lspconfig').setup({
 nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
 local on_attach = function(_, buffer)
+  lsp_zero.default_keymaps({ buffer = buffer })
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(buffer, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
@@ -96,24 +98,26 @@ local on_attach = function(_, buffer)
     set shortmess+=c
   ]], false)
 
-  vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-    vim.lsp.buf.format()
-  end, })
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+  })
 end
 
 local servers = {
-  'tsserver', 
-  'lua_ls', 
-  'vimls', 
-  'cssls', 
-  'lspfuzzy', 
-  'pylsp', 
-  'intelephense', 
-  'jsonls', 
-  'sourcekit', 
-  'zls', 
-  'gdscript', 
-  'dartls', 
+  'tsserver',
+  'lua_ls',
+  'vimls',
+  'cssls',
+  'lspfuzzy',
+  'pylsp',
+  'intelephense',
+  'jsonls',
+  'sourcekit',
+  'zls',
+  'gdscript',
+  'dartls',
   'rust_analyzer',
   'jdtls',
 }
@@ -121,20 +125,21 @@ local servers = {
 local server_opts = {
   intelephense = {
     init_options = {
-      licenceKey = "{{ pass "Software/Intelephense" }}",
-      storagePath = os.getenv("HOME") .. "/.cache/intelephense";
-    };
+      licenceKey = "{{ pass "
+      Software / Intelephense " }}",
+      storagePath = os.getenv("HOME") .. "/.cache/intelephense",
+    },
 
     settings = {
       intelephense = {
         files = {
-          maxSize = 5000000;
-        };
+          maxSize = 5000000,
+        },
         diagnostics = {
-          undefinedTypes = false;
-        };
-      };
-    };
+          undefinedTypes = false,
+        },
+      },
+    },
   },
 
   jsonls = {
@@ -148,7 +153,7 @@ local server_opts = {
   lua_ls = {
     cmd = { 'lua-language-server' },
     default_workspace = {
-      checkThirdParty = false;
+      checkThirdParty = false,
     }
   },
 
@@ -177,8 +182,6 @@ for _, lsp in ipairs(servers) do
   local opts = server_opts[lsp] or {}
 
   local default_opts = {
-    on_attach = on_attach,
-
     capabilities = capabilities,
 
     flags = {
@@ -186,10 +189,12 @@ for _, lsp in ipairs(servers) do
     },
   }
 
-  for k,v in pairs(default_opts) do opts[k] = v end
+  for k, v in pairs(default_opts) do opts[k] = v end
 
   nvim_lsp[lsp].setup(opts)
 end
+
+lsp_zero.on_attach(on_attach)
 
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
