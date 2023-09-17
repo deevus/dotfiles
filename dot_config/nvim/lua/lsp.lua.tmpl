@@ -149,12 +149,7 @@ local server_opts = {
     cmd = { 'sourcekit-lsp' },
   },
 
-  lua_ls = {
-    cmd = { 'lua-language-server' },
-    default_workspace = {
-      checkThirdParty = false,
-    }
-  },
+  lua_ls = lsp_zero.nvim_lua_ls(),
 
   cssls = {
     cmd = { 'css-languageserver', '--stdio' },
