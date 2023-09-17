@@ -1,9 +1,16 @@
 local nvim_lsp = require 'lspconfig'
 local telescope = require 'telescope.builtin'
+local lsp_zero = require 'lsp-zero'
 
 require('neodev').setup({})
+
 require('mason').setup({})
-require('mason-lspconfig').setup({})
+
+require('mason-lspconfig').setup({
+  handlers = {
+    lsp_zero.default_setup,
+  }
+})
 
 nvim_lsp['lspfuzzy'] = require 'lspfuzzy'
 
@@ -186,6 +193,7 @@ end
 
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
+local cmp_format = lsp_zero.cmp_format()
 
 cmp.setup({
   sources = {
@@ -223,4 +231,6 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end
   },
+
+  formatting = cmp_format,
 })
