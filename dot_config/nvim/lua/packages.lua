@@ -5,7 +5,7 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/paqs/start/paq-nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', '--depth=1', 'https://github.com/savq/paq-nvim.git', install_path})
+  fn.system({ 'git', 'clone', '--depth=1', 'https://github.com/savq/paq-nvim.git', install_path })
 end
 
 -- Get platform dependant build script
@@ -18,144 +18,150 @@ local function tabnine_build_path()
 end
 
 require 'paq' {
-  'savq/paq-nvim';
+  'savq/paq-nvim',
 
-  'scrooloose/nerdcommenter'; -- Comments
-  'tpope/vim-surround'; -- Quoting/surrounding text eg. csw'
-  'xolox/vim-misc'; -- Autoload vim scripts for xolox plugins
-  'tpope/vim-fugitive'; -- Adds git command
-  'editorconfig/editorconfig-vim'; -- Editorconfig - Text editor config. Eg. indentation, tabs etc
-  'mhinz/vim-startify'; -- Start page for vim
+  'scrooloose/nerdcommenter',      -- Comments
+  'tpope/vim-surround',            -- Quoting/surrounding text eg. csw'
+  'xolox/vim-misc',                -- Autoload vim scripts for xolox plugins
+  'tpope/vim-fugitive',            -- Adds git command
+  'editorconfig/editorconfig-vim', -- Editorconfig - Text editor config. Eg. indentation, tabs etc
+  'mhinz/vim-startify',            -- Start page for vim
 
-  'mtth/scratch.vim'; -- :Scratch pad
+  'mtth/scratch.vim',              -- :Scratch pad
 
   -- Status line
-  'hoob3rt/lualine.nvim';
-  'kyazdani42/nvim-web-devicons';
-  'ryanoasis/vim-devicons';
+  'hoob3rt/lualine.nvim',
+  'kyazdani42/nvim-web-devicons',
+  'ryanoasis/vim-devicons',
 
   -- Color schemes
-  'cormacrelf/vim-colors-github'; -- Github colorscheme - great for diffs!
-  'dracula/vim';
-  'xiyaowong/nvim-transparent';
+  'cormacrelf/vim-colors-github', -- Github colorscheme - great for diffs!
+  'dracula/vim',
+  'xiyaowong/nvim-transparent',
 
   -- Async
-  'joonty/vim-do'; -- Async shell commands
-  'tpope/vim-dispatch'; -- Background tasks - should use this
-  'Shougo/vimproc.vim'; -- Async execution - Do I need this?
+  'joonty/vim-do',      -- Async shell commands
+  'tpope/vim-dispatch', -- Background tasks - should use this
+  'Shougo/vimproc.vim', -- Async execution - Do I need this?
 
-  'akinsho/toggleterm.nvim';
+  'akinsho/toggleterm.nvim',
 
   -- Telescope
-  'nvim-lua/popup.nvim';
-  'nvim-lua/plenary.nvim';
-  'nvim-telescope/telescope.nvim';
-  {'nvim-telescope/telescope-fzf-native.nvim', run='make'};
-  'EthanJWright/vs-tasks.nvim';
+  'nvim-lua/popup.nvim',
+  'nvim-lua/plenary.nvim',
+  'nvim-telescope/telescope.nvim',
+  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+  'EthanJWright/vs-tasks.nvim',
 
   -- Git
-  'samoshkin/vim-mergetool'; -- Used with vim-colors-github for git merging/diffing
-  'pwntester/octo.nvim'; -- issues and PRs
-  'ruanyl/vim-gh-line'; -- open current line on GitHub
+  'samoshkin/vim-mergetool', -- Used with vim-colors-github for git merging/diffing
+  'pwntester/octo.nvim',     -- issues and PRs
+  'ruanyl/vim-gh-line',      -- open current line on GitHub
 
   -- Motions
   -- 'easymotion/vim-easymotion'; -- Vim motions - Need to use more
-  'ggandor/lightspeed.nvim';
+  'ggandor/lightspeed.nvim',
 
   -- Config
-  'MarcWeber/vim-addon-local-vimrc'; -- Loads .vimrc in project directory
-  'svermeulen/vimpeccable';
+  'MarcWeber/vim-addon-local-vimrc', -- Loads .vimrc in project directory
+  'svermeulen/vimpeccable',
 
   -- Linting
-  'vsushkov/vim-phpcs'; -- PHP
+  'vsushkov/vim-phpcs', -- PHP
 
   -- Docs
-  'heavenshell/vim-jsdoc'; -- JSDoc
+  'heavenshell/vim-jsdoc', -- JSDoc
 
   -- Utils
-  'danro/rename.vim';
-  'karb94/neoscroll.nvim'; -- Smooth scrolling
-  'chiedo/vim-case-convert'; -- Case conversion
+  'danro/rename.vim',
+  'karb94/neoscroll.nvim',   -- Smooth scrolling
+  'chiedo/vim-case-convert', -- Case conversion
 
   -- Syntax --
-  {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
-  'nvim-treesitter/nvim-treesitter-context';
-  'amadeus/vim-mjml';
-  'quabug/vim-gdscript';
+  { 'nvim-treesitter/nvim-treesitter',          run = ':TSUpdate' },
+  'nvim-treesitter/nvim-treesitter-context',
+  'amadeus/vim-mjml',
+  'quabug/vim-gdscript',
 
   -- """""""""""""" VIM """"""""""""""""
-  'vim-jp/syntax-vim-ex'; -- Vimscript
+  'vim-jp/syntax-vim-ex', -- Vimscript
 
   -- """""""""""""" PHP """"""""""""""""
-  'stanangeloff/php.vim'; -- PHP
-  'jwalton512/vim-blade'; -- PHP blade
-  'joonty/vdebug';
+  'stanangeloff/php.vim', -- PHP
+  'jwalton512/vim-blade', -- PHP blade
+  'joonty/vdebug',
 
   -- """""""""""""" JS """"""""""""""""
-  'pangloss/vim-javascript';
-  'MaxMEllon/vim-jsx-pretty'; -- JSX/React
-  'eliba2/vim-node-inspect'; -- Node inspect
-  'jparise/vim-graphql'; -- GraphQL
+  'pangloss/vim-javascript',
+  'MaxMEllon/vim-jsx-pretty', -- JSX/React
+  'eliba2/vim-node-inspect',  -- Node inspect
+  'jparise/vim-graphql',      -- GraphQL
 
   -- """""""""""""" OTHER """"""""""""""""
-  'PProvost/vim-ps1'; -- Powershell
-  'hail2u/vim-css3-syntax'; -- CSS3
-  'kylef/apiblueprint.vim'; -- API Blueprint
-  {'cespare/vim-toml', branch='main', as='toml'}; -- toml
-  'keith/swift.vim'; -- Swift
-  'farmergreg/vim-lastplace'; -- Remember last edit position
-  'vuciv/vim-bujo'; -- Bullet journal
-  'mbbill/undotree';
-  'ThePrimeagen/harpoon';
+  'PProvost/vim-ps1',                             -- Powershell
+  'hail2u/vim-css3-syntax',                       -- CSS3
+  'kylef/apiblueprint.vim',                       -- API Blueprint
+  { 'cespare/vim-toml',          branch = 'main',         as = 'toml' }, -- toml
+  'keith/swift.vim',                              -- Swift
+  'farmergreg/vim-lastplace',                     -- Remember last edit position
+  'vuciv/vim-bujo',                               -- Bullet journal
+  'mbbill/undotree',
+  'ThePrimeagen/harpoon',
 
-  'sheerun/vim-polyglot';
+  'sheerun/vim-polyglot',
 
   -- Completion --
-  'neovim/nvim-lspconfig';
-  'junegunn/fzf'; -- Fuzzy find files
-  'junegunn/fzf.vim';
-  'ojroques/nvim-lspfuzzy';
-  'kosayoda/nvim-lightbulb';
-  {'yuki-yano/fzf-preview.vim', branch='release/remote', run=':UpdateRemotePlugins', as='fzf-preview'};
-  'bogado/file-line'; -- Used in fzf-preview for opening a file to a specific line
-  'L3MON4D3/LuaSnip';
-  'folke/lua-dev.nvim';
-  'tikhomirov/vim-glsl';
-  'stevearc/dressing.nvim';
-  'akinsho/flutter-tools.nvim';
+  'neovim/nvim-lspconfig',
+  'junegunn/fzf', -- Fuzzy find files
+  'junegunn/fzf.vim',
+  'ojroques/nvim-lspfuzzy',
+  'kosayoda/nvim-lightbulb',
+  { 'yuki-yano/fzf-preview.vim', branch = 'release/remote', run = ':UpdateRemotePlugins', as = 'fzf-preview' },
+  'bogado/file-line', -- Used in fzf-preview for opening a file to a specific line
+  'L3MON4D3/LuaSnip',
+  'folke/lua-dev.nvim',
+  'tikhomirov/vim-glsl',
+  'stevearc/dressing.nvim',
+  'akinsho/flutter-tools.nvim',
   --{'codota/tabnine-nvim', run=tabnine_build_path()};
-  'mfussenegger/nvim-jdtls';
-  {'williamboman/mason.nvim', run=function ()
-    vim.cmd(":MasonUpdate")
-  end};
-  'williamboman/mason-lspconfig.nvim';
+  'mfussenegger/nvim-jdtls',
+  {
+    'williamboman/mason.nvim',
+    run = function()
+      vim.cmd(":MasonUpdate")
+    end
+  },
+  'williamboman/mason-lspconfig.nvim',
 
   -- nvim-cmp
-  'saecki/crates.nvim'; -- Cargo.toml crates completion
-  'hrsh7th/cmp-nvim-lsp';
-  'hrsh7th/cmp-buffer';
+  'saecki/crates.nvim', -- Cargo.toml crates completion
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-nvim-lua',
   --{'tzachar/cmp-tabnine', run='./install.sh'};
-  'saadparwaiz1/cmp_luasnip';
-  'hrsh7th/nvim-cmp';
-  'MunifTanjim/nui.nvim';
-  'dpayne/CodeGPT.nvim';
-  'folke/trouble.nvim';
-  'github/copilot.vim';
+  'saadparwaiz1/cmp_luasnip',
+  'hrsh7th/nvim-cmp',
+  'MunifTanjim/nui.nvim',
+  'dpayne/CodeGPT.nvim',
+  'folke/trouble.nvim',
+  'github/copilot.vim',
 
   -- Indent --
-  '2072/PHP-Indenting-for-VIm';
+  '2072/PHP-Indenting-for-VIm',
 
   -- Code review --
-  'junkblocker/patchreview-vim';
-  'codegram/vim-codereview';
+  'junkblocker/patchreview-vim',
+  'codegram/vim-codereview',
 
   -- Project Management --
-  'ahmedkhalf/project.nvim';
+  'ahmedkhalf/project.nvim',
 
   -- Null-ls --
-  'jose-elias-alvarez/null-ls.nvim';
-  'lewis6991/gitsigns.nvim';
-  'ThePrimeagen/refactoring.nvim';
+  'jose-elias-alvarez/null-ls.nvim',
+  'lewis6991/gitsigns.nvim',
+  'ThePrimeagen/refactoring.nvim',
 }
 
 require("project_nvim").setup {
@@ -173,9 +179,9 @@ vim.api.nvim_exec([[
 ]], true)
 
 -- VDebug/XDebug configuration
-vim.api.nvim_set_var('vdebug_options', { 
-  port = 9003; -- XDebug 3
-  path_maps = { ['/app'] = vim.fn.getcwd() }; -- Can we generalise this?
+vim.api.nvim_set_var('vdebug_options', {
+  port = 9003,                                -- XDebug 3
+  path_maps = { ['/app'] = vim.fn.getcwd() }, -- Can we generalise this?
 })
 
 -- JSDoc configuration
