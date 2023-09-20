@@ -9,8 +9,8 @@ null_ls.setup({
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.eslint_d,
 
-        -- diagnostics 
-        null_ls.builtins.diagnostics.eslint,
+        -- diagnostics
+        null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.diagnostics.commitlint,
         null_ls.builtins.diagnostics.dotenv_linter,
         null_ls.builtins.diagnostics.editorconfig_checker,
@@ -18,7 +18,7 @@ null_ls.setup({
             extra_args = { "--dialect", "postgres" }, -- change to your dialect
         }),
 
-        -- completion 
+        -- completion
         null_ls.builtins.completion.spell,
         null_ls.builtins.completion.luasnip,
         null_ls.builtins.completion.tags,
