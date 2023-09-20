@@ -160,7 +160,7 @@ require 'paq' {
   'ahmedkhalf/project.nvim',
 
   -- Null-ls --
-  'jose-elias-alvarez/null-ls.nvim',
+  'nvimtools/none-ls.nvim',
   'lewis6991/gitsigns.nvim',
   'ThePrimeagen/refactoring.nvim',
 }
