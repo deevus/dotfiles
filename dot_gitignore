@@ -10,7 +10,7 @@ ramdisk/
 .phpcd.vim
 .config/nvim/pack/minpac/start
 !.config/nvim/pack/minpac/start/.gitkeep
-tags
+./tags
 .config/nvim/plugged/
 auth.json
 .config/tmux/resurrect/
