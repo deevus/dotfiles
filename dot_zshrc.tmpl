@@ -193,3 +193,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# bit
+case ":$PATH:" in
+  *":/Users/sh/bin:"*) ;;
+  *) export PATH="$PATH:/Users/sh/bin" ;;
+esac
+# bit end
