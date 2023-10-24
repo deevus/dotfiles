@@ -50,7 +50,7 @@ require 'paq' {
   'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
   'nvim-telescope/telescope.nvim',
-  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   'EthanJWright/vs-tasks.nvim',
 
   -- Git
@@ -78,7 +78,7 @@ require 'paq' {
   'chiedo/vim-case-convert', -- Case conversion
 
   -- Syntax --
-  { 'nvim-treesitter/nvim-treesitter',          run = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter',          build = ':TSUpdate' },
   'nvim-treesitter/nvim-treesitter-context',
   'amadeus/vim-mjml',
   'quabug/vim-gdscript',
@@ -116,18 +116,18 @@ require 'paq' {
   'junegunn/fzf.vim',
   'ojroques/nvim-lspfuzzy',
   'kosayoda/nvim-lightbulb',
-  { 'yuki-yano/fzf-preview.vim', branch = 'release/remote', run = ':UpdateRemotePlugins', as = 'fzf-preview' },
+  { 'yuki-yano/fzf-preview.vim', branch = 'release/remote', build = ':UpdateRemotePlugins', as = 'fzf-preview' },
   'bogado/file-line', -- Used in fzf-preview for opening a file to a specific line
   'L3MON4D3/LuaSnip',
   'folke/lua-dev.nvim',
   'tikhomirov/vim-glsl',
   'stevearc/dressing.nvim',
   'akinsho/flutter-tools.nvim',
-  --{'codota/tabnine-nvim', run=tabnine_build_path()};
+  --{'codota/tabnine-nvim', build=tabnine_build_path()};
   'mfussenegger/nvim-jdtls',
   {
     'williamboman/mason.nvim',
-    run = function()
+    build = function()
       vim.cmd(":MasonUpdate")
     end
   },
@@ -141,7 +141,7 @@ require 'paq' {
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-nvim-lua',
-  --{'tzachar/cmp-tabnine', run='./install.sh'};
+  --{'tzachar/cmp-tabnine', build='./install.sh'};
   'saadparwaiz1/cmp_luasnip',
   'hrsh7th/nvim-cmp',
   'MunifTanjim/nui.nvim',
