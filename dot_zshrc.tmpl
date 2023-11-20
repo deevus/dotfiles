@@ -184,6 +184,7 @@ fi
 [ -f "$HOME/.cargo/bin/starship" ] && eval "$(starship init zsh)"
 [ -f "$HOME/.cargo/bin/rtx" ] && eval "$(rtx activate zsh)"
 [ -f "$HOME/.cargo/bin/eza" ] && alias ls=eza
+[ -f "/opt/swift/usr/bin/swift" ] && export PATH="$PATH:/opt/swift/usr/bin"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 # pnpm
