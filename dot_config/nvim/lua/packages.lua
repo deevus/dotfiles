@@ -116,8 +116,6 @@ require 'paq' {
   'junegunn/fzf.vim',
   'ojroques/nvim-lspfuzzy',
   'kosayoda/nvim-lightbulb',
-  { 'yuki-yano/fzf-preview.vim', branch = 'release/remote', build = ':UpdateRemotePlugins', as = 'fzf-preview' },
-  'bogado/file-line', -- Used in fzf-preview for opening a file to a specific line
   'L3MON4D3/LuaSnip',
   'folke/lua-dev.nvim',
   'tikhomirov/vim-glsl',
