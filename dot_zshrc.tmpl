@@ -197,3 +197,6 @@ case ":$PATH:" in
   *) export PATH="$PATH:/Users/sh/bin" ;;
 esac
 # bit end
+
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
