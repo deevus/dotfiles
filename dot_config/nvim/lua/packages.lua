@@ -109,6 +109,7 @@ require 'paq' {
   'ThePrimeagen/harpoon',
 
   'sheerun/vim-polyglot',
+  'wuelnerdotexe/vim-astro',
 
   -- Completion --
   'neovim/nvim-lspconfig',
