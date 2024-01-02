@@ -96,6 +96,7 @@ require 'paq' {
   'MaxMEllon/vim-jsx-pretty', -- JSX/React
   'eliba2/vim-node-inspect',  -- Node inspect
   'jparise/vim-graphql',      -- GraphQL
+  'quramy/vim-js-pretty-template',
 
   -- """""""""""""" OTHER """"""""""""""""
   'PProvost/vim-ps1',                                                      -- Powershell
