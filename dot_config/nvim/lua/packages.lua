@@ -163,6 +163,9 @@ require 'paq' {
   'nvimtools/none-ls.nvim',
   'lewis6991/gitsigns.nvim',
   'ThePrimeagen/refactoring.nvim',
+
+  -- Sudo --
+  'lambdalisue/suda.vim',
 }
 
 require("project_nvim").setup {
