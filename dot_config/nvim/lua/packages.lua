@@ -113,6 +113,8 @@ require 'paq' {
   'wuelnerdotexe/vim-astro',
 
   -- Completion --
+  'rcarriga/nvim-notify',
+  'folke/noice.nvim', -- Dependencies: nvim-notify, nui.nvim, nvim-treesitter
   'neovim/nvim-lspconfig',
   'junegunn/fzf', -- Fuzzy find files
   'junegunn/fzf.vim',
@@ -141,6 +143,7 @@ require 'paq' {
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-nvim-lua',
+  'hrsh7th/cmp-cmdline',
   --{'tzachar/cmp-tabnine', build='./install.sh'};
   'saadparwaiz1/cmp_luasnip',
   'hrsh7th/nvim-cmp',
