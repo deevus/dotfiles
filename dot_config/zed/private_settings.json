@@ -18,7 +18,8 @@
           "command": "gdformat",
           "arguments": ["-"]
         }
-      }
+      },
+      "show_whitespaces": true
     }
   }
 }
