@@ -8,3 +8,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 export SWIFTENV_ROOT="$HOME/.swiftenv"
 export PATH="$SWIFTENV_ROOT/bin:$PATH"
 eval "$(swiftenv init -)"
+
+export PLAYDATE_SDK_PATH="/opt/playdate"
