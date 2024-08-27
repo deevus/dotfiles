@@ -103,9 +103,6 @@
    "alacritty"
 ]
 
-# pass integration
-cmd + shift - p : /usr/local/bin/kitty --class fzf-pass -e sh -c ~/.local/bin/fzf-pass
-
 # open terminal, blazingly fast compared to iTerm/Hyper
 #cmd - return : /opt/homebrew/bin/alacritty
 cmd - return : /usr/local/bin/kitty
