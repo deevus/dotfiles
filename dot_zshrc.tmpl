@@ -211,3 +211,8 @@ then
   bindkey '^p' zsh_llm_suggestions_github_copilot # Ctrl + P to have GitHub Copilot suggest a command given a English description
   bindkey '^[^p' zsh_llm_suggestions_github_copilot_explain # Ctrl + alt + P to have GitHub Copilot explain a command
 fi
+
+if which swiftenv > /dev/null
+then 
+  eval "$(swiftenv init -)"; 
+fi
