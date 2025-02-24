@@ -103,8 +103,7 @@ alias gs="git sync"
 
 export PATH="$HOME/.local/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 
-[ -f "/usr/local/etc/profile.d/z.sh" ] && source /usr/local/etc/profile.d/z.sh
-[ -f "/home/linuxbrew/.linuxbrew/etc/profile.d/z.sh" ] && source /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
+[ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && source "$(brew --prefix)/etc/profile.d/z.sh"
 
 source ~/.aliases
 
