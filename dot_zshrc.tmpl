@@ -184,6 +184,8 @@ fi
 [ -f "/opt/swift/usr/bin/swift" ] && export PATH="$PATH:/opt/swift/usr/bin"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
+[ -f "$HOME/.dotnet/tools" ] export PATH="$PATH:$HOME/.dotnet/tools"
+
 # pnpm
 export PNPM_HOME="/Users/sh/Library/pnpm"
 case ":$PATH:" in
