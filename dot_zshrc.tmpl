@@ -144,7 +144,10 @@ export OPENAI_API_KEY={{ pass "Tokens/OpenAI" }}
 # PHP lsp
 export INTELEPHENSE_KEY={{ pass "Software/Intelephense" }}
 
-eval "$(hub alias -s)"
+if [ -x "$(command -v hub)" ]
+then
+    eval "$(hub alias -s)"
+fi
 
 # Dotnet
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
@@ -164,8 +167,13 @@ fi
 
 [ -d ~/.zvm/bin ] && export PATH="$HOME/.zvm/bin:$PATH"
 
-[ -f "starship" ] && eval "$(starship init zsh)"
-[ -f "eza" ] && alias ls=eza
+
+if [ -x "$(command -v starship)" ]
+then
+  eval "$(starship init zsh)"
+fi
+
+[ -x "$(command -v eza)" ] && alias ls=eza
 [ -f "/opt/swift/usr/bin/swift" ] && export PATH="$PATH:/opt/swift/usr/bin"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
@@ -198,7 +206,7 @@ then
   bindkey '^[^p' zsh_llm_suggestions_github_copilot_explain # Ctrl + alt + P to have GitHub Copilot explain a command
 fi
 
-if which swiftenv > /dev/null
+if [ -x "$(command -v swiftenv)" ]
 then
   eval "$(swiftenv init -)";
 fi
@@ -210,7 +218,7 @@ export DEEP_SEEK_API_KEY="{{ pass "Tokens/DeepSeek" }}"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
 
 # Zoxide
-if [[ -f "zoxide" ]]
+if [ -x "$(command -v zoxide)" ]
 then
   eval "$(zoxide init zsh)"
 fi
