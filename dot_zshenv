@@ -1,4 +1,4 @@
-if [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+if [[ -f "$HOME/.cargo/env" ]]; then . "$HOME/.cargo/env"; fi
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export PYENV_ROOT="$HOME/.pyenv"
 
-if [[ -f "swiftenv" ]] then
+if [ -f "swiftenv" ]; then
   export SWIFTENV_ROOT="$HOME/.swiftenv"
   export PATH="$SWIFTENV_ROOT/bin:$PATH"
   eval "$(swiftenv init -)"
