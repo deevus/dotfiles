@@ -1,12 +1,15 @@
-. "$HOME/.cargo/env"
+if [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 
 export PYENV_ROOT="$HOME/.pyenv"
-export SWIFTENV_ROOT="$HOME/.swiftenv"
-export PATH="$SWIFTENV_ROOT/bin:$PATH"
-eval "$(swiftenv init -)"
+
+if [[ -f "swiftenv" ]] then
+  export SWIFTENV_ROOT="$HOME/.swiftenv"
+  export PATH="$SWIFTENV_ROOT/bin:$PATH"
+  eval "$(swiftenv init -)"
+fi
 
 export PLAYDATE_SDK_PATH="/opt/playdate"
