@@ -2,12 +2,11 @@
 experimental = true
 
 [tools]
-php = "8.2"
 node = "18"
 bun = "1"
 zig = "latest"
 rust = "latest"
 "cargo:eza" = "latest"
 terraform = "1.7"
-python = "system"
+python = "latest"
 go = "latest"
