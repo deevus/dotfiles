@@ -7,19 +7,22 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Dracula",
-  "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "languages": {
-    "GDScript": {
-      "formatter": {
-        "external": {
-          "command": "gdformat",
-          "arguments": ["-"]
+    "theme": "Dracula",
+    "vim_mode": true,
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "languages": {
+        "GDScript": {
+            "formatter": {
+                "external": {
+                    "command": "gdformat",
+                    "arguments": ["-"]
+                }
+            },
+            "show_whitespaces": "all"
         }
-      },
-      "show_whitespaces": true
+    },
+    "features": {
+        "edit_prediction_provider": "copilot"
     }
-  }
 }
