@@ -13,3 +13,6 @@ if [ -f "swiftenv" ]; then
 fi
 
 export PLAYDATE_SDK_PATH="/opt/playdate"
+
+export VALGRIND_ARGS="--leak-check=full --track-origins=yes --show-leak-kinds=all --num-callers=15"
+alias valgrind="valgrind $VALGRIND_ARGS"
