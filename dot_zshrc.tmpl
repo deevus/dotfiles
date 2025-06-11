@@ -2,7 +2,7 @@
 {{- $isOSX := eq .chezmoi.os "darwin" }}
 
 # Path to your oh-my-zsh installation.
-{{- $isArch }}
+{{- if $isArch }}
 export ZSH="/usr/share/oh-my-zsh"
 {{ else }}
 export ZSH="$HOME/.oh-my-zsh"
