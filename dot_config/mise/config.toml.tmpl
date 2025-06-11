@@ -1,7 +1,12 @@
+{{ $isOSX	:= eq .chezmoi.os "darwin" }}
+
 [settings]
 experimental = true
 
 [tools]
+"pipx:gdtoolkit" = "latest"
+"pipx:httpie" = "latest"
+{{- if $isOSX }}
 node = "18"
 bun = "1"
 zig = "latest"
@@ -10,6 +15,5 @@ rust = "latest"
 terraform = "1.7"
 python = "latest"
 go = "latest"
-"pipx:gdtoolkit" = "latest"
 usage = "latest"
-"pipx:httpie" = "latest"
+{{-end}}
