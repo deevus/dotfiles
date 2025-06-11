@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+
 if [[ -f "$HOME/.cargo/env" ]]; then . "$HOME/.cargo/env"; fi
 
 export NVM_DIR="$HOME/.nvm"
@@ -17,21 +19,14 @@ export PLAYDATE_SDK_PATH="/opt/playdate"
 export VALGRIND_ARGS="--leak-check=full --track-origins=yes --show-leak-kinds=all --num-callers=15"
 alias valgrind="valgrind $VALGRIND_ARGS"
 
-export PATH="$HOME/.local/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
-
-# DeepSeek
-export DEEP_SEEK_API_KEY="{{ pass "Tokens/DeepSeek" }}"
-
 # Git configuration
-export GITHUB_TOKEN={{ pass "Tokens/GitHub" }}
 export GIT_CONFIG_COUNT=2
 export GIT_CONFIG_KEY_0=github.accesstoken
 export GIT_CONFIG_VALUE_0=$GITHUB_TOKEN
 export GIT_CONFIG_KEY_1=core.excludesFile
 export GIT_CONFIG_VALUE_1=~/.gitignore
 
-# OpenAI
-export OPENAI_API_KEY={{ pass "Tokens/OpenAI" }}
-
-# PHP lsp
-export INTELEPHENSE_KEY={{ pass "Software/Intelephense" }}
+export GITHUB_TOKEN="{{ pass "Tokens/GitHub" }}" # GitHub
+export INTELEPHENSE_KEY="{{ pass "Software/Intelephense" }}" # PHP lsp
+export DEEP_SEEK_API_KEY="{{ pass "Tokens/DeepSeek" }}" # DeepSeek
+export OPENAI_API_KEY="{{ pass "Tokens/OpenAI" }}" # OpenAI
