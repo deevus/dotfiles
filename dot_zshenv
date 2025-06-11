@@ -26,7 +26,7 @@ export GIT_CONFIG_VALUE_0=$GITHUB_TOKEN
 export GIT_CONFIG_KEY_1=core.excludesFile
 export GIT_CONFIG_VALUE_1=~/.gitignore
 
-export GITHUB_TOKEN="{{ pass "Tokens/GitHub" }}" # GitHub
-export INTELEPHENSE_KEY="{{ pass "Software/Intelephense" }}" # PHP lsp
-export DEEP_SEEK_API_KEY="{{ pass "Tokens/DeepSeek" }}" # DeepSeek
-export OPENAI_API_KEY="{{ pass "Tokens/OpenAI" }}" # OpenAI
+export GITHUB_TOKEN={{- pass "Tokens/GitHub" -}} # GitHub
+export INTELEPHENSE_KEY={{- pass "Software/Intelephense" -}} # PHP lsp
+export DEEP_SEEK_API_KEY={{- pass "Tokens/DeepSeek" -}} # DeepSeek
+export OPENAI_API_KEY={{- pass "Tokens/OpenAI" -}} # OpenAI
