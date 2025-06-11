@@ -1,4 +1,4 @@
-{{- $isArch := if (and (index .chezmoi.osRelease "id") (eq .chezmoi.osRelease.id "arch")) }}
+{{- $isArch := (and (index .chezmoi.osRelease "id") (eq .chezmoi.osRelease.id "arch")) }}
 {{- $isOSX := .chezmoi.os == "darwin" }}
 
 # Path to your oh-my-zsh installation.
