@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
-{{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if (and (index .chezmoi.osRelease "id") (eq .chezmoi.osRelease.id "arch")) }}
 export ZSH="/usr/share/oh-my-zsh"
-{{ else }}
+{{- else }}
 export ZSH="$HOME/.oh-my-zsh"
 {{- end }}
 
