@@ -29,8 +29,5 @@
             },
             "show_whitespaces": "all"
         }
-    },
-    "features": {
-        "edit_prediction_provider": "copilot"
     }
 }
