@@ -8,7 +8,8 @@ export NVM_DIR="$HOME/.nvm"
 
 export PYENV_ROOT="$HOME/.pyenv"
 
-if [ -f "swiftenv" ]; then
+if [ -x "$(command -v swiftenv)" ]
+then
   export SWIFTENV_ROOT="$HOME/.swiftenv"
   export PATH="$SWIFTENV_ROOT/bin:$PATH"
   eval "$(swiftenv init -)"
@@ -32,3 +33,10 @@ export DEEP_SEEK_API_KEY="{{- pass "Tokens/DeepSeek" -}}" # DeepSeek
 export OPENAI_API_KEY="{{- pass "Tokens/OpenAI" -}}" # OpenAI
 
 eval "$(mise activate zsh)"
+
+if [ -x "$(command -v godotenv)" ]
+then
+  export GODOT="$(godotenv godot env path)"
+  GODOTENV_BIN_PATH="$(dirname $GODOT)"
+  export PATH="$PATH:$GODOTENV_BIN_PATH"
+fi
