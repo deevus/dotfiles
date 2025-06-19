@@ -22,3 +22,8 @@ alias gfb='git checkout $(git branch | fzf)'
 
 # Helpers
 alias pcsf="php-cs-fixer fix --config .php-cs-fixer.dist.php \$(gch | grep '\.php\$') --verbose"
+
+if [ -x "$(command -v lstr)" ]
+then 
+    alias tree="lstr"
+fi
