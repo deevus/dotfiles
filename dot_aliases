@@ -25,5 +25,5 @@ alias pcsf="php-cs-fixer fix --config .php-cs-fixer.dist.php \$(gch | grep '\.ph
 
 if [ -x "$(command -v lstr)" ]
 then 
-    alias tree="lstr"
+    alias tree="lstr --icons"
 fi
