@@ -1,25 +1,31 @@
 {
-    "agent": {
-        "model_parameters": [],
-        "default_model": {
-            "provider": "zed.dev",
-            "model": "claude-sonnet-4"
-        },
-        "version": "2"
+  "agent": {
+    "default_profile": "ask",
+    "model_parameters": [],
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
     },
-    "theme": "Dracula",
-    "vim_mode": true,
-    "ui_font_size": 16,
-    "buffer_font_size": 16,
-    "languages": {
-        "GDScript": {
-            "formatter": {
-                "external": {
-                    "command": "gdformat",
-                    "arguments": ["-"]
-                }
-            },
-            "show_whitespaces": "all"
+    "version": "2"
+  },
+  "theme": "Dracula",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "languages": {
+    "GDScript": {
+      "formatter": {
+        "external": {
+          "command": "gdformat",
+          "arguments": ["-"]
         }
+      },
+      "show_whitespaces": "all"
+    },
+    "Zig": {
+      "code_actions_on_format": {
+        "source.fixAll": true
+      }
     }
+  }
 }
