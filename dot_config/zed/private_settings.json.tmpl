@@ -1,12 +1,21 @@
 {
+  "context_servers": {
+    "mcp-server-github": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "github_personal_access_token": "{{ pass GitHub/Token }}"
+      }
+    }
+  },
   "agent": {
-    "default_profile": "ask",
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
   },
   "theme": "Dracula",
   "vim_mode": true,
@@ -29,3 +38,4 @@
     }
   }
 }
+
