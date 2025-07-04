@@ -16,6 +16,70 @@
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
+    },
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "contents": true,
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "open": true,
+          "grep": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "mcp-server-github": {
+            "tools": {
+              "search_users": true,
+              "search_repositories": true,
+              "search_pull_requests": true,
+              "search_orgs": true,
+              "search_issues": true,
+              "search_code": true,
+              "request_copilot_review": true,
+              "list_workflows": true,
+              "list_workflow_runs": true,
+              "list_workflow_run_artifacts": true,
+              "list_workflow_jobs": true,
+              "list_tags": true,
+              "list_secret_scanning_alerts": true,
+              "list_pull_requests": true,
+              "list_notifications": true,
+              "list_issues": true,
+              "list_commits": true,
+              "list_code_scanning_alerts": true,
+              "list_branches": true,
+              "get_workflow_run_usage": true,
+              "get_workflow_run_logs": true,
+              "get_workflow_run": true,
+              "get_tag": true,
+              "get_secret_scanning_alert": true,
+              "get_pull_request_status": true,
+              "get_pull_request_reviews": true,
+              "get_pull_request_files": true,
+              "get_pull_request_diff": true,
+              "get_pull_request_comments": true,
+              "get_pull_request": true,
+              "get_notification_details": true,
+              "get_me": true,
+              "get_job_logs": true,
+              "get_issue_comments": true,
+              "get_issue": true,
+              "get_file_contents": true,
+              "get_commit": true,
+              "get_code_scanning_alert": true,
+              "download_workflow_run_artifact": true
+            }
+          }
+        }
+      }
     }
   },
   "theme": "Dracula",
