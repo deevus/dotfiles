@@ -7,7 +7,6 @@ vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.cache/nvim/undo"
 vim.o.undofile = true
 
-vim.go.t_Co = '256'
 vim.o.hlsearch = true
 
 vim.o.expandtab = true
